@@ -7,18 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */; };
+		5E46EDA02A17C42800F3FFAD /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */; };
+		5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */; };
+		5E46EDA22A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9E2A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift */; };
+		5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDA32A17C92B00F3FFAD /* RegistrationPresenter.swift */; };
+		5E46EDA82A17C92B00F3FFAD /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDA42A17C92B00F3FFAD /* RegistrationRouter.swift */; };
+		5E46EDA92A17C92B00F3FFAD /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDA52A17C92B00F3FFAD /* RegistrationViewController.swift */; };
+		5E46EDAA2A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDA62A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift */; };
+		5E46EDAC2A17D05B00F3FFAD /* LogInFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDAB2A17D05B00F3FFAD /* LogInFactory.swift */; };
+		5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDAE2A17D10E00F3FFAD /* UITextField+Extension.swift */; };
+		5E46EDB12A17D50800F3FFAD /* UIColor+ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */; };
+		5E46EDB32A17D94400F3FFAD /* LogInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDB22A17D94400F3FFAD /* LogInModule.swift */; };
 		5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E89BA2A2A17BAE3005E3381 /* AppDelegate.swift */; };
 		5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */; };
-		5E89BA2F2A17BAE3005E3381 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E89BA2E2A17BAE3005E3381 /* RegistrationController.swift */; };
 		5E89BA342A17BAE5005E3381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E89BA332A17BAE5005E3381 /* Assets.xcassets */; };
 		5E89BA372A17BAE5005E3381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E89BA352A17BAE5005E3381 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
+		5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		5E46ED9E2A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E46EDA32A17C92B00F3FFAD /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		5E46EDA42A17C92B00F3FFAD /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		5E46EDA52A17C92B00F3FFAD /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		5E46EDA62A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E46EDAB2A17D05B00F3FFAD /* LogInFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInFactory.swift; sourceTree = "<group>"; };
+		5E46EDAE2A17D10E00F3FFAD /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorPalette.swift"; sourceTree = "<group>"; };
+		5E46EDB22A17D94400F3FFAD /* LogInModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModule.swift; sourceTree = "<group>"; };
 		5E89BA272A17BAE3005E3381 /* Client-Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Client-Alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E89BA2A2A17BAE3005E3381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5E89BA2E2A17BAE3005E3381 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		5E89BA332A17BAE5005E3381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E89BA362A17BAE5005E3381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E89BA382A17BAE5005E3381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +57,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E46ED962A17C3E300F3FFAD /* LogInModule */ = {
+			isa = PBXGroup;
+			children = (
+				5E46EDAB2A17D05B00F3FFAD /* LogInFactory.swift */,
+				5E46EDB22A17D94400F3FFAD /* LogInModule.swift */,
+				5E46ED972A17C3E300F3FFAD /* Registration */,
+				5E46ED992A17C3E300F3FFAD /* Authorization */,
+			);
+			path = LogInModule;
+			sourceTree = "<group>";
+		};
+		5E46ED972A17C3E300F3FFAD /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				5E46EDA32A17C92B00F3FFAD /* RegistrationPresenter.swift */,
+				5E46EDA42A17C92B00F3FFAD /* RegistrationRouter.swift */,
+				5E46EDA52A17C92B00F3FFAD /* RegistrationViewController.swift */,
+				5E46EDA62A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		5E46ED992A17C3E300F3FFAD /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */,
+				5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */,
+				5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */,
+				5E46ED9E2A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		5E46EDAD2A17D0FF00F3FFAD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5E46EDAE2A17D10E00F3FFAD /* UITextField+Extension.swift */,
+				5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		5E89BA1E2A17BAE3005E3381 = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +118,10 @@
 		5E89BA292A17BAE3005E3381 /* Client-Alias */ = {
 			isa = PBXGroup;
 			children = (
-				5E89BA2A2A17BAE3005E3381 /* AppDelegate.swift */,
+				5E46EDAD2A17D0FF00F3FFAD /* Common */,
+				5E46ED962A17C3E300F3FFAD /* LogInModule */,
 				5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */,
-				5E89BA2E2A17BAE3005E3381 /* RegistrationController.swift */,
+				5E89BA2A2A17BAE3005E3381 /* AppDelegate.swift */,
 				5E89BA332A17BAE5005E3381 /* Assets.xcassets */,
 				5E89BA352A17BAE5005E3381 /* LaunchScreen.storyboard */,
 				5E89BA382A17BAE5005E3381 /* Info.plist */,
@@ -134,9 +199,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E89BA2F2A17BAE3005E3381 /* RegistrationController.swift in Sources */,
+				5E46EDAC2A17D05B00F3FFAD /* LogInFactory.swift in Sources */,
+				5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */,
+				5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */,
+				5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */,
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
+				5E46EDB32A17D94400F3FFAD /* LogInModule.swift in Sources */,
+				5E46EDA92A17C92B00F3FFAD /* RegistrationViewController.swift in Sources */,
+				5E46EDA82A17C92B00F3FFAD /* RegistrationRouter.swift in Sources */,
+				5E46EDAA2A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift in Sources */,
+				5E46EDA22A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift in Sources */,
+				5E46EDB12A17D50800F3FFAD /* UIColor+ColorPalette.swift in Sources */,
+				5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */,
 				5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */,
+				5E46EDA02A17C42800F3FFAD /* AuthorizationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
