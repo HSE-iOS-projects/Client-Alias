@@ -1,6 +1,7 @@
 import UIKit
 
 protocol AuthorizationRouterInput {
+    func openMainScreen()
     func openRegistrationViewController()
 }
 
@@ -18,5 +19,8 @@ extension AuthorizationRouter: AuthorizationRouterInput {
         viewController.modalPresentationStyle = .fullScreen
         view?.present(viewController, animated: true)
     }
-
+    
+    func openMainScreen() {
+        
+    }
 }

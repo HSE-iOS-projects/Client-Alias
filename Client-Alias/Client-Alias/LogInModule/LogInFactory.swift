@@ -69,4 +69,17 @@ final class LogInFactory {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
+    
+    func backButton() -> UIButton {
+        let button = UIButton()
+        let img = UIImage(systemName: "arrow.left")
+        img?.withTintColor(.systemBlue)
+        button.setImage(img, for: .normal)
+//        button.setTitleColor(.systemBlue, for: .normal)
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: Constants.textFontSize, weight: .regular)
+        button.backgroundColor = .clear
+//        button.layer.cornerRadius = Constants.cornerRadius
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
 }

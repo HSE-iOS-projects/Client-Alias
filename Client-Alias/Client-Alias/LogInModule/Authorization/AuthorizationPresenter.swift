@@ -28,6 +28,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
             )
         } else {
             // TODO: - сохранение кейчейн, показ следующего экрана
+            router?.openMainScreen()
         }
         
     }

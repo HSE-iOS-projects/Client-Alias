@@ -1,6 +1,9 @@
 import UIKit
 
-protocol RegistrationRouterInput {}
+protocol RegistrationRouterInput {
+    func openMainScreen()
+    func openPreviousScreen()
+}
 
 final class RegistrationRouter {
     // MARK: - Properties
@@ -10,4 +13,12 @@ final class RegistrationRouter {
 
 // MARK: - RegistrationRouterInput
 
-extension RegistrationRouter: RegistrationRouterInput {}
+extension RegistrationRouter: RegistrationRouterInput {
+    func openMainScreen() {
+        
+    }
+    
+    func openPreviousScreen() {
+        view?.dismiss(animated: true)
+    }
+}
