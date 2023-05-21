@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B7785F2A1A5E3600307E17 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7785B2A1A5E3600307E17 /* ProfilePresenter.swift */; };
+		06B778602A1A5E3600307E17 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7785C2A1A5E3600307E17 /* ProfileRouter.swift */; };
+		06B778612A1A5E3600307E17 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7785D2A1A5E3600307E17 /* ProfileViewController.swift */; };
+		06B778622A1A5E3600307E17 /* ProfileModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7785E2A1A5E3600307E17 /* ProfileModuleConfigurator.swift */; };
+		06B778692A1A5E5D00307E17 /* RoomsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778652A1A5E5D00307E17 /* RoomsPresenter.swift */; };
+		06B7786A2A1A5E5D00307E17 /* RoomsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778662A1A5E5D00307E17 /* RoomsRouter.swift */; };
+		06B7786B2A1A5E5D00307E17 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778672A1A5E5D00307E17 /* RoomsViewController.swift */; };
+		06B7786C2A1A5E5D00307E17 /* RoomsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778682A1A5E5D00307E17 /* RoomsModuleConfigurator.swift */; };
+		06B7786E2A1A5EE000307E17 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7786D2A1A5EE000307E17 /* TabBarViewController.swift */; };
+		06B778702A1A6F3D00307E17 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7786F2A1A6F3D00307E17 /* User.swift */; };
+		06B778722A1A720D00307E17 /* RoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778712A1A720D00307E17 /* RoomCollectionViewCell.swift */; };
+		06B778742A1A759200307E17 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778732A1A759200307E17 /* TitleCollectionViewCell.swift */; };
+		06B778762A1A7B2A00307E17 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778752A1A7B2A00307E17 /* Room.swift */; };
+		06ED58222A1A825E009EB119 /* AddKeyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED581E2A1A825E009EB119 /* AddKeyPresenter.swift */; };
+		06ED58232A1A825E009EB119 /* AddKeyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED581F2A1A825E009EB119 /* AddKeyRouter.swift */; };
+		06ED58242A1A825E009EB119 /* AddKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED58202A1A825E009EB119 /* AddKeyViewController.swift */; };
+		06ED58252A1A825E009EB119 /* AddKeyModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */; };
 		5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */; };
 		5E46EDA02A17C42800F3FFAD /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */; };
 		5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */; };
@@ -26,6 +43,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06B7785B2A1A5E3600307E17 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		06B7785C2A1A5E3600307E17 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		06B7785D2A1A5E3600307E17 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		06B7785E2A1A5E3600307E17 /* ProfileModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModuleConfigurator.swift; sourceTree = "<group>"; };
+		06B778652A1A5E5D00307E17 /* RoomsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsPresenter.swift; sourceTree = "<group>"; };
+		06B778662A1A5E5D00307E17 /* RoomsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsRouter.swift; sourceTree = "<group>"; };
+		06B778672A1A5E5D00307E17 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
+		06B778682A1A5E5D00307E17 /* RoomsModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsModuleConfigurator.swift; sourceTree = "<group>"; };
+		06B7786D2A1A5EE000307E17 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		06B7786F2A1A6F3D00307E17 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		06B778712A1A720D00307E17 /* RoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCollectionViewCell.swift; sourceTree = "<group>"; };
+		06B778732A1A759200307E17 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		06B778752A1A7B2A00307E17 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		06ED581E2A1A825E009EB119 /* AddKeyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyPresenter.swift; sourceTree = "<group>"; };
+		06ED581F2A1A825E009EB119 /* AddKeyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyRouter.swift; sourceTree = "<group>"; };
+		06ED58202A1A825E009EB119 /* AddKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyViewController.swift; sourceTree = "<group>"; };
+		06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyModuleConfigurator.swift; sourceTree = "<group>"; };
 		5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +91,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0653A28F2A1A5DC3005DD793 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				06B778772A1A81FA00307E17 /* AddKey */,
+				06B778642A1A5E5000307E17 /* Rooms */,
+				06B778632A1A5E4800307E17 /* Profile */,
+				06B7786D2A1A5EE000307E17 /* TabBarViewController.swift */,
+				06B7786F2A1A6F3D00307E17 /* User.swift */,
+				06B778752A1A7B2A00307E17 /* Room.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		06B778632A1A5E4800307E17 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				06B7785B2A1A5E3600307E17 /* ProfilePresenter.swift */,
+				06B7785C2A1A5E3600307E17 /* ProfileRouter.swift */,
+				06B7785D2A1A5E3600307E17 /* ProfileViewController.swift */,
+				06B7785E2A1A5E3600307E17 /* ProfileModuleConfigurator.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		06B778642A1A5E5000307E17 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				06B778652A1A5E5D00307E17 /* RoomsPresenter.swift */,
+				06B778662A1A5E5D00307E17 /* RoomsRouter.swift */,
+				06B778672A1A5E5D00307E17 /* RoomsViewController.swift */,
+				06B778682A1A5E5D00307E17 /* RoomsModuleConfigurator.swift */,
+				06B778712A1A720D00307E17 /* RoomCollectionViewCell.swift */,
+				06B778732A1A759200307E17 /* TitleCollectionViewCell.swift */,
+			);
+			path = Rooms;
+			sourceTree = "<group>";
+		};
+		06B778772A1A81FA00307E17 /* AddKey */ = {
+			isa = PBXGroup;
+			children = (
+				06ED581E2A1A825E009EB119 /* AddKeyPresenter.swift */,
+				06ED581F2A1A825E009EB119 /* AddKeyRouter.swift */,
+				06ED58202A1A825E009EB119 /* AddKeyViewController.swift */,
+				06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */,
+			);
+			path = AddKey;
+			sourceTree = "<group>";
+		};
 		5E46ED962A17C3E300F3FFAD /* LogInModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +200,7 @@
 		5E89BA292A17BAE3005E3381 /* Client-Alias */ = {
 			isa = PBXGroup;
 			children = (
+				0653A28F2A1A5DC3005DD793 /* Main */,
 				5E46EDAD2A17D0FF00F3FFAD /* Common */,
 				5E46ED962A17C3E300F3FFAD /* LogInModule */,
 				5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */,
@@ -199,19 +282,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B778602A1A5E3600307E17 /* ProfileRouter.swift in Sources */,
+				06B778742A1A759200307E17 /* TitleCollectionViewCell.swift in Sources */,
+				06B7786A2A1A5E5D00307E17 /* RoomsRouter.swift in Sources */,
 				5E46EDAC2A17D05B00F3FFAD /* LogInFactory.swift in Sources */,
+				06ED58242A1A825E009EB119 /* AddKeyViewController.swift in Sources */,
 				5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */,
 				5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */,
 				5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */,
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
+				06B778692A1A5E5D00307E17 /* RoomsPresenter.swift in Sources */,
 				5E46EDB32A17D94400F3FFAD /* LogInModule.swift in Sources */,
+				06B778612A1A5E3600307E17 /* ProfileViewController.swift in Sources */,
+				06ED58252A1A825E009EB119 /* AddKeyModuleConfigurator.swift in Sources */,
+				06B7786B2A1A5E5D00307E17 /* RoomsViewController.swift in Sources */,
 				5E46EDA92A17C92B00F3FFAD /* RegistrationViewController.swift in Sources */,
 				5E46EDA82A17C92B00F3FFAD /* RegistrationRouter.swift in Sources */,
+				06B7786C2A1A5E5D00307E17 /* RoomsModuleConfigurator.swift in Sources */,
+				06B7785F2A1A5E3600307E17 /* ProfilePresenter.swift in Sources */,
+				06B7786E2A1A5EE000307E17 /* TabBarViewController.swift in Sources */,
 				5E46EDAA2A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift in Sources */,
+				06ED58222A1A825E009EB119 /* AddKeyPresenter.swift in Sources */,
+				06B778722A1A720D00307E17 /* RoomCollectionViewCell.swift in Sources */,
 				5E46EDA22A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift in Sources */,
 				5E46EDB12A17D50800F3FFAD /* UIColor+ColorPalette.swift in Sources */,
 				5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */,
+				06B778702A1A6F3D00307E17 /* User.swift in Sources */,
+				06B778762A1A7B2A00307E17 /* Room.swift in Sources */,
 				5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */,
+				06ED58232A1A825E009EB119 /* AddKeyRouter.swift in Sources */,
+				06B778622A1A5E3600307E17 /* ProfileModuleConfigurator.swift in Sources */,
 				5E46EDA02A17C42800F3FFAD /* AuthorizationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,7 +453,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CHVJJFPFSF;
+				DEVELOPMENT_TEAM = 22SF4Z93AM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Client-Alias/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -380,7 +480,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CHVJJFPFSF;
+				DEVELOPMENT_TEAM = 22SF4Z93AM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Client-Alias/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
