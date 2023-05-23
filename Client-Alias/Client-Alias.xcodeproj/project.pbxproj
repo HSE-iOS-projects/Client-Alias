@@ -35,12 +35,19 @@
 		5E46EDAC2A17D05B00F3FFAD /* LogInFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDAB2A17D05B00F3FFAD /* LogInFactory.swift */; };
 		5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDAE2A17D10E00F3FFAD /* UITextField+Extension.swift */; };
 		5E46EDB12A17D50800F3FFAD /* UIColor+ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */; };
-		5E46EDB32A17D94400F3FFAD /* LogInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDB22A17D94400F3FFAD /* LogInModule.swift */; };
+		5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46EDB22A17D94400F3FFAD /* LogInModеl.swift */; };
 		5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E89BA2A2A17BAE3005E3381 /* AppDelegate.swift */; };
 		5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */; };
 		5E89BA342A17BAE5005E3381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E89BA332A17BAE5005E3381 /* Assets.xcassets */; };
 		5E89BA372A17BAE5005E3381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E89BA352A17BAE5005E3381 /* LaunchScreen.storyboard */; };
 		5E8F78652A1D2CD90079155E /* ZLSwipeableViewSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E8F78642A1D2CD90079155E /* ZLSwipeableViewSwift */; };
+		5EE4CA392A1D371300DBC274 /* PlayRoundPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */; };
+		5EE4CA3A2A1D371300DBC274 /* PlayRoundRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */; };
+		5EE4CA3B2A1D371300DBC274 /* PlayRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */; };
+		5EE4CA3C2A1D371300DBC274 /* PlayRoundModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */; };
+		5EE4CA3E2A1D4E9E00DBC274 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */; };
+		5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */; };
+		5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA452A1D65B400DBC274 /* WordInfo.swift */; };
 		9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC5F2A1CFAF200EBC621 /* SecureSettingsKeeper.swift */; };
 		9D81CC662A1CFB2300EBC621 /* SecureStorage+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC632A1CFB2300EBC621 /* SecureStorage+Token.swift */; };
 		9D81CC672A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC642A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift */; };
@@ -76,13 +83,20 @@
 		5E46EDAB2A17D05B00F3FFAD /* LogInFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInFactory.swift; sourceTree = "<group>"; };
 		5E46EDAE2A17D10E00F3FFAD /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorPalette.swift"; sourceTree = "<group>"; };
-		5E46EDB22A17D94400F3FFAD /* LogInModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModule.swift; sourceTree = "<group>"; };
+		5E46EDB22A17D94400F3FFAD /* LogInModеl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInModеl.swift"; sourceTree = "<group>"; };
 		5E89BA272A17BAE3005E3381 /* Client-Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Client-Alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E89BA2A2A17BAE3005E3381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5E89BA332A17BAE5005E3381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E89BA362A17BAE5005E3381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E89BA382A17BAE5005E3381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundPresenter.swift; sourceTree = "<group>"; };
+		5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundRouter.swift; sourceTree = "<group>"; };
+		5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundViewController.swift; sourceTree = "<group>"; };
+		5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundModuleConfigurator.swift; sourceTree = "<group>"; };
+		5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
+		5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5EE4CA452A1D65B400DBC274 /* WordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
 		9D81CC5F2A1CFAF200EBC621 /* SecureSettingsKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureSettingsKeeper.swift; sourceTree = "<group>"; };
 		9D81CC632A1CFB2300EBC621 /* SecureStorage+Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecureStorage+Token.swift"; sourceTree = "<group>"; };
 		9D81CC642A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecureStorage+PropertyWraper.swift"; sourceTree = "<group>"; };
@@ -153,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				5E46EDAB2A17D05B00F3FFAD /* LogInFactory.swift */,
-				5E46EDB22A17D94400F3FFAD /* LogInModule.swift */,
+				5E46EDB22A17D94400F3FFAD /* LogInModеl.swift */,
 				5E46ED972A17C3E300F3FFAD /* Registration */,
 				5E46ED992A17C3E300F3FFAD /* Authorization */,
 			);
@@ -214,6 +228,7 @@
 				0653A28F2A1A5DC3005DD793 /* Main */,
 				5E46EDAD2A17D0FF00F3FFAD /* Common */,
 				5E46ED962A17C3E300F3FFAD /* LogInModule */,
+				5EE4CA332A1D36E700DBC274 /* Play */,
 				5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */,
 				5E89BA2A2A17BAE3005E3381 /* AppDelegate.swift */,
 				5E89BA332A17BAE5005E3381 /* Assets.xcassets */,
@@ -221,6 +236,28 @@
 				5E89BA382A17BAE5005E3381 /* Info.plist */,
 			);
 			path = "Client-Alias";
+			sourceTree = "<group>";
+		};
+		5EE4CA332A1D36E700DBC274 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				5EE4CA342A1D370500DBC274 /* PlayRound */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		5EE4CA342A1D370500DBC274 /* PlayRound */ = {
+			isa = PBXGroup;
+			children = (
+				5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */,
+				5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */,
+				5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */,
+				5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */,
+				5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */,
+				5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */,
+				5EE4CA452A1D65B400DBC274 /* WordInfo.swift */,
+			);
+			path = PlayRound;
 			sourceTree = "<group>";
 		};
 		9D81CC5D2A1CFAD200EBC621 /* Services */ = {
@@ -337,30 +374,37 @@
 				06B778602A1A5E3600307E17 /* ProfileRouter.swift in Sources */,
 				06B778742A1A759200307E17 /* TitleCollectionViewCell.swift in Sources */,
 				06B7786A2A1A5E5D00307E17 /* RoomsRouter.swift in Sources */,
+				5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */,
 				5E46EDAC2A17D05B00F3FFAD /* LogInFactory.swift in Sources */,
 				06ED58242A1A825E009EB119 /* AddKeyViewController.swift in Sources */,
+				5EE4CA3C2A1D371300DBC274 /* PlayRoundModuleConfigurator.swift in Sources */,
 				9D81CC662A1CFB2300EBC621 /* SecureStorage+Token.swift in Sources */,
 				5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */,
 				5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */,
+				5EE4CA3A2A1D371300DBC274 /* PlayRoundRouter.swift in Sources */,
 				9D81CC672A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift in Sources */,
 				5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */,
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
 				9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */,
 				06B778692A1A5E5D00307E17 /* RoomsPresenter.swift in Sources */,
-				5E46EDB32A17D94400F3FFAD /* LogInModule.swift in Sources */,
+				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
 				06B778612A1A5E3600307E17 /* ProfileViewController.swift in Sources */,
 				06ED58252A1A825E009EB119 /* AddKeyModuleConfigurator.swift in Sources */,
 				06B7786B2A1A5E5D00307E17 /* RoomsViewController.swift in Sources */,
+				5EE4CA392A1D371300DBC274 /* PlayRoundPresenter.swift in Sources */,
 				5E46EDA92A17C92B00F3FFAD /* RegistrationViewController.swift in Sources */,
 				5E46EDA82A17C92B00F3FFAD /* RegistrationRouter.swift in Sources */,
 				06B7786C2A1A5E5D00307E17 /* RoomsModuleConfigurator.swift in Sources */,
 				06B7785F2A1A5E3600307E17 /* ProfilePresenter.swift in Sources */,
 				06B7786E2A1A5EE000307E17 /* TabBarViewController.swift in Sources */,
+				5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */,
 				5E46EDAA2A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift in Sources */,
 				9D81CC682A1CFB2300EBC621 /* SecureStorage.swift in Sources */,
 				06ED58222A1A825E009EB119 /* AddKeyPresenter.swift in Sources */,
 				06B778722A1A720D00307E17 /* RoomCollectionViewCell.swift in Sources */,
 				5E46EDA22A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift in Sources */,
+				5EE4CA3E2A1D4E9E00DBC274 /* RoundInfo.swift in Sources */,
+				5EE4CA3B2A1D371300DBC274 /* PlayRoundViewController.swift in Sources */,
 				5E46EDB12A17D50800F3FFAD /* UIColor+ColorPalette.swift in Sources */,
 				5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */,
 				06B778702A1A6F3D00307E17 /* User.swift in Sources */,

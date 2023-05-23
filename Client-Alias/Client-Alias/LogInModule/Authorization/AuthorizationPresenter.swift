@@ -16,14 +16,14 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
 
     func viewDidLoad() {}
     
-    func logInButtonTapped(name: String, age: String) {
+    func logInButtonTapped(name: String, password: String) {
         let name = nameError(text: name)
-        let age = nameError(text: age)
-        if name != nil || age != nil {
+        let password = nameError(text: password)
+        if name != nil || password != nil {
             view?.displayError(
                 FormatError(
                     nameError: name,
-                    ageError: age
+                    ageError: password
                 )
             )
         } else {
