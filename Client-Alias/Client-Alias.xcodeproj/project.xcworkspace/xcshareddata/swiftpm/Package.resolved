@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ZLSwipeableViewSwift",
+        "repositoryURL": "https://github.com/zhxnlai/ZLSwipeableViewSwift",
+        "state": {
+          "branch": "master",
+          "revision": "da15cc753d1028effa0533ce68f6d86e685da011",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

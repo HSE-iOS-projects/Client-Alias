@@ -1,5 +1,4 @@
 import UIKit
-
 protocol RegistrationViewInput: AnyObject {
     func displayError(_ response: FormatError)
 }

@@ -40,6 +40,7 @@
 		5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */; };
 		5E89BA342A17BAE5005E3381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E89BA332A17BAE5005E3381 /* Assets.xcassets */; };
 		5E89BA372A17BAE5005E3381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E89BA352A17BAE5005E3381 /* LaunchScreen.storyboard */; };
+		5E8F78652A1D2CD90079155E /* ZLSwipeableViewSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E8F78642A1D2CD90079155E /* ZLSwipeableViewSwift */; };
 		9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC5F2A1CFAF200EBC621 /* SecureSettingsKeeper.swift */; };
 		9D81CC662A1CFB2300EBC621 /* SecureStorage+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC632A1CFB2300EBC621 /* SecureStorage+Token.swift */; };
 		9D81CC672A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC642A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift */; };
@@ -93,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E8F78652A1D2CD90079155E /* ZLSwipeableViewSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +274,9 @@
 			dependencies = (
 			);
 			name = "Client-Alias";
+			packageProductDependencies = (
+				5E8F78642A1D2CD90079155E /* ZLSwipeableViewSwift */,
+			);
 			productName = "Client-Alias";
 			productReference = 5E89BA272A17BAE3005E3381 /* Client-Alias.app */;
 			productType = "com.apple.product-type.application";
@@ -300,6 +305,9 @@
 				Base,
 			);
 			mainGroup = 5E89BA1E2A17BAE3005E3381;
+			packageReferences = (
+				5E8F78632A1D2CD90079155E /* XCRemoteSwiftPackageReference "ZLSwipeableViewSwift" */,
+			);
 			productRefGroup = 5E89BA282A17BAE3005E3381 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -570,6 +578,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5E8F78632A1D2CD90079155E /* XCRemoteSwiftPackageReference "ZLSwipeableViewSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zhxnlai/ZLSwipeableViewSwift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E8F78642A1D2CD90079155E /* ZLSwipeableViewSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E8F78632A1D2CD90079155E /* XCRemoteSwiftPackageReference "ZLSwipeableViewSwift" */;
+			productName = ZLSwipeableViewSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E89BA1F2A17BAE3005E3381 /* Project object */;
 }
