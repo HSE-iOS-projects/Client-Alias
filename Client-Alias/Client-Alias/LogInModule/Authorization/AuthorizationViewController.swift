@@ -35,7 +35,15 @@ final class AuthorizationViewController: UIViewController {
         setupUI()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            view.endEditing(true)
+        }
+        super.touchesBegan(touches, with: event)
+    }
+
     // MARK: - Actions
+    
     @objc
     private func logInButtonTapped(_ sender: UIButton) {
         output?.logInButtonTapped(name: nameText.nonOptionalText , age: ageText.nonOptionalText)

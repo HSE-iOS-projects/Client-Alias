@@ -10,6 +10,7 @@ protocol RegistrationViewOutput: AnyObject {
 }
 
 final class RegistrationViewController: UIViewController {
+
     // MARK: - Properties
 
     var output: RegistrationViewOutput?
@@ -36,9 +37,15 @@ final class RegistrationViewController: UIViewController {
         setupUI()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            view.endEditing(true)
+        }
+        super.touchesBegan(touches, with: event)
+    }
+
     // MARK: - Actions
     
-    // MARK: - Actions
     @objc
     private func logInButtonTapped(_ sender: UIButton) {
         output?.logInButtonTapped(name: nameText.nonOptionalText , age: ageText.nonOptionalText)

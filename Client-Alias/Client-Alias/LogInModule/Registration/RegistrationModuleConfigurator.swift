@@ -10,7 +10,7 @@ final class RegistrationModuleConfigurator {
         input: RegistrationModuleInput
     ) {
         let view = RegistrationViewController()
-        let presenter = RegistrationPresenter()
+        let presenter = RegistrationPresenter(worker: AuthorizationWorkerImpl())
         let router = RegistrationRouter()
 
         presenter.view = view

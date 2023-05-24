@@ -5,9 +5,16 @@ protocol RegistrationModuleOutput: AnyObject {}
 final class RegistrationPresenter {
     // MARK: - Properties
 
+
+    let worker: AuthorizationWorker
+
     weak var view: RegistrationViewInput?
-    var router: RegistrationRouterInput?
     weak var output: RegistrationModuleOutput?
+    var router: RegistrationRouterInput?
+
+    init(worker: AuthorizationWorker) {
+        self.worker = worker
+    }
 }
 
 // MARK: - RegistrationViewOutput
@@ -16,16 +23,19 @@ extension RegistrationPresenter: RegistrationViewOutput {
     func viewDidLoad() {}
     
     func logInButtonTapped(name: String, age: String) {
-        let name = nameError(text: name)
-        let age = nameError(text: age)
-        if name != nil || age != nil {
+        let nameErr = nameError(text: name)
+        let ageErr = nameError(text: age)
+        if nameErr != nil || ageErr != nil {
             view?.displayError(
                 FormatError(
-                    nameError: name,
-                    ageError: age
+                    nameError: nameErr,
+                    ageError: ageErr
                 )
             )
         } else {
+            worker.register(email: name, password: age) { result in
+                print(result)
+            }
             // TODO: - сохранение кейчейн, показ следующего экрана
             router?.openMainScreen()
         }

@@ -5,9 +5,16 @@ protocol AuthorizationModuleOutput: AnyObject {}
 final class AuthorizationPresenter {
     // MARK: - Properties
 
+    let worker: AuthorizationWorker
+
     weak var view: AuthorizationViewInput?
-    var router: AuthorizationRouterInput?
     weak var output: AuthorizationModuleOutput?
+    var router: AuthorizationRouterInput?
+
+
+    init(worker: AuthorizationWorker) {
+        self.worker = worker
+    }
 }
 
 // MARK: - AuthorizationViewOutput
@@ -17,16 +24,19 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
     func viewDidLoad() {}
     
     func logInButtonTapped(name: String, age: String) {
-        let name = nameError(text: name)
-        let age = nameError(text: age)
-        if name != nil || age != nil {
+        let nameErr = nameError(text: name)
+        let ageErr = nameError(text: age)
+        if nameErr != nil || ageErr != nil {
             view?.displayError(
                 FormatError(
-                    nameError: name,
-                    ageError: age
+                    nameError: nameErr,
+                    ageError: ageErr
                 )
             )
         } else {
+            worker.login(email: name, password: age) { result in
+                print(result)
+            }
             // TODO: - сохранение кейчейн, показ следующего экрана
             router?.openMainScreen()
         }
