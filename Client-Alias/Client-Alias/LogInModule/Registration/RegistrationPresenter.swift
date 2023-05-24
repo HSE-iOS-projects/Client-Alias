@@ -29,7 +29,7 @@ extension RegistrationPresenter: RegistrationViewOutput {
             view?.displayError(
                 FormatError(
                     nameError: nameErr,
-                    ageError: ageErr
+                    passwordError: ageErr
                 )
             )
         } else {

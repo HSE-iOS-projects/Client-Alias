@@ -125,7 +125,7 @@ final class RegistrationViewController: UIViewController {
 extension RegistrationViewController: RegistrationViewInput {
     func displayError(_ response: FormatError) {
         nameEmpty.text = response.nameError
-        ageEmpty.text = response.ageError
+        ageEmpty.text = response.passwordError
         nameEmpty.isHidden = false
         ageEmpty.isHidden = false
     }

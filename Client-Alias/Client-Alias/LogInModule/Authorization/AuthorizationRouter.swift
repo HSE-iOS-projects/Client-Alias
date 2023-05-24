@@ -21,6 +21,8 @@ extension AuthorizationRouter: AuthorizationRouterInput {
     }
     
     func openMainScreen() {
-        
+        let viewController = TabBarViewController()
+        viewController.modalPresentationStyle = .fullScreen
+        view?.present(viewController, animated: true)
     }
 }

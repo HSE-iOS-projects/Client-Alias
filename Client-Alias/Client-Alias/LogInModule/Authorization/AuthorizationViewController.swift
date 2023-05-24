@@ -5,7 +5,7 @@ protocol AuthorizationViewInput: AnyObject {
 }
 
 protocol AuthorizationViewOutput: AnyObject {
-    func logInButtonTapped(name: String, age: String)
+    func logInButtonTapped(name: String, password: String)
     func openRegistration()
 }
 
@@ -46,7 +46,10 @@ final class AuthorizationViewController: UIViewController {
     
     @objc
     private func logInButtonTapped(_ sender: UIButton) {
-        output?.logInButtonTapped(name: nameText.nonOptionalText , age: ageText.nonOptionalText)
+        output?.logInButtonTapped(
+            name: nameText.nonOptionalText,
+            password: ageText.nonOptionalText
+        )
     }
     
     @objc
@@ -118,7 +121,7 @@ final class AuthorizationViewController: UIViewController {
 extension AuthorizationViewController: AuthorizationViewInput {
     func displayError(_ response: FormatError) {
         nameEmpty.text = response.nameError
-        ageEmpty.text = response.ageError
+        ageEmpty.text = response.passwordError
         nameEmpty.isHidden = false
         ageEmpty.isHidden = false
     }

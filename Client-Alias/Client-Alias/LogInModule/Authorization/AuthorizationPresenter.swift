@@ -23,18 +23,18 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
 
     func viewDidLoad() {}
     
-    func logInButtonTapped(name: String, age: String) {
+    func logInButtonTapped(name: String, password: String) {
         let nameErr = nameError(text: name)
-        let ageErr = nameError(text: age)
-        if nameErr != nil || ageErr != nil {
+        let passwordErr = nameError(text: password)
+        if nameErr != nil || passwordErr != nil {
             view?.displayError(
                 FormatError(
                     nameError: nameErr,
-                    ageError: ageErr
+                    passwordError: passwordErr
                 )
             )
         } else {
-            worker.login(email: name, password: age) { result in
+            worker.login(email: name, password: password) { result in
                 print(result)
             }
             // TODO: - сохранение кейчейн, показ следующего экрана
