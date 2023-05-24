@@ -15,11 +15,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().standardAppearance = tabBarAppearance
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
 
-        window.rootViewController = AuthorizationModuleConfigurator().configure(output: nil).view
+//        window.rootViewController = PlayRoundModuleConfigurator().configure(output: nil).view
 //        window.rootViewController = TabBarViewController()
+//        window.makeKeyAndVisible()
+        
+        let navigationVC = UINavigationController(rootViewController: TabBarViewController())
+        navigationVC.navigationBar.prefersLargeTitles = true
+        window.rootViewController = navigationVC
         window.makeKeyAndVisible()
 
         self.window = window
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

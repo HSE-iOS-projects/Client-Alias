@@ -30,14 +30,8 @@ final class AddKeyViewController: UIViewController {
         output?.viewDidLoad()
 
         view.backgroundColor = .black
-        view.addSubview(addButton)
-
-        NSLayoutConstraint.activate([
-            addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            addButton.heightAnchor.constraint(equalToConstant: 48),
-            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        
+        setupUI()
     }
 
     // MARK: - Actions
@@ -48,7 +42,16 @@ final class AddKeyViewController: UIViewController {
 
     // MARK: - Setup
 
-    private func setupUI() {}
+    private func setupUI() {
+        view.addSubview(addButton)
+
+        NSLayoutConstraint.activate([
+            addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            addButton.heightAnchor.constraint(equalToConstant: 48),
+            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
 
     private func setupLocalization() {}
 }

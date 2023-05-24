@@ -2,12 +2,14 @@ import UIKit
 
 protocol RoomsViewInput: AnyObject {
 
-    func update(userRooms: UserRooms)
+    var viewModel: RoomsViewModel? { get set }
 }
 
 protocol RoomsViewOutput: AnyObject {
     func viewDidLoad()
     func add()
+    func addKey()
+    func select(room: Room)
 }
 
 final class RoomsViewController: UIViewController {
@@ -49,14 +51,21 @@ final class RoomsViewController: UIViewController {
         keyButton.tintColor = .white
         keyButton.setImage(UIImage(systemName: "key.fill"), for: .normal)
         keyButton.translatesAutoresizingMaskIntoConstraints = false
-        keyButton.addTarget(self, action: #selector(add), for: .touchUpInside)
+        keyButton.addTarget(self, action: #selector(addKey), for: .touchUpInside)
         return keyButton
     }()
 
     // MARK: - Properties
 
     var output: RoomsViewOutput?
-    private var userRooms: UserRooms = .init(activeRoom: nil, openRooms: [])
+    var viewModel: RoomsViewModel? {
+        didSet {
+            guard isViewLoaded, viewModel != oldValue else {
+                return
+            }
+            collectionView.reloadData()
+        }
+    }
 
     // MARK: - UIViewController
 
@@ -64,9 +73,24 @@ final class RoomsViewController: UIViewController {
         super.viewDidLoad()
         output?.viewDidLoad()
         view.backgroundColor = .black
-        tabBarItem.title = "Rooms"
-        tabBarItem.image = UIImage(systemName: "square.split.bottomrightquarter")
+        title = "Комнаты"
 
+        setupUI()
+    }
+
+    // MARK: - Actions
+
+    @objc func add() {
+        output?.add()
+    }
+
+    @objc func addKey() {
+        output?.addKey()
+    }
+
+    // MARK: - Setup
+
+    private func setupUI() {
         view.addSubview(textField)
         view.addSubview(addButton)
         view.addSubview(keyButton)
@@ -95,66 +119,57 @@ final class RoomsViewController: UIViewController {
         ])
     }
 
-    // MARK: - Actions
-
-    @objc func add() {
-        output?.add()
-    }
-
-    // MARK: - Setup
-
-    private func setupUI() {}
-
     private func setupLocalization() {}
 }
 
 // MARK: - TroikaServiceViewInput
 
 extension RoomsViewController: RoomsViewInput {
-
-    func update(userRooms: UserRooms) {
-        self.userRooms = userRooms
-        collectionView.reloadData()
-    }
 }
 
 extension RoomsViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        var sections = 0
-        if userRooms.activeRoom != nil {
-            sections += 1
-        }
-        if userRooms.openRooms.count != 0 {
-            sections += 1
-        }
-        return sections
+        2
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return userRooms.activeRoom == nil ? 0 : 2
+            return viewModel?.activeRoom == nil ? 0 : 2
         }
-        return userRooms.openRooms.count == 0 ? 0 : userRooms.openRooms.count + 1
+        guard let viewModel = viewModel else {
+            return 0
+        }
+        return viewModel.openRooms.count == 0 ? 0 : viewModel.openRooms.count + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
-            cell.titleLabel.text = indexPath.section == 0 ? "Активная комната" : "Открытые комнаты"
-            return cell
-        }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoomCollectionViewCell", for: indexPath) as! RoomCollectionViewCell
-        if indexPath.section == 0 {
-            let activeRoom = userRooms.activeRoom
+        switch indexPath.section {
+        case 0:
+            if indexPath.row == 0 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
+                cell.titleLabel.text = "Активная комната"
+                return cell
+            }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoomCollectionViewCell", for: indexPath) as! RoomCollectionViewCell
+            let activeRoom = viewModel?.activeRoom
             cell.titleLabel.text = activeRoom?.name
             cell.typeLabel.text = activeRoom?.roomType == .private ? "Приватная" : "Публичная"
             return cell
+        case 1:
+            if indexPath.row == 0 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
+                cell.titleLabel.text = "Открытые комнаты"
+                return cell
+            }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoomCollectionViewCell", for: indexPath) as! RoomCollectionViewCell
+            let room = viewModel?.openRooms[indexPath.row - 1]
+            cell.titleLabel.text = room?.name
+            cell.typeLabel.text = room?.roomType == .private ? "Приватная" : "Публичная"
+            return cell
+        default:
+            fatalError()
         }
-        let room = userRooms.openRooms[indexPath.row - 1]
-        cell.titleLabel.text = room.name
-        cell.typeLabel.text = room.roomType == .private ? "Приватная" : "Публичная"
-        return cell
     }
 }
 
@@ -169,5 +184,17 @@ extension RoomsViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if let room = viewModel?.activeRoom {
+                output?.select(room: room)
+            }
+            return
+        }
+        if let room = viewModel?.openRooms[indexPath.row - 1] {
+            output?.select(room: room)
+        }
     }
 }

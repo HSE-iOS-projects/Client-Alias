@@ -13,17 +13,25 @@ final class RoomsPresenter {
 // MARK: - RoomsViewOutput
 
 extension RoomsPresenter: RoomsViewOutput {
+
     func viewDidLoad() {
         let activeRoom = Room(name: "Моя комната", roomType: .private)
         let openRooms = [Room(name: "Моя комната 2", roomType: .private),
                          Room(name: "Моя комната 3", roomType: .public),
                          Room(name: "Моя комната 4", roomType: .private)]
-        let userRooms = UserRooms(activeRoom: activeRoom, openRooms: openRooms)
-        view?.update(userRooms: userRooms)
+        view?.viewModel = RoomsViewModel(activeRoom: activeRoom, openRooms: openRooms)
     }
 
     func add() {
+        router?.showRoom()
+    }
+
+    func addKey() {
         router?.addKey()
+    }
+
+    func select(room: Room) {
+        router?.showRoomInfo(room: room)
     }
 }
 

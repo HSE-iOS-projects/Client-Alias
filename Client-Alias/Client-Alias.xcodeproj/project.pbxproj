@@ -24,6 +24,28 @@
 		06ED58232A1A825E009EB119 /* AddKeyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED581F2A1A825E009EB119 /* AddKeyRouter.swift */; };
 		06ED58242A1A825E009EB119 /* AddKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED58202A1A825E009EB119 /* AddKeyViewController.swift */; };
 		06ED58252A1A825E009EB119 /* AddKeyModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */; };
+		5E3021C22A1E62ED00219928 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021B92A1E62ED00219928 /* MembersViewController.swift */; };
+		5E3021C32A1E62ED00219928 /* MembersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BA2A1E62ED00219928 /* MembersRouter.swift */; };
+		5E3021C42A1E62ED00219928 /* MembersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BB2A1E62ED00219928 /* MembersPresenter.swift */; };
+		5E3021C52A1E62ED00219928 /* MembersModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BC2A1E62ED00219928 /* MembersModuleConfigurator.swift */; };
+		5E3021C62A1E62ED00219928 /* AddTeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BE2A1E62ED00219928 /* AddTeamRouter.swift */; };
+		5E3021C72A1E62ED00219928 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BF2A1E62ED00219928 /* AddTeamViewController.swift */; };
+		5E3021C82A1E62ED00219928 /* AddTeamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021C02A1E62ED00219928 /* AddTeamPresenter.swift */; };
+		5E3021C92A1E62ED00219928 /* AddTeamModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021C12A1E62ED00219928 /* AddTeamModuleConfigurator.swift */; };
+		5E3021D52A1E630400219928 /* RoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021CB2A1E630300219928 /* RoomRouter.swift */; };
+		5E3021D62A1E630400219928 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021CC2A1E630400219928 /* RoomViewController.swift */; };
+		5E3021D72A1E630400219928 /* RoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021CD2A1E630400219928 /* RoomPresenter.swift */; };
+		5E3021D82A1E630400219928 /* RoomModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021CE2A1E630400219928 /* RoomModuleConfigurator.swift */; };
+		5E3021D92A1E630400219928 /* RoomInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D02A1E630400219928 /* RoomInfoViewController.swift */; };
+		5E3021DA2A1E630400219928 /* RoomInfoModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D12A1E630400219928 /* RoomInfoModuleConfigurator.swift */; };
+		5E3021DB2A1E630400219928 /* TextFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D22A1E630400219928 /* TextFieldCollectionViewCell.swift */; };
+		5E3021DC2A1E630400219928 /* RoomInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D32A1E630400219928 /* RoomInfoRouter.swift */; };
+		5E3021DD2A1E630400219928 /* RoomInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D42A1E630400219928 /* RoomInfoPresenter.swift */; };
+		5E3021E32A1E631000219928 /* TeamsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021DF2A1E631000219928 /* TeamsPresenter.swift */; };
+		5E3021E42A1E631000219928 /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E02A1E631000219928 /* TeamsViewController.swift */; };
+		5E3021E52A1E631000219928 /* TeamsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E12A1E631000219928 /* TeamsRouter.swift */; };
+		5E3021E62A1E631000219928 /* TeamsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E22A1E631000219928 /* TeamsModuleConfigurator.swift */; };
+		5E3021E82A1E639C00219928 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E72A1E639C00219928 /* RoomsViewModel.swift */; };
 		5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */; };
 		5E46EDA02A17C42800F3FFAD /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */; };
 		5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */; };
@@ -41,6 +63,13 @@
 		5E89BA342A17BAE5005E3381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E89BA332A17BAE5005E3381 /* Assets.xcassets */; };
 		5E89BA372A17BAE5005E3381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E89BA352A17BAE5005E3381 /* LaunchScreen.storyboard */; };
 		5E8F78652A1D2CD90079155E /* ZLSwipeableViewSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E8F78642A1D2CD90079155E /* ZLSwipeableViewSwift */; };
+		5EE4CA392A1D371300DBC274 /* PlayRoundPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */; };
+		5EE4CA3A2A1D371300DBC274 /* PlayRoundRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */; };
+		5EE4CA3B2A1D371300DBC274 /* PlayRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */; };
+		5EE4CA3C2A1D371300DBC274 /* PlayRoundModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */; };
+		5EE4CA3E2A1D4E9E00DBC274 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */; };
+		5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */; };
+		5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA452A1D65B400DBC274 /* WordInfo.swift */; };
 		9D26E8E42A1D5B5B001C201B /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8DE2A1D5B5B001C201B /* Aliases.swift */; };
 		9D26E8E52A1D5B5B001C201B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8DF2A1D5B5B001C201B /* Networking.swift */; };
 		9D26E8E72A1D5B5B001C201B /* NetworkingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8E12A1D5B5B001C201B /* NetworkingLogic.swift */; };
@@ -49,13 +78,6 @@
 		9D26E8EC2A1D5E6D001C201B /* AuthorizationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8EB2A1D5E6D001C201B /* AuthorizationWorker.swift */; };
 		9D26E8F02A1D6472001C201B /* AuthorizationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8EF2A1D6472001C201B /* AuthorizationModels.swift */; };
 		9D26E8F32A1D6558001C201B /* AuthorizationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8F22A1D6558001C201B /* AuthorizationEndpoint.swift */; };
-		5EE4CA392A1D371300DBC274 /* PlayRoundPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */; };
-		5EE4CA3A2A1D371300DBC274 /* PlayRoundRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */; };
-		5EE4CA3B2A1D371300DBC274 /* PlayRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */; };
-		5EE4CA3C2A1D371300DBC274 /* PlayRoundModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */; };
-		5EE4CA3E2A1D4E9E00DBC274 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */; };
-		5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */; };
-		5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA452A1D65B400DBC274 /* WordInfo.swift */; };
 		9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC5F2A1CFAF200EBC621 /* SecureSettingsKeeper.swift */; };
 		9D81CC662A1CFB2300EBC621 /* SecureStorage+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC632A1CFB2300EBC621 /* SecureStorage+Token.swift */; };
 		9D81CC672A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81CC642A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift */; };
@@ -80,6 +102,28 @@
 		06ED581F2A1A825E009EB119 /* AddKeyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyRouter.swift; sourceTree = "<group>"; };
 		06ED58202A1A825E009EB119 /* AddKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyViewController.swift; sourceTree = "<group>"; };
 		06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E3021B92A1E62ED00219928 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		5E3021BA2A1E62ED00219928 /* MembersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersRouter.swift; sourceTree = "<group>"; };
+		5E3021BB2A1E62ED00219928 /* MembersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersPresenter.swift; sourceTree = "<group>"; };
+		5E3021BC2A1E62ED00219928 /* MembersModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E3021BE2A1E62ED00219928 /* AddTeamRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamRouter.swift; sourceTree = "<group>"; };
+		5E3021BF2A1E62ED00219928 /* AddTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
+		5E3021C02A1E62ED00219928 /* AddTeamPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamPresenter.swift; sourceTree = "<group>"; };
+		5E3021C12A1E62ED00219928 /* AddTeamModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E3021CB2A1E630300219928 /* RoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomRouter.swift; sourceTree = "<group>"; };
+		5E3021CC2A1E630400219928 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		5E3021CD2A1E630400219928 /* RoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPresenter.swift; sourceTree = "<group>"; };
+		5E3021CE2A1E630400219928 /* RoomModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E3021D02A1E630400219928 /* RoomInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoViewController.swift; sourceTree = "<group>"; };
+		5E3021D12A1E630400219928 /* RoomInfoModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E3021D22A1E630400219928 /* TextFieldCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionViewCell.swift; sourceTree = "<group>"; };
+		5E3021D32A1E630400219928 /* RoomInfoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoRouter.swift; sourceTree = "<group>"; };
+		5E3021D42A1E630400219928 /* RoomInfoPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoPresenter.swift; sourceTree = "<group>"; };
+		5E3021DF2A1E631000219928 /* TeamsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsPresenter.swift; sourceTree = "<group>"; };
+		5E3021E02A1E631000219928 /* TeamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
+		5E3021E12A1E631000219928 /* TeamsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsRouter.swift; sourceTree = "<group>"; };
+		5E3021E22A1E631000219928 /* TeamsModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E3021E72A1E639C00219928 /* RoomsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +142,13 @@
 		5E89BA332A17BAE5005E3381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E89BA362A17BAE5005E3381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E89BA382A17BAE5005E3381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundPresenter.swift; sourceTree = "<group>"; };
+		5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundRouter.swift; sourceTree = "<group>"; };
+		5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundViewController.swift; sourceTree = "<group>"; };
+		5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundModuleConfigurator.swift; sourceTree = "<group>"; };
+		5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
+		5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5EE4CA452A1D65B400DBC274 /* WordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
 		9D26E8DE2A1D5B5B001C201B /* Aliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		9D26E8DF2A1D5B5B001C201B /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		9D26E8E12A1D5B5B001C201B /* NetworkingLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingLogic.swift; sourceTree = "<group>"; };
@@ -106,13 +157,6 @@
 		9D26E8EB2A1D5E6D001C201B /* AuthorizationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationWorker.swift; sourceTree = "<group>"; };
 		9D26E8EF2A1D6472001C201B /* AuthorizationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModels.swift; sourceTree = "<group>"; };
 		9D26E8F22A1D6558001C201B /* AuthorizationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationEndpoint.swift; sourceTree = "<group>"; };
-		5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundPresenter.swift; sourceTree = "<group>"; };
-		5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundRouter.swift; sourceTree = "<group>"; };
-		5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundViewController.swift; sourceTree = "<group>"; };
-		5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoundModuleConfigurator.swift; sourceTree = "<group>"; };
-		5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
-		5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		5EE4CA452A1D65B400DBC274 /* WordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
 		9D81CC5F2A1CFAF200EBC621 /* SecureSettingsKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureSettingsKeeper.swift; sourceTree = "<group>"; };
 		9D81CC632A1CFB2300EBC621 /* SecureStorage+Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecureStorage+Token.swift"; sourceTree = "<group>"; };
 		9D81CC642A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecureStorage+PropertyWraper.swift"; sourceTree = "<group>"; };
@@ -134,6 +178,11 @@
 		0653A28F2A1A5DC3005DD793 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5E3021DE2A1E631000219928 /* Teams */,
+				5E3021CA2A1E630300219928 /* Room */,
+				5E3021CF2A1E630400219928 /* RoomInfo */,
+				5E3021BD2A1E62ED00219928 /* AddTeam */,
+				5E3021B82A1E62ED00219928 /* Members */,
 				06B778772A1A81FA00307E17 /* AddKey */,
 				06B778642A1A5E5000307E17 /* Rooms */,
 				06B778632A1A5E4800307E17 /* Profile */,
@@ -158,6 +207,7 @@
 		06B778642A1A5E5000307E17 /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
+				5E3021E72A1E639C00219928 /* RoomsViewModel.swift */,
 				06B778652A1A5E5D00307E17 /* RoomsPresenter.swift */,
 				06B778662A1A5E5D00307E17 /* RoomsRouter.swift */,
 				06B778672A1A5E5D00307E17 /* RoomsViewController.swift */,
@@ -177,6 +227,62 @@
 				06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */,
 			);
 			path = AddKey;
+			sourceTree = "<group>";
+		};
+		5E3021B82A1E62ED00219928 /* Members */ = {
+			isa = PBXGroup;
+			children = (
+				5E3021B92A1E62ED00219928 /* MembersViewController.swift */,
+				5E3021BA2A1E62ED00219928 /* MembersRouter.swift */,
+				5E3021BB2A1E62ED00219928 /* MembersPresenter.swift */,
+				5E3021BC2A1E62ED00219928 /* MembersModuleConfigurator.swift */,
+			);
+			path = Members;
+			sourceTree = "<group>";
+		};
+		5E3021BD2A1E62ED00219928 /* AddTeam */ = {
+			isa = PBXGroup;
+			children = (
+				5E3021BE2A1E62ED00219928 /* AddTeamRouter.swift */,
+				5E3021BF2A1E62ED00219928 /* AddTeamViewController.swift */,
+				5E3021C02A1E62ED00219928 /* AddTeamPresenter.swift */,
+				5E3021C12A1E62ED00219928 /* AddTeamModuleConfigurator.swift */,
+			);
+			path = AddTeam;
+			sourceTree = "<group>";
+		};
+		5E3021CA2A1E630300219928 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				5E3021CB2A1E630300219928 /* RoomRouter.swift */,
+				5E3021CC2A1E630400219928 /* RoomViewController.swift */,
+				5E3021CD2A1E630400219928 /* RoomPresenter.swift */,
+				5E3021CE2A1E630400219928 /* RoomModuleConfigurator.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		5E3021CF2A1E630400219928 /* RoomInfo */ = {
+			isa = PBXGroup;
+			children = (
+				5E3021D02A1E630400219928 /* RoomInfoViewController.swift */,
+				5E3021D12A1E630400219928 /* RoomInfoModuleConfigurator.swift */,
+				5E3021D22A1E630400219928 /* TextFieldCollectionViewCell.swift */,
+				5E3021D32A1E630400219928 /* RoomInfoRouter.swift */,
+				5E3021D42A1E630400219928 /* RoomInfoPresenter.swift */,
+			);
+			path = RoomInfo;
+			sourceTree = "<group>";
+		};
+		5E3021DE2A1E631000219928 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				5E3021DF2A1E631000219928 /* TeamsPresenter.swift */,
+				5E3021E02A1E631000219928 /* TeamsViewController.swift */,
+				5E3021E12A1E631000219928 /* TeamsRouter.swift */,
+				5E3021E22A1E631000219928 /* TeamsModuleConfigurator.swift */,
+			);
+			path = Teams;
 			sourceTree = "<group>";
 		};
 		5E46ED962A17C3E300F3FFAD /* LogInModule */ = {
@@ -256,6 +362,28 @@
 			path = "Client-Alias";
 			sourceTree = "<group>";
 		};
+		5EE4CA332A1D36E700DBC274 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				5EE4CA342A1D370500DBC274 /* PlayRound */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		5EE4CA342A1D370500DBC274 /* PlayRound */ = {
+			isa = PBXGroup;
+			children = (
+				5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */,
+				5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */,
+				5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */,
+				5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */,
+				5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */,
+				5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */,
+				5EE4CA452A1D65B400DBC274 /* WordInfo.swift */,
+			);
+			path = PlayRound;
+			sourceTree = "<group>";
+		};
 		9D26E8DD2A1D5B5B001C201B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,28 +428,6 @@
 				9D26E8F22A1D6558001C201B /* AuthorizationEndpoint.swift */,
 			);
 			path = Endpoint;
-			sourceTree = "<group>";
-		};
-		5EE4CA332A1D36E700DBC274 /* Play */ = {
-			isa = PBXGroup;
-			children = (
-				5EE4CA342A1D370500DBC274 /* PlayRound */,
-			);
-			path = Play;
-			sourceTree = "<group>";
-		};
-		5EE4CA342A1D370500DBC274 /* PlayRound */ = {
-			isa = PBXGroup;
-			children = (
-				5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */,
-				5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */,
-				5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */,
-				5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */,
-				5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */,
-				5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */,
-				5EE4CA452A1D65B400DBC274 /* WordInfo.swift */,
-			);
-			path = PlayRound;
 			sourceTree = "<group>";
 		};
 		9D81CC5D2A1CFAD200EBC621 /* Services */ = {
@@ -438,29 +544,40 @@
 				06B778602A1A5E3600307E17 /* ProfileRouter.swift in Sources */,
 				9D26E8F02A1D6472001C201B /* AuthorizationModels.swift in Sources */,
 				06B778742A1A759200307E17 /* TitleCollectionViewCell.swift in Sources */,
+				5E3021DA2A1E630400219928 /* RoomInfoModuleConfigurator.swift in Sources */,
 				06B7786A2A1A5E5D00307E17 /* RoomsRouter.swift in Sources */,
 				5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */,
+				5E3021D72A1E630400219928 /* RoomPresenter.swift in Sources */,
+				5E3021DD2A1E630400219928 /* RoomInfoPresenter.swift in Sources */,
+				5E3021D52A1E630400219928 /* RoomRouter.swift in Sources */,
 				5E46EDAC2A17D05B00F3FFAD /* LogInFactory.swift in Sources */,
+				5E3021C52A1E62ED00219928 /* MembersModuleConfigurator.swift in Sources */,
 				06ED58242A1A825E009EB119 /* AddKeyViewController.swift in Sources */,
 				9D26E8E82A1D5B5B001C201B /* NetworkingModels.swift in Sources */,
 				5EE4CA3C2A1D371300DBC274 /* PlayRoundModuleConfigurator.swift in Sources */,
 				9D81CC662A1CFB2300EBC621 /* SecureStorage+Token.swift in Sources */,
+				5E3021C32A1E62ED00219928 /* MembersRouter.swift in Sources */,
 				5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */,
 				9D26E8EC2A1D5E6D001C201B /* AuthorizationWorker.swift in Sources */,
 				5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */,
+				5E3021DB2A1E630400219928 /* TextFieldCollectionViewCell.swift in Sources */,
 				5EE4CA3A2A1D371300DBC274 /* PlayRoundRouter.swift in Sources */,
 				9D81CC672A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift in Sources */,
+				5E3021C82A1E62ED00219928 /* AddTeamPresenter.swift in Sources */,
 				9D26E8F32A1D6558001C201B /* AuthorizationEndpoint.swift in Sources */,
 				5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */,
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
 				9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */,
 				06B778692A1A5E5D00307E17 /* RoomsPresenter.swift in Sources */,
-				5E46EDB32A17D94400F3FFAD /* LogInModule.swift in Sources */,
+				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
 				9D26E8E42A1D5B5B001C201B /* Aliases.swift in Sources */,
 				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
 				06B778612A1A5E3600307E17 /* ProfileViewController.swift in Sources */,
 				06ED58252A1A825E009EB119 /* AddKeyModuleConfigurator.swift in Sources */,
+				5E3021E42A1E631000219928 /* TeamsViewController.swift in Sources */,
 				06B7786B2A1A5E5D00307E17 /* RoomsViewController.swift in Sources */,
+				5E3021E62A1E631000219928 /* TeamsModuleConfigurator.swift in Sources */,
+				5E3021D92A1E630400219928 /* RoomInfoViewController.swift in Sources */,
 				5EE4CA392A1D371300DBC274 /* PlayRoundPresenter.swift in Sources */,
 				5E46EDA92A17C92B00F3FFAD /* RegistrationViewController.swift in Sources */,
 				5E46EDA82A17C92B00F3FFAD /* RegistrationRouter.swift in Sources */,
@@ -470,18 +587,29 @@
 				5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */,
 				5E46EDAA2A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift in Sources */,
 				9D26E8E92A1D5B5B001C201B /* Endpoint.swift in Sources */,
+				5E3021C92A1E62ED00219928 /* AddTeamModuleConfigurator.swift in Sources */,
 				9D81CC682A1CFB2300EBC621 /* SecureStorage.swift in Sources */,
 				06ED58222A1A825E009EB119 /* AddKeyPresenter.swift in Sources */,
+				5E3021C62A1E62ED00219928 /* AddTeamRouter.swift in Sources */,
 				06B778722A1A720D00307E17 /* RoomCollectionViewCell.swift in Sources */,
 				9D26E8E52A1D5B5B001C201B /* Networking.swift in Sources */,
+				5E3021C42A1E62ED00219928 /* MembersPresenter.swift in Sources */,
+				5E3021E32A1E631000219928 /* TeamsPresenter.swift in Sources */,
 				5E46EDA22A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift in Sources */,
+				5E3021C22A1E62ED00219928 /* MembersViewController.swift in Sources */,
 				5EE4CA3E2A1D4E9E00DBC274 /* RoundInfo.swift in Sources */,
+				5E3021C72A1E62ED00219928 /* AddTeamViewController.swift in Sources */,
 				5EE4CA3B2A1D371300DBC274 /* PlayRoundViewController.swift in Sources */,
 				5E46EDB12A17D50800F3FFAD /* UIColor+ColorPalette.swift in Sources */,
+				5E3021D62A1E630400219928 /* RoomViewController.swift in Sources */,
 				5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */,
+				5E3021E82A1E639C00219928 /* RoomsViewModel.swift in Sources */,
+				5E3021E52A1E631000219928 /* TeamsRouter.swift in Sources */,
 				9D26E8E72A1D5B5B001C201B /* NetworkingLogic.swift in Sources */,
 				06B778702A1A6F3D00307E17 /* User.swift in Sources */,
+				5E3021DC2A1E630400219928 /* RoomInfoRouter.swift in Sources */,
 				06B778762A1A7B2A00307E17 /* Room.swift in Sources */,
+				5E3021D82A1E630400219928 /* RoomModuleConfigurator.swift in Sources */,
 				5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */,
 				06ED58232A1A825E009EB119 /* AddKeyRouter.swift in Sources */,
 				06B778622A1A5E3600307E17 /* ProfileModuleConfigurator.swift in Sources */,

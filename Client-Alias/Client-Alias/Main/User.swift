@@ -6,3 +6,5 @@ struct User {
     let playedGames: Int
     let winGames: Int
 }
+
+let isAdmin: Bool = true

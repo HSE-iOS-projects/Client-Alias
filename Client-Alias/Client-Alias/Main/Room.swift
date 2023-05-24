@@ -1,6 +1,6 @@
 import Foundation
 
-struct Room {
+struct Room: Equatable {
 
     enum RoomType {
         case `private`

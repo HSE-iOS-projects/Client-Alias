@@ -26,9 +26,6 @@ final class ProfileViewController: UIViewController {
 
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        // 14 18
-        // 28 28 30
-//        stackView.backgroundColor = .gray
         stackView.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
         stackView.layer.cornerRadius = 15
         stackView.alignment = .leading
@@ -85,9 +82,24 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         output?.viewDidLoad()
         view.backgroundColor = .black
-        tabBarItem.title = "Profile"
-        tabBarItem.image = UIImage(systemName: "person.fill")
 
+        setupUI()
+    }
+
+    // MARK: - Actions
+
+    @objc func logout() {
+        output?.logout()
+    }
+
+    @objc func deleteProfile() {
+        // TODO: перенести в презентер
+        print("deleteProfile")
+    }
+
+    // MARK: - Setup
+
+    private func setupUI() {
         view.addSubview(titleLabel)
         view.addSubview(stackView)
 
@@ -110,21 +122,6 @@ final class ProfileViewController: UIViewController {
             deleteProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
         ])
     }
-
-    // MARK: - Actions
-
-    @objc func logout() {
-        output?.logout()
-    }
-
-    @objc func deleteProfile() {
-        // TODO: перенести в презентер
-        print("deleteProfile")
-    }
-
-    // MARK: - Setup
-
-    private func setupUI() {}
 
     private func setupLocalization() {}
 }
