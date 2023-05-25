@@ -11,7 +11,7 @@ public struct Token {
         get { storage.getToken(for: key) }
 
         set {
-            if let newValue {
+            if let newValue = newValue {
                 storage.updateToken(newValue, for: key)
             } else {
                 storage.deleteToken(for: key)

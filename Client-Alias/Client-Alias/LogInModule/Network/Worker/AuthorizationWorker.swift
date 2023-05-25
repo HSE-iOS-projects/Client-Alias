@@ -8,8 +8,8 @@ protocol AuthorizationWorker {
 }
 
 final class AuthorizationWorkerImpl: AuthorizationWorker {
-
-    private let networking = Networking(baseURL: "http://127.0.0.1:8080")
+    
+    private let networking = Networking(baseURL: "http://192.168.1.219:8080")
 
     func register(email: String, password: String, completion: @escaping (Result<RegisterResponse, Error>) -> Void) {
         let endpoint = AuthorizationEndpoint.register

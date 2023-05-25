@@ -46,6 +46,19 @@
 		5E3021E52A1E631000219928 /* TeamsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E12A1E631000219928 /* TeamsRouter.swift */; };
 		5E3021E62A1E631000219928 /* TeamsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E22A1E631000219928 /* TeamsModuleConfigurator.swift */; };
 		5E3021E82A1E639C00219928 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E72A1E639C00219928 /* RoomsViewModel.swift */; };
+		5E3021EA2A1E7FC100219928 /* CardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E92A1E7FC100219928 /* CardTableCell.swift */; };
+		5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EB2A1E876C00219928 /* CustomStepper.swift */; };
+		5E3021F32A1EC93400219928 /* EndGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */; };
+		5E3021F42A1EC93400219928 /* EndGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021F02A1EC93400219928 /* EndGameRouter.swift */; };
+		5E3021F52A1EC93400219928 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021F12A1EC93400219928 /* EndGameViewController.swift */; };
+		5E3021F62A1EC93400219928 /* EndGameModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021F22A1EC93400219928 /* EndGameModuleConfigurator.swift */; };
+		5E3021FC2A1F908C00219928 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021F82A1F908C00219928 /* ResultPresenter.swift */; };
+		5E3021FD2A1F908C00219928 /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021F92A1F908C00219928 /* ResultRouter.swift */; };
+		5E3021FE2A1F908C00219928 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021FA2A1F908C00219928 /* ResultViewController.swift */; };
+		5E3021FF2A1F908C00219928 /* ResultModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021FB2A1F908C00219928 /* ResultModuleConfigurator.swift */; };
+		5E3022012A1F929200219928 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3022002A1F929200219928 /* TeamCell.swift */; };
+		5E3022032A1F92FF00219928 /* ResultInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3022022A1F92FF00219928 /* ResultInfo.swift */; };
+		5E3022052A1FB4E000219928 /* WaitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3022042A1FB4E000219928 /* WaitCardView.swift */; };
 		5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */; };
 		5E46EDA02A17C42800F3FFAD /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */; };
 		5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */; };
@@ -124,6 +137,19 @@
 		5E3021E12A1E631000219928 /* TeamsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsRouter.swift; sourceTree = "<group>"; };
 		5E3021E22A1E631000219928 /* TeamsModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsModuleConfigurator.swift; sourceTree = "<group>"; };
 		5E3021E72A1E639C00219928 /* RoomsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
+		5E3021E92A1E7FC100219928 /* CardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableCell.swift; sourceTree = "<group>"; };
+		5E3021EB2A1E876C00219928 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
+		5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePresenter.swift; sourceTree = "<group>"; };
+		5E3021F02A1EC93400219928 /* EndGameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameRouter.swift; sourceTree = "<group>"; };
+		5E3021F12A1EC93400219928 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
+		5E3021F22A1EC93400219928 /* EndGameModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E3021F82A1F908C00219928 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
+		5E3021F92A1F908C00219928 /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
+		5E3021FA2A1F908C00219928 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		5E3021FB2A1F908C00219928 /* ResultModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModuleConfigurator.swift; sourceTree = "<group>"; };
+		5E3022002A1F929200219928 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		5E3022022A1F92FF00219928 /* ResultInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultInfo.swift; sourceTree = "<group>"; };
+		5E3022042A1FB4E000219928 /* WaitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitCardView.swift; sourceTree = "<group>"; };
 		5E46ED9B2A17C42800F3FFAD /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		5E46ED9C2A17C42800F3FFAD /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		5E46ED9D2A17C42800F3FFAD /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +311,39 @@
 			path = Teams;
 			sourceTree = "<group>";
 		};
+		5E3021ED2A1EA2E800219928 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5EE4CA452A1D65B400DBC274 /* WordInfo.swift */,
+				5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5E3021EE2A1EC91D00219928 /* EndGame */ = {
+			isa = PBXGroup;
+			children = (
+				5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */,
+				5E3021F02A1EC93400219928 /* EndGameRouter.swift */,
+				5E3021F12A1EC93400219928 /* EndGameViewController.swift */,
+				5E3021F22A1EC93400219928 /* EndGameModuleConfigurator.swift */,
+			);
+			path = EndGame;
+			sourceTree = "<group>";
+		};
+		5E3021F72A1F8FEA00219928 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				5E3021F82A1F908C00219928 /* ResultPresenter.swift */,
+				5E3021F92A1F908C00219928 /* ResultRouter.swift */,
+				5E3021FA2A1F908C00219928 /* ResultViewController.swift */,
+				5E3021FB2A1F908C00219928 /* ResultModuleConfigurator.swift */,
+				5E3022002A1F929200219928 /* TeamCell.swift */,
+				5E3022022A1F92FF00219928 /* ResultInfo.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 		5E46ED962A17C3E300F3FFAD /* LogInModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +424,8 @@
 		5EE4CA332A1D36E700DBC274 /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				5E3021F72A1F8FEA00219928 /* Result */,
+				5E3021EE2A1EC91D00219928 /* EndGame */,
 				5EE4CA342A1D370500DBC274 /* PlayRound */,
 			);
 			path = Play;
@@ -373,13 +434,15 @@
 		5EE4CA342A1D370500DBC274 /* PlayRound */ = {
 			isa = PBXGroup;
 			children = (
+				5E3021ED2A1EA2E800219928 /* Models */,
 				5EE4CA352A1D371300DBC274 /* PlayRoundPresenter.swift */,
 				5EE4CA362A1D371300DBC274 /* PlayRoundRouter.swift */,
 				5EE4CA372A1D371300DBC274 /* PlayRoundViewController.swift */,
 				5EE4CA382A1D371300DBC274 /* PlayRoundModuleConfigurator.swift */,
-				5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */,
 				5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */,
-				5EE4CA452A1D65B400DBC274 /* WordInfo.swift */,
+				5E3021E92A1E7FC100219928 /* CardTableCell.swift */,
+				5E3021EB2A1E876C00219928 /* CustomStepper.swift */,
+				5E3022042A1FB4E000219928 /* WaitCardView.swift */,
 			);
 			path = PlayRound;
 			sourceTree = "<group>";
@@ -555,18 +618,24 @@
 				06ED58242A1A825E009EB119 /* AddKeyViewController.swift in Sources */,
 				9D26E8E82A1D5B5B001C201B /* NetworkingModels.swift in Sources */,
 				5EE4CA3C2A1D371300DBC274 /* PlayRoundModuleConfigurator.swift in Sources */,
+				5E3021F52A1EC93400219928 /* EndGameViewController.swift in Sources */,
 				9D81CC662A1CFB2300EBC621 /* SecureStorage+Token.swift in Sources */,
 				5E3021C32A1E62ED00219928 /* MembersRouter.swift in Sources */,
 				5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */,
 				9D26E8EC2A1D5E6D001C201B /* AuthorizationWorker.swift in Sources */,
+				5E3022032A1F92FF00219928 /* ResultInfo.swift in Sources */,
 				5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */,
+				5E3021FD2A1F908C00219928 /* ResultRouter.swift in Sources */,
+				5E3021EA2A1E7FC100219928 /* CardTableCell.swift in Sources */,
 				5E3021DB2A1E630400219928 /* TextFieldCollectionViewCell.swift in Sources */,
 				5EE4CA3A2A1D371300DBC274 /* PlayRoundRouter.swift in Sources */,
 				9D81CC672A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift in Sources */,
 				5E3021C82A1E62ED00219928 /* AddTeamPresenter.swift in Sources */,
+				5E3022052A1FB4E000219928 /* WaitCardView.swift in Sources */,
 				9D26E8F32A1D6558001C201B /* AuthorizationEndpoint.swift in Sources */,
 				5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */,
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
+				5E3021F62A1EC93400219928 /* EndGameModuleConfigurator.swift in Sources */,
 				9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */,
 				06B778692A1A5E5D00307E17 /* RoomsPresenter.swift in Sources */,
 				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
@@ -577,14 +646,17 @@
 				5E3021E42A1E631000219928 /* TeamsViewController.swift in Sources */,
 				06B7786B2A1A5E5D00307E17 /* RoomsViewController.swift in Sources */,
 				5E3021E62A1E631000219928 /* TeamsModuleConfigurator.swift in Sources */,
+				5E3021F42A1EC93400219928 /* EndGameRouter.swift in Sources */,
 				5E3021D92A1E630400219928 /* RoomInfoViewController.swift in Sources */,
 				5EE4CA392A1D371300DBC274 /* PlayRoundPresenter.swift in Sources */,
+				5E3021FE2A1F908C00219928 /* ResultViewController.swift in Sources */,
 				5E46EDA92A17C92B00F3FFAD /* RegistrationViewController.swift in Sources */,
 				5E46EDA82A17C92B00F3FFAD /* RegistrationRouter.swift in Sources */,
 				06B7786C2A1A5E5D00307E17 /* RoomsModuleConfigurator.swift in Sources */,
 				06B7785F2A1A5E3600307E17 /* ProfilePresenter.swift in Sources */,
 				06B7786E2A1A5EE000307E17 /* TabBarViewController.swift in Sources */,
 				5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */,
+				5E3021FF2A1F908C00219928 /* ResultModuleConfigurator.swift in Sources */,
 				5E46EDAA2A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift in Sources */,
 				9D26E8E92A1D5B5B001C201B /* Endpoint.swift in Sources */,
 				5E3021C92A1E62ED00219928 /* AddTeamModuleConfigurator.swift in Sources */,
@@ -605,14 +677,18 @@
 				5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */,
 				5E3021E82A1E639C00219928 /* RoomsViewModel.swift in Sources */,
 				5E3021E52A1E631000219928 /* TeamsRouter.swift in Sources */,
+				5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */,
 				9D26E8E72A1D5B5B001C201B /* NetworkingLogic.swift in Sources */,
 				06B778702A1A6F3D00307E17 /* User.swift in Sources */,
+				5E3021FC2A1F908C00219928 /* ResultPresenter.swift in Sources */,
 				5E3021DC2A1E630400219928 /* RoomInfoRouter.swift in Sources */,
 				06B778762A1A7B2A00307E17 /* Room.swift in Sources */,
 				5E3021D82A1E630400219928 /* RoomModuleConfigurator.swift in Sources */,
 				5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */,
 				06ED58232A1A825E009EB119 /* AddKeyRouter.swift in Sources */,
+				5E3022012A1F929200219928 /* TeamCell.swift in Sources */,
 				06B778622A1A5E3600307E17 /* ProfileModuleConfigurator.swift in Sources */,
+				5E3021F32A1EC93400219928 /* EndGamePresenter.swift in Sources */,
 				5E46EDA02A17C42800F3FFAD /* AuthorizationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,7 +830,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 88899A28T3;
+				DEVELOPMENT_TEAM = CHVJJFPFSF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Client-Alias/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -766,7 +842,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "hse.Client-Alias1";
+				PRODUCT_BUNDLE_IDENTIFIER = "hse.Client-Alias17";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -781,7 +857,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 88899A28T3;
+				DEVELOPMENT_TEAM = CHVJJFPFSF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Client-Alias/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -793,7 +869,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "hse.Client-Alias1";
+				PRODUCT_BUNDLE_IDENTIFIER = "hse.Client-Alias17";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

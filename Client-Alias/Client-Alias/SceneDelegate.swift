@@ -16,11 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
 
 //        window.rootViewController = PlayRoundModuleConfigurator().configure(output: nil).view
-//        window.rootViewController = TabBarViewController()
+////        window.rootViewController = TabBarViewController()
 //        window.makeKeyAndVisible()
         
-        let navigationVC = UINavigationController(rootViewController: TabBarViewController())
-        navigationVC.navigationBar.prefersLargeTitles = true
+        let navigationVC = UINavigationController(rootViewController: PlayRoundModuleConfigurator().configure(output: nil).view)
+//        navigationVC.navigationBar.prefersLargeTitles = true
+        navigationVC.navigationBar.isHidden = true
         window.rootViewController = navigationVC
         window.makeKeyAndVisible()
 
