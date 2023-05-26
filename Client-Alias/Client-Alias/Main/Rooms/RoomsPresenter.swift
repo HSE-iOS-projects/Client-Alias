@@ -15,10 +15,10 @@ final class RoomsPresenter {
 extension RoomsPresenter: RoomsViewOutput {
 
     func viewDidLoad() {
-        let activeRoom = Room(name: "Моя комната", roomType: .private)
-        let openRooms = [Room(name: "Моя комната 2", roomType: .private),
-                         Room(name: "Моя комната 3", roomType: .public),
-                         Room(name: "Моя комната 4", roomType: .private)]
+        let activeRoom = Room(name: "Моя комната", roomType: .private, url: "", code: "")
+        let openRooms = [Room(name: "Моя комната 2", roomType: .private, url: "", code: ""),
+                         Room(name: "Моя комната 3", roomType: .public, url: "", code: ""),
+                         Room(name: "Моя комната 4", roomType: .private, url: "", code: "")]
         view?.viewModel = RoomsViewModel(activeRoom: activeRoom, openRooms: openRooms)
     }
 

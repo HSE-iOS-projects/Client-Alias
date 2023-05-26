@@ -7,45 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06B7785F2A1A5E3600307E17 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7785B2A1A5E3600307E17 /* ProfilePresenter.swift */; };
-		06B778602A1A5E3600307E17 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7785C2A1A5E3600307E17 /* ProfileRouter.swift */; };
-		06B778612A1A5E3600307E17 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7785D2A1A5E3600307E17 /* ProfileViewController.swift */; };
-		06B778622A1A5E3600307E17 /* ProfileModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7785E2A1A5E3600307E17 /* ProfileModuleConfigurator.swift */; };
-		06B778692A1A5E5D00307E17 /* RoomsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778652A1A5E5D00307E17 /* RoomsPresenter.swift */; };
-		06B7786A2A1A5E5D00307E17 /* RoomsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778662A1A5E5D00307E17 /* RoomsRouter.swift */; };
-		06B7786B2A1A5E5D00307E17 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778672A1A5E5D00307E17 /* RoomsViewController.swift */; };
-		06B7786C2A1A5E5D00307E17 /* RoomsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778682A1A5E5D00307E17 /* RoomsModuleConfigurator.swift */; };
-		06B7786E2A1A5EE000307E17 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7786D2A1A5EE000307E17 /* TabBarViewController.swift */; };
-		06B778702A1A6F3D00307E17 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7786F2A1A6F3D00307E17 /* User.swift */; };
-		06B778722A1A720D00307E17 /* RoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778712A1A720D00307E17 /* RoomCollectionViewCell.swift */; };
-		06B778742A1A759200307E17 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778732A1A759200307E17 /* TitleCollectionViewCell.swift */; };
-		06B778762A1A7B2A00307E17 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B778752A1A7B2A00307E17 /* Room.swift */; };
-		06ED58222A1A825E009EB119 /* AddKeyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED581E2A1A825E009EB119 /* AddKeyPresenter.swift */; };
-		06ED58232A1A825E009EB119 /* AddKeyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED581F2A1A825E009EB119 /* AddKeyRouter.swift */; };
-		06ED58242A1A825E009EB119 /* AddKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED58202A1A825E009EB119 /* AddKeyViewController.swift */; };
-		06ED58252A1A825E009EB119 /* AddKeyModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */; };
-		5E3021C22A1E62ED00219928 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021B92A1E62ED00219928 /* MembersViewController.swift */; };
-		5E3021C32A1E62ED00219928 /* MembersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BA2A1E62ED00219928 /* MembersRouter.swift */; };
-		5E3021C42A1E62ED00219928 /* MembersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BB2A1E62ED00219928 /* MembersPresenter.swift */; };
-		5E3021C52A1E62ED00219928 /* MembersModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BC2A1E62ED00219928 /* MembersModuleConfigurator.swift */; };
-		5E3021C62A1E62ED00219928 /* AddTeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BE2A1E62ED00219928 /* AddTeamRouter.swift */; };
-		5E3021C72A1E62ED00219928 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021BF2A1E62ED00219928 /* AddTeamViewController.swift */; };
-		5E3021C82A1E62ED00219928 /* AddTeamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021C02A1E62ED00219928 /* AddTeamPresenter.swift */; };
-		5E3021C92A1E62ED00219928 /* AddTeamModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021C12A1E62ED00219928 /* AddTeamModuleConfigurator.swift */; };
-		5E3021D52A1E630400219928 /* RoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021CB2A1E630300219928 /* RoomRouter.swift */; };
-		5E3021D62A1E630400219928 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021CC2A1E630400219928 /* RoomViewController.swift */; };
-		5E3021D72A1E630400219928 /* RoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021CD2A1E630400219928 /* RoomPresenter.swift */; };
-		5E3021D82A1E630400219928 /* RoomModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021CE2A1E630400219928 /* RoomModuleConfigurator.swift */; };
-		5E3021D92A1E630400219928 /* RoomInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D02A1E630400219928 /* RoomInfoViewController.swift */; };
-		5E3021DA2A1E630400219928 /* RoomInfoModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D12A1E630400219928 /* RoomInfoModuleConfigurator.swift */; };
-		5E3021DB2A1E630400219928 /* TextFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D22A1E630400219928 /* TextFieldCollectionViewCell.swift */; };
-		5E3021DC2A1E630400219928 /* RoomInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D32A1E630400219928 /* RoomInfoRouter.swift */; };
-		5E3021DD2A1E630400219928 /* RoomInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021D42A1E630400219928 /* RoomInfoPresenter.swift */; };
-		5E3021E32A1E631000219928 /* TeamsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021DF2A1E631000219928 /* TeamsPresenter.swift */; };
-		5E3021E42A1E631000219928 /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E02A1E631000219928 /* TeamsViewController.swift */; };
-		5E3021E52A1E631000219928 /* TeamsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E12A1E631000219928 /* TeamsRouter.swift */; };
-		5E3021E62A1E631000219928 /* TeamsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E22A1E631000219928 /* TeamsModuleConfigurator.swift */; };
-		5E3021E82A1E639C00219928 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E72A1E639C00219928 /* RoomsViewModel.swift */; };
 		5E3021EA2A1E7FC100219928 /* CardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E92A1E7FC100219928 /* CardTableCell.swift */; };
 		5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EB2A1E876C00219928 /* CustomStepper.swift */; };
 		5E3021F32A1EC93400219928 /* EndGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */; };
@@ -83,6 +44,51 @@
 		5EE4CA3E2A1D4E9E00DBC274 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */; };
 		5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */; };
 		5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA452A1D65B400DBC274 /* WordInfo.swift */; };
+		852B89AB2A20E11700360537 /* RoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89762A20E11700360537 /* RoomRouter.swift */; };
+		852B89AC2A20E11700360537 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89772A20E11700360537 /* RoomViewController.swift */; };
+		852B89AD2A20E11700360537 /* RoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89782A20E11700360537 /* RoomPresenter.swift */; };
+		852B89AE2A20E11700360537 /* RoomModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89792A20E11700360537 /* RoomModuleConfigurator.swift */; };
+		852B89AF2A20E11700360537 /* AddKeyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B897B2A20E11700360537 /* AddKeyPresenter.swift */; };
+		852B89B02A20E11700360537 /* AddKeyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B897C2A20E11700360537 /* AddKeyRouter.swift */; };
+		852B89B12A20E11700360537 /* AddKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B897D2A20E11700360537 /* AddKeyViewController.swift */; };
+		852B89B22A20E11700360537 /* AddKeyModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B897E2A20E11700360537 /* AddKeyModuleConfigurator.swift */; };
+		852B89B32A20E11700360537 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B897F2A20E11700360537 /* User.swift */; };
+		852B89B42A20E11700360537 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89802A20E11700360537 /* Room.swift */; };
+		852B89B52A20E11700360537 /* RoomInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89822A20E11700360537 /* RoomInfoViewModel.swift */; };
+		852B89B62A20E11700360537 /* RoomInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89832A20E11700360537 /* RoomInfoViewController.swift */; };
+		852B89B72A20E11700360537 /* RoomInfoModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89842A20E11700360537 /* RoomInfoModuleConfigurator.swift */; };
+		852B89B82A20E11700360537 /* TextFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89852A20E11700360537 /* TextFieldCollectionViewCell.swift */; };
+		852B89B92A20E11700360537 /* RoomInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89862A20E11700360537 /* RoomInfoRouter.swift */; };
+		852B89BA2A20E11700360537 /* RoomInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89872A20E11700360537 /* RoomInfoPresenter.swift */; };
+		852B89BB2A20E11700360537 /* MainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89882A20E11700360537 /* MainFactory.swift */; };
+		852B89BC2A20E11700360537 /* GameSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B898A2A20E11700360537 /* GameSettingsPresenter.swift */; };
+		852B89BD2A20E11700360537 /* GameSettingsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B898B2A20E11700360537 /* GameSettingsModuleConfigurator.swift */; };
+		852B89BE2A20E11700360537 /* GameSettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B898C2A20E11700360537 /* GameSettingsRouter.swift */; };
+		852B89BF2A20E11700360537 /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B898D2A20E11700360537 /* GameSettingsViewController.swift */; };
+		852B89C02A20E11700360537 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B898F2A20E11700360537 /* ProfilePresenter.swift */; };
+		852B89C12A20E11700360537 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89902A20E11700360537 /* ProfileRouter.swift */; };
+		852B89C22A20E11700360537 /* ProfileModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89912A20E11700360537 /* ProfileModuleConfigurator.swift */; };
+		852B89C32A20E11700360537 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89922A20E11700360537 /* ProfileViewController.swift */; };
+		852B89C42A20E11700360537 /* TeamsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89942A20E11700360537 /* TeamsPresenter.swift */; };
+		852B89C52A20E11700360537 /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89952A20E11700360537 /* TeamsViewController.swift */; };
+		852B89C62A20E11700360537 /* TeamsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89962A20E11700360537 /* TeamsRouter.swift */; };
+		852B89C72A20E11700360537 /* TeamsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89972A20E11700360537 /* TeamsModuleConfigurator.swift */; };
+		852B89C82A20E11700360537 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89992A20E11700360537 /* MembersViewController.swift */; };
+		852B89C92A20E11700360537 /* MembersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B899A2A20E11700360537 /* MembersRouter.swift */; };
+		852B89CA2A20E11700360537 /* MembersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B899B2A20E11700360537 /* MembersPresenter.swift */; };
+		852B89CB2A20E11700360537 /* MembersModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B899C2A20E11700360537 /* MembersModuleConfigurator.swift */; };
+		852B89CC2A20E11700360537 /* AddTeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B899E2A20E11700360537 /* AddTeamRouter.swift */; };
+		852B89CD2A20E11700360537 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B899F2A20E11700360537 /* AddTeamViewController.swift */; };
+		852B89CE2A20E11700360537 /* AddTeamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A02A20E11700360537 /* AddTeamPresenter.swift */; };
+		852B89CF2A20E11700360537 /* AddTeamModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A12A20E11700360537 /* AddTeamModuleConfigurator.swift */; };
+		852B89D02A20E11700360537 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A22A20E11700360537 /* TabBarViewController.swift */; };
+		852B89D12A20E11700360537 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A42A20E11700360537 /* RoomsViewModel.swift */; };
+		852B89D22A20E11700360537 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A52A20E11700360537 /* TitleCollectionViewCell.swift */; };
+		852B89D32A20E11700360537 /* RoomsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A62A20E11700360537 /* RoomsModuleConfigurator.swift */; };
+		852B89D42A20E11700360537 /* RoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A72A20E11700360537 /* RoomCollectionViewCell.swift */; };
+		852B89D52A20E11700360537 /* RoomsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A82A20E11700360537 /* RoomsPresenter.swift */; };
+		852B89D62A20E11700360537 /* RoomsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89A92A20E11700360537 /* RoomsRouter.swift */; };
+		852B89D72A20E11700360537 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89AA2A20E11700360537 /* RoomsViewController.swift */; };
 		9D26E8E42A1D5B5B001C201B /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8DE2A1D5B5B001C201B /* Aliases.swift */; };
 		9D26E8E52A1D5B5B001C201B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8DF2A1D5B5B001C201B /* Networking.swift */; };
 		9D26E8E72A1D5B5B001C201B /* NetworkingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D26E8E12A1D5B5B001C201B /* NetworkingLogic.swift */; };
@@ -98,45 +104,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06B7785B2A1A5E3600307E17 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
-		06B7785C2A1A5E3600307E17 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
-		06B7785D2A1A5E3600307E17 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		06B7785E2A1A5E3600307E17 /* ProfileModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModuleConfigurator.swift; sourceTree = "<group>"; };
-		06B778652A1A5E5D00307E17 /* RoomsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsPresenter.swift; sourceTree = "<group>"; };
-		06B778662A1A5E5D00307E17 /* RoomsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsRouter.swift; sourceTree = "<group>"; };
-		06B778672A1A5E5D00307E17 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
-		06B778682A1A5E5D00307E17 /* RoomsModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsModuleConfigurator.swift; sourceTree = "<group>"; };
-		06B7786D2A1A5EE000307E17 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		06B7786F2A1A6F3D00307E17 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		06B778712A1A720D00307E17 /* RoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCollectionViewCell.swift; sourceTree = "<group>"; };
-		06B778732A1A759200307E17 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
-		06B778752A1A7B2A00307E17 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
-		06ED581E2A1A825E009EB119 /* AddKeyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyPresenter.swift; sourceTree = "<group>"; };
-		06ED581F2A1A825E009EB119 /* AddKeyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyRouter.swift; sourceTree = "<group>"; };
-		06ED58202A1A825E009EB119 /* AddKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyViewController.swift; sourceTree = "<group>"; };
-		06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeyModuleConfigurator.swift; sourceTree = "<group>"; };
-		5E3021B92A1E62ED00219928 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
-		5E3021BA2A1E62ED00219928 /* MembersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersRouter.swift; sourceTree = "<group>"; };
-		5E3021BB2A1E62ED00219928 /* MembersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersPresenter.swift; sourceTree = "<group>"; };
-		5E3021BC2A1E62ED00219928 /* MembersModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersModuleConfigurator.swift; sourceTree = "<group>"; };
-		5E3021BE2A1E62ED00219928 /* AddTeamRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamRouter.swift; sourceTree = "<group>"; };
-		5E3021BF2A1E62ED00219928 /* AddTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
-		5E3021C02A1E62ED00219928 /* AddTeamPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamPresenter.swift; sourceTree = "<group>"; };
-		5E3021C12A1E62ED00219928 /* AddTeamModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamModuleConfigurator.swift; sourceTree = "<group>"; };
-		5E3021CB2A1E630300219928 /* RoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomRouter.swift; sourceTree = "<group>"; };
-		5E3021CC2A1E630400219928 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
-		5E3021CD2A1E630400219928 /* RoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPresenter.swift; sourceTree = "<group>"; };
-		5E3021CE2A1E630400219928 /* RoomModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomModuleConfigurator.swift; sourceTree = "<group>"; };
-		5E3021D02A1E630400219928 /* RoomInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoViewController.swift; sourceTree = "<group>"; };
-		5E3021D12A1E630400219928 /* RoomInfoModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoModuleConfigurator.swift; sourceTree = "<group>"; };
-		5E3021D22A1E630400219928 /* TextFieldCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionViewCell.swift; sourceTree = "<group>"; };
-		5E3021D32A1E630400219928 /* RoomInfoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoRouter.swift; sourceTree = "<group>"; };
-		5E3021D42A1E630400219928 /* RoomInfoPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoPresenter.swift; sourceTree = "<group>"; };
-		5E3021DF2A1E631000219928 /* TeamsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsPresenter.swift; sourceTree = "<group>"; };
-		5E3021E02A1E631000219928 /* TeamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
-		5E3021E12A1E631000219928 /* TeamsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsRouter.swift; sourceTree = "<group>"; };
-		5E3021E22A1E631000219928 /* TeamsModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsModuleConfigurator.swift; sourceTree = "<group>"; };
-		5E3021E72A1E639C00219928 /* RoomsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		5E3021E92A1E7FC100219928 /* CardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableCell.swift; sourceTree = "<group>"; };
 		5E3021EB2A1E876C00219928 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePresenter.swift; sourceTree = "<group>"; };
@@ -175,6 +142,51 @@
 		5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
 		5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5EE4CA452A1D65B400DBC274 /* WordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
+		852B89762A20E11700360537 /* RoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomRouter.swift; sourceTree = "<group>"; };
+		852B89772A20E11700360537 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		852B89782A20E11700360537 /* RoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPresenter.swift; sourceTree = "<group>"; };
+		852B89792A20E11700360537 /* RoomModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B897B2A20E11700360537 /* AddKeyPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddKeyPresenter.swift; sourceTree = "<group>"; };
+		852B897C2A20E11700360537 /* AddKeyRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddKeyRouter.swift; sourceTree = "<group>"; };
+		852B897D2A20E11700360537 /* AddKeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddKeyViewController.swift; sourceTree = "<group>"; };
+		852B897E2A20E11700360537 /* AddKeyModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddKeyModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B897F2A20E11700360537 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		852B89802A20E11700360537 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		852B89822A20E11700360537 /* RoomInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoViewModel.swift; sourceTree = "<group>"; };
+		852B89832A20E11700360537 /* RoomInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoViewController.swift; sourceTree = "<group>"; };
+		852B89842A20E11700360537 /* RoomInfoModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B89852A20E11700360537 /* TextFieldCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionViewCell.swift; sourceTree = "<group>"; };
+		852B89862A20E11700360537 /* RoomInfoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoRouter.swift; sourceTree = "<group>"; };
+		852B89872A20E11700360537 /* RoomInfoPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoPresenter.swift; sourceTree = "<group>"; };
+		852B89882A20E11700360537 /* MainFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFactory.swift; sourceTree = "<group>"; };
+		852B898A2A20E11700360537 /* GameSettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettingsPresenter.swift; sourceTree = "<group>"; };
+		852B898B2A20E11700360537 /* GameSettingsModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettingsModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B898C2A20E11700360537 /* GameSettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettingsRouter.swift; sourceTree = "<group>"; };
+		852B898D2A20E11700360537 /* GameSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
+		852B898F2A20E11700360537 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		852B89902A20E11700360537 /* ProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		852B89912A20E11700360537 /* ProfileModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B89922A20E11700360537 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		852B89942A20E11700360537 /* TeamsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsPresenter.swift; sourceTree = "<group>"; };
+		852B89952A20E11700360537 /* TeamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
+		852B89962A20E11700360537 /* TeamsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsRouter.swift; sourceTree = "<group>"; };
+		852B89972A20E11700360537 /* TeamsModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B89992A20E11700360537 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		852B899A2A20E11700360537 /* MembersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersRouter.swift; sourceTree = "<group>"; };
+		852B899B2A20E11700360537 /* MembersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersPresenter.swift; sourceTree = "<group>"; };
+		852B899C2A20E11700360537 /* MembersModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B899E2A20E11700360537 /* AddTeamRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamRouter.swift; sourceTree = "<group>"; };
+		852B899F2A20E11700360537 /* AddTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
+		852B89A02A20E11700360537 /* AddTeamPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamPresenter.swift; sourceTree = "<group>"; };
+		852B89A12A20E11700360537 /* AddTeamModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B89A22A20E11700360537 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		852B89A42A20E11700360537 /* RoomsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
+		852B89A52A20E11700360537 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		852B89A62A20E11700360537 /* RoomsModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsModuleConfigurator.swift; sourceTree = "<group>"; };
+		852B89A72A20E11700360537 /* RoomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCollectionViewCell.swift; sourceTree = "<group>"; };
+		852B89A82A20E11700360537 /* RoomsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsPresenter.swift; sourceTree = "<group>"; };
+		852B89A92A20E11700360537 /* RoomsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsRouter.swift; sourceTree = "<group>"; };
+		852B89AA2A20E11700360537 /* RoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		9D26E8DE2A1D5B5B001C201B /* Aliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		9D26E8DF2A1D5B5B001C201B /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		9D26E8E12A1D5B5B001C201B /* NetworkingLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingLogic.swift; sourceTree = "<group>"; };
@@ -201,116 +213,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0653A28F2A1A5DC3005DD793 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				5E3021DE2A1E631000219928 /* Teams */,
-				5E3021CA2A1E630300219928 /* Room */,
-				5E3021CF2A1E630400219928 /* RoomInfo */,
-				5E3021BD2A1E62ED00219928 /* AddTeam */,
-				5E3021B82A1E62ED00219928 /* Members */,
-				06B778772A1A81FA00307E17 /* AddKey */,
-				06B778642A1A5E5000307E17 /* Rooms */,
-				06B778632A1A5E4800307E17 /* Profile */,
-				06B7786D2A1A5EE000307E17 /* TabBarViewController.swift */,
-				06B7786F2A1A6F3D00307E17 /* User.swift */,
-				06B778752A1A7B2A00307E17 /* Room.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		06B778632A1A5E4800307E17 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				06B7785B2A1A5E3600307E17 /* ProfilePresenter.swift */,
-				06B7785C2A1A5E3600307E17 /* ProfileRouter.swift */,
-				06B7785D2A1A5E3600307E17 /* ProfileViewController.swift */,
-				06B7785E2A1A5E3600307E17 /* ProfileModuleConfigurator.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		06B778642A1A5E5000307E17 /* Rooms */ = {
-			isa = PBXGroup;
-			children = (
-				5E3021E72A1E639C00219928 /* RoomsViewModel.swift */,
-				06B778652A1A5E5D00307E17 /* RoomsPresenter.swift */,
-				06B778662A1A5E5D00307E17 /* RoomsRouter.swift */,
-				06B778672A1A5E5D00307E17 /* RoomsViewController.swift */,
-				06B778682A1A5E5D00307E17 /* RoomsModuleConfigurator.swift */,
-				06B778712A1A720D00307E17 /* RoomCollectionViewCell.swift */,
-				06B778732A1A759200307E17 /* TitleCollectionViewCell.swift */,
-			);
-			path = Rooms;
-			sourceTree = "<group>";
-		};
-		06B778772A1A81FA00307E17 /* AddKey */ = {
-			isa = PBXGroup;
-			children = (
-				06ED581E2A1A825E009EB119 /* AddKeyPresenter.swift */,
-				06ED581F2A1A825E009EB119 /* AddKeyRouter.swift */,
-				06ED58202A1A825E009EB119 /* AddKeyViewController.swift */,
-				06ED58212A1A825E009EB119 /* AddKeyModuleConfigurator.swift */,
-			);
-			path = AddKey;
-			sourceTree = "<group>";
-		};
-		5E3021B82A1E62ED00219928 /* Members */ = {
-			isa = PBXGroup;
-			children = (
-				5E3021B92A1E62ED00219928 /* MembersViewController.swift */,
-				5E3021BA2A1E62ED00219928 /* MembersRouter.swift */,
-				5E3021BB2A1E62ED00219928 /* MembersPresenter.swift */,
-				5E3021BC2A1E62ED00219928 /* MembersModuleConfigurator.swift */,
-			);
-			path = Members;
-			sourceTree = "<group>";
-		};
-		5E3021BD2A1E62ED00219928 /* AddTeam */ = {
-			isa = PBXGroup;
-			children = (
-				5E3021BE2A1E62ED00219928 /* AddTeamRouter.swift */,
-				5E3021BF2A1E62ED00219928 /* AddTeamViewController.swift */,
-				5E3021C02A1E62ED00219928 /* AddTeamPresenter.swift */,
-				5E3021C12A1E62ED00219928 /* AddTeamModuleConfigurator.swift */,
-			);
-			path = AddTeam;
-			sourceTree = "<group>";
-		};
-		5E3021CA2A1E630300219928 /* Room */ = {
-			isa = PBXGroup;
-			children = (
-				5E3021CB2A1E630300219928 /* RoomRouter.swift */,
-				5E3021CC2A1E630400219928 /* RoomViewController.swift */,
-				5E3021CD2A1E630400219928 /* RoomPresenter.swift */,
-				5E3021CE2A1E630400219928 /* RoomModuleConfigurator.swift */,
-			);
-			path = Room;
-			sourceTree = "<group>";
-		};
-		5E3021CF2A1E630400219928 /* RoomInfo */ = {
-			isa = PBXGroup;
-			children = (
-				5E3021D02A1E630400219928 /* RoomInfoViewController.swift */,
-				5E3021D12A1E630400219928 /* RoomInfoModuleConfigurator.swift */,
-				5E3021D22A1E630400219928 /* TextFieldCollectionViewCell.swift */,
-				5E3021D32A1E630400219928 /* RoomInfoRouter.swift */,
-				5E3021D42A1E630400219928 /* RoomInfoPresenter.swift */,
-			);
-			path = RoomInfo;
-			sourceTree = "<group>";
-		};
-		5E3021DE2A1E631000219928 /* Teams */ = {
-			isa = PBXGroup;
-			children = (
-				5E3021DF2A1E631000219928 /* TeamsPresenter.swift */,
-				5E3021E02A1E631000219928 /* TeamsViewController.swift */,
-				5E3021E12A1E631000219928 /* TeamsRouter.swift */,
-				5E3021E22A1E631000219928 /* TeamsModuleConfigurator.swift */,
-			);
-			path = Teams;
-			sourceTree = "<group>";
-		};
 		5E3021ED2A1EA2E800219928 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,9 +308,9 @@
 		5E89BA292A17BAE3005E3381 /* Client-Alias */ = {
 			isa = PBXGroup;
 			children = (
+				852B89742A20E11700360537 /* Main */,
 				9D26E8DD2A1D5B5B001C201B /* Networking */,
 				9D81CC5D2A1CFAD200EBC621 /* Services */,
-				0653A28F2A1A5DC3005DD793 /* Main */,
 				5E46EDAD2A17D0FF00F3FFAD /* Common */,
 				5E46ED962A17C3E300F3FFAD /* LogInModule */,
 				5EE4CA332A1D36E700DBC274 /* Play */,
@@ -445,6 +347,130 @@
 				5E3022042A1FB4E000219928 /* WaitCardView.swift */,
 			);
 			path = PlayRound;
+			sourceTree = "<group>";
+		};
+		852B89742A20E11700360537 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				852B89752A20E11700360537 /* Room */,
+				852B897A2A20E11700360537 /* AddKey */,
+				852B897F2A20E11700360537 /* User.swift */,
+				852B89802A20E11700360537 /* Room.swift */,
+				852B89812A20E11700360537 /* RoomInfo */,
+				852B89882A20E11700360537 /* MainFactory.swift */,
+				852B89892A20E11700360537 /* GameSettings */,
+				852B898E2A20E11700360537 /* Profile */,
+				852B89932A20E11700360537 /* Teams */,
+				852B89982A20E11700360537 /* Members */,
+				852B899D2A20E11700360537 /* AddTeam */,
+				852B89A22A20E11700360537 /* TabBarViewController.swift */,
+				852B89A32A20E11700360537 /* Rooms */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		852B89752A20E11700360537 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				852B89762A20E11700360537 /* RoomRouter.swift */,
+				852B89772A20E11700360537 /* RoomViewController.swift */,
+				852B89782A20E11700360537 /* RoomPresenter.swift */,
+				852B89792A20E11700360537 /* RoomModuleConfigurator.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		852B897A2A20E11700360537 /* AddKey */ = {
+			isa = PBXGroup;
+			children = (
+				852B897B2A20E11700360537 /* AddKeyPresenter.swift */,
+				852B897C2A20E11700360537 /* AddKeyRouter.swift */,
+				852B897D2A20E11700360537 /* AddKeyViewController.swift */,
+				852B897E2A20E11700360537 /* AddKeyModuleConfigurator.swift */,
+			);
+			path = AddKey;
+			sourceTree = "<group>";
+		};
+		852B89812A20E11700360537 /* RoomInfo */ = {
+			isa = PBXGroup;
+			children = (
+				852B89822A20E11700360537 /* RoomInfoViewModel.swift */,
+				852B89832A20E11700360537 /* RoomInfoViewController.swift */,
+				852B89842A20E11700360537 /* RoomInfoModuleConfigurator.swift */,
+				852B89852A20E11700360537 /* TextFieldCollectionViewCell.swift */,
+				852B89862A20E11700360537 /* RoomInfoRouter.swift */,
+				852B89872A20E11700360537 /* RoomInfoPresenter.swift */,
+			);
+			path = RoomInfo;
+			sourceTree = "<group>";
+		};
+		852B89892A20E11700360537 /* GameSettings */ = {
+			isa = PBXGroup;
+			children = (
+				852B898A2A20E11700360537 /* GameSettingsPresenter.swift */,
+				852B898B2A20E11700360537 /* GameSettingsModuleConfigurator.swift */,
+				852B898C2A20E11700360537 /* GameSettingsRouter.swift */,
+				852B898D2A20E11700360537 /* GameSettingsViewController.swift */,
+			);
+			path = GameSettings;
+			sourceTree = "<group>";
+		};
+		852B898E2A20E11700360537 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				852B898F2A20E11700360537 /* ProfilePresenter.swift */,
+				852B89902A20E11700360537 /* ProfileRouter.swift */,
+				852B89912A20E11700360537 /* ProfileModuleConfigurator.swift */,
+				852B89922A20E11700360537 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		852B89932A20E11700360537 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				852B89942A20E11700360537 /* TeamsPresenter.swift */,
+				852B89952A20E11700360537 /* TeamsViewController.swift */,
+				852B89962A20E11700360537 /* TeamsRouter.swift */,
+				852B89972A20E11700360537 /* TeamsModuleConfigurator.swift */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
+		852B89982A20E11700360537 /* Members */ = {
+			isa = PBXGroup;
+			children = (
+				852B89992A20E11700360537 /* MembersViewController.swift */,
+				852B899A2A20E11700360537 /* MembersRouter.swift */,
+				852B899B2A20E11700360537 /* MembersPresenter.swift */,
+				852B899C2A20E11700360537 /* MembersModuleConfigurator.swift */,
+			);
+			path = Members;
+			sourceTree = "<group>";
+		};
+		852B899D2A20E11700360537 /* AddTeam */ = {
+			isa = PBXGroup;
+			children = (
+				852B899E2A20E11700360537 /* AddTeamRouter.swift */,
+				852B899F2A20E11700360537 /* AddTeamViewController.swift */,
+				852B89A02A20E11700360537 /* AddTeamPresenter.swift */,
+				852B89A12A20E11700360537 /* AddTeamModuleConfigurator.swift */,
+			);
+			path = AddTeam;
+			sourceTree = "<group>";
+		};
+		852B89A32A20E11700360537 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				852B89A42A20E11700360537 /* RoomsViewModel.swift */,
+				852B89A52A20E11700360537 /* TitleCollectionViewCell.swift */,
+				852B89A62A20E11700360537 /* RoomsModuleConfigurator.swift */,
+				852B89A72A20E11700360537 /* RoomCollectionViewCell.swift */,
+				852B89A82A20E11700360537 /* RoomsPresenter.swift */,
+				852B89A92A20E11700360537 /* RoomsRouter.swift */,
+				852B89AA2A20E11700360537 /* RoomsViewController.swift */,
+			);
+			path = Rooms;
 			sourceTree = "<group>";
 		};
 		9D26E8DD2A1D5B5B001C201B /* Networking */ = {
@@ -604,91 +630,97 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06B778602A1A5E3600307E17 /* ProfileRouter.swift in Sources */,
 				9D26E8F02A1D6472001C201B /* AuthorizationModels.swift in Sources */,
-				06B778742A1A759200307E17 /* TitleCollectionViewCell.swift in Sources */,
-				5E3021DA2A1E630400219928 /* RoomInfoModuleConfigurator.swift in Sources */,
-				06B7786A2A1A5E5D00307E17 /* RoomsRouter.swift in Sources */,
+				852B89B82A20E11700360537 /* TextFieldCollectionViewCell.swift in Sources */,
 				5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */,
-				5E3021D72A1E630400219928 /* RoomPresenter.swift in Sources */,
-				5E3021DD2A1E630400219928 /* RoomInfoPresenter.swift in Sources */,
-				5E3021D52A1E630400219928 /* RoomRouter.swift in Sources */,
+				852B89D22A20E11700360537 /* TitleCollectionViewCell.swift in Sources */,
+				852B89C82A20E11700360537 /* MembersViewController.swift in Sources */,
+				852B89C22A20E11700360537 /* ProfileModuleConfigurator.swift in Sources */,
+				852B89B42A20E11700360537 /* Room.swift in Sources */,
+				852B89AC2A20E11700360537 /* RoomViewController.swift in Sources */,
+				852B89CD2A20E11700360537 /* AddTeamViewController.swift in Sources */,
+				852B89C32A20E11700360537 /* ProfileViewController.swift in Sources */,
+				852B89B92A20E11700360537 /* RoomInfoRouter.swift in Sources */,
+				852B89BF2A20E11700360537 /* GameSettingsViewController.swift in Sources */,
+				852B89C52A20E11700360537 /* TeamsViewController.swift in Sources */,
 				5E46EDAC2A17D05B00F3FFAD /* LogInFactory.swift in Sources */,
-				5E3021C52A1E62ED00219928 /* MembersModuleConfigurator.swift in Sources */,
-				06ED58242A1A825E009EB119 /* AddKeyViewController.swift in Sources */,
 				9D26E8E82A1D5B5B001C201B /* NetworkingModels.swift in Sources */,
 				5EE4CA3C2A1D371300DBC274 /* PlayRoundModuleConfigurator.swift in Sources */,
+				852B89BB2A20E11700360537 /* MainFactory.swift in Sources */,
 				5E3021F52A1EC93400219928 /* EndGameViewController.swift in Sources */,
+				852B89B22A20E11700360537 /* AddKeyModuleConfigurator.swift in Sources */,
 				9D81CC662A1CFB2300EBC621 /* SecureStorage+Token.swift in Sources */,
-				5E3021C32A1E62ED00219928 /* MembersRouter.swift in Sources */,
 				5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */,
 				9D26E8EC2A1D5E6D001C201B /* AuthorizationWorker.swift in Sources */,
 				5E3022032A1F92FF00219928 /* ResultInfo.swift in Sources */,
+				852B89BE2A20E11700360537 /* GameSettingsRouter.swift in Sources */,
+				852B89CF2A20E11700360537 /* AddTeamModuleConfigurator.swift in Sources */,
+				852B89CE2A20E11700360537 /* AddTeamPresenter.swift in Sources */,
+				852B89CC2A20E11700360537 /* AddTeamRouter.swift in Sources */,
+				852B89C92A20E11700360537 /* MembersRouter.swift in Sources */,
 				5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */,
 				5E3021FD2A1F908C00219928 /* ResultRouter.swift in Sources */,
 				5E3021EA2A1E7FC100219928 /* CardTableCell.swift in Sources */,
-				5E3021DB2A1E630400219928 /* TextFieldCollectionViewCell.swift in Sources */,
 				5EE4CA3A2A1D371300DBC274 /* PlayRoundRouter.swift in Sources */,
+				852B89CA2A20E11700360537 /* MembersPresenter.swift in Sources */,
+				852B89AD2A20E11700360537 /* RoomPresenter.swift in Sources */,
+				852B89D12A20E11700360537 /* RoomsViewModel.swift in Sources */,
+				852B89D42A20E11700360537 /* RoomCollectionViewCell.swift in Sources */,
 				9D81CC672A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift in Sources */,
-				5E3021C82A1E62ED00219928 /* AddTeamPresenter.swift in Sources */,
 				5E3022052A1FB4E000219928 /* WaitCardView.swift in Sources */,
 				9D26E8F32A1D6558001C201B /* AuthorizationEndpoint.swift in Sources */,
+				852B89B32A20E11700360537 /* User.swift in Sources */,
 				5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */,
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
 				5E3021F62A1EC93400219928 /* EndGameModuleConfigurator.swift in Sources */,
 				9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */,
-				06B778692A1A5E5D00307E17 /* RoomsPresenter.swift in Sources */,
 				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
 				9D26E8E42A1D5B5B001C201B /* Aliases.swift in Sources */,
+				852B89D02A20E11700360537 /* TabBarViewController.swift in Sources */,
+				852B89AE2A20E11700360537 /* RoomModuleConfigurator.swift in Sources */,
+				852B89C12A20E11700360537 /* ProfileRouter.swift in Sources */,
 				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
-				06B778612A1A5E3600307E17 /* ProfileViewController.swift in Sources */,
-				06ED58252A1A825E009EB119 /* AddKeyModuleConfigurator.swift in Sources */,
-				5E3021E42A1E631000219928 /* TeamsViewController.swift in Sources */,
-				06B7786B2A1A5E5D00307E17 /* RoomsViewController.swift in Sources */,
-				5E3021E62A1E631000219928 /* TeamsModuleConfigurator.swift in Sources */,
+				852B89C72A20E11700360537 /* TeamsModuleConfigurator.swift in Sources */,
 				5E3021F42A1EC93400219928 /* EndGameRouter.swift in Sources */,
-				5E3021D92A1E630400219928 /* RoomInfoViewController.swift in Sources */,
+				852B89C62A20E11700360537 /* TeamsRouter.swift in Sources */,
 				5EE4CA392A1D371300DBC274 /* PlayRoundPresenter.swift in Sources */,
+				852B89CB2A20E11700360537 /* MembersModuleConfigurator.swift in Sources */,
 				5E3021FE2A1F908C00219928 /* ResultViewController.swift in Sources */,
 				5E46EDA92A17C92B00F3FFAD /* RegistrationViewController.swift in Sources */,
 				5E46EDA82A17C92B00F3FFAD /* RegistrationRouter.swift in Sources */,
-				06B7786C2A1A5E5D00307E17 /* RoomsModuleConfigurator.swift in Sources */,
-				06B7785F2A1A5E3600307E17 /* ProfilePresenter.swift in Sources */,
-				06B7786E2A1A5EE000307E17 /* TabBarViewController.swift in Sources */,
+				852B89D32A20E11700360537 /* RoomsModuleConfigurator.swift in Sources */,
 				5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */,
 				5E3021FF2A1F908C00219928 /* ResultModuleConfigurator.swift in Sources */,
+				852B89B52A20E11700360537 /* RoomInfoViewModel.swift in Sources */,
+				852B89BC2A20E11700360537 /* GameSettingsPresenter.swift in Sources */,
+				852B89AF2A20E11700360537 /* AddKeyPresenter.swift in Sources */,
 				5E46EDAA2A17C92B00F3FFAD /* RegistrationModuleConfigurator.swift in Sources */,
+				852B89B62A20E11700360537 /* RoomInfoViewController.swift in Sources */,
+				852B89C02A20E11700360537 /* ProfilePresenter.swift in Sources */,
 				9D26E8E92A1D5B5B001C201B /* Endpoint.swift in Sources */,
-				5E3021C92A1E62ED00219928 /* AddTeamModuleConfigurator.swift in Sources */,
 				9D81CC682A1CFB2300EBC621 /* SecureStorage.swift in Sources */,
-				06ED58222A1A825E009EB119 /* AddKeyPresenter.swift in Sources */,
-				5E3021C62A1E62ED00219928 /* AddTeamRouter.swift in Sources */,
-				06B778722A1A720D00307E17 /* RoomCollectionViewCell.swift in Sources */,
 				9D26E8E52A1D5B5B001C201B /* Networking.swift in Sources */,
-				5E3021C42A1E62ED00219928 /* MembersPresenter.swift in Sources */,
-				5E3021E32A1E631000219928 /* TeamsPresenter.swift in Sources */,
 				5E46EDA22A17C42800F3FFAD /* AuthorizationModuleConfigurator.swift in Sources */,
-				5E3021C22A1E62ED00219928 /* MembersViewController.swift in Sources */,
+				852B89D62A20E11700360537 /* RoomsRouter.swift in Sources */,
 				5EE4CA3E2A1D4E9E00DBC274 /* RoundInfo.swift in Sources */,
-				5E3021C72A1E62ED00219928 /* AddTeamViewController.swift in Sources */,
+				852B89C42A20E11700360537 /* TeamsPresenter.swift in Sources */,
 				5EE4CA3B2A1D371300DBC274 /* PlayRoundViewController.swift in Sources */,
+				852B89B02A20E11700360537 /* AddKeyRouter.swift in Sources */,
+				852B89D52A20E11700360537 /* RoomsPresenter.swift in Sources */,
 				5E46EDB12A17D50800F3FFAD /* UIColor+ColorPalette.swift in Sources */,
-				5E3021D62A1E630400219928 /* RoomViewController.swift in Sources */,
 				5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */,
-				5E3021E82A1E639C00219928 /* RoomsViewModel.swift in Sources */,
-				5E3021E52A1E631000219928 /* TeamsRouter.swift in Sources */,
+				852B89D72A20E11700360537 /* RoomsViewController.swift in Sources */,
+				852B89BA2A20E11700360537 /* RoomInfoPresenter.swift in Sources */,
+				852B89BD2A20E11700360537 /* GameSettingsModuleConfigurator.swift in Sources */,
 				5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */,
+				852B89AB2A20E11700360537 /* RoomRouter.swift in Sources */,
 				9D26E8E72A1D5B5B001C201B /* NetworkingLogic.swift in Sources */,
-				06B778702A1A6F3D00307E17 /* User.swift in Sources */,
 				5E3021FC2A1F908C00219928 /* ResultPresenter.swift in Sources */,
-				5E3021DC2A1E630400219928 /* RoomInfoRouter.swift in Sources */,
-				06B778762A1A7B2A00307E17 /* Room.swift in Sources */,
-				5E3021D82A1E630400219928 /* RoomModuleConfigurator.swift in Sources */,
 				5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */,
-				06ED58232A1A825E009EB119 /* AddKeyRouter.swift in Sources */,
 				5E3022012A1F929200219928 /* TeamCell.swift in Sources */,
-				06B778622A1A5E3600307E17 /* ProfileModuleConfigurator.swift in Sources */,
 				5E3021F32A1EC93400219928 /* EndGamePresenter.swift in Sources */,
+				852B89B12A20E11700360537 /* AddKeyViewController.swift in Sources */,
+				852B89B72A20E11700360537 /* RoomInfoModuleConfigurator.swift in Sources */,
 				5E46EDA02A17C42800F3FFAD /* AuthorizationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

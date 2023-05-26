@@ -9,6 +9,8 @@ struct Room: Equatable {
 
     let name: String
     let roomType: RoomType
+    let url: String
+    let code: String?
 }
 
 struct UserRooms {

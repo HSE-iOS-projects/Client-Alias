@@ -20,12 +20,14 @@ final class RoomInfoPresenter {
 extension RoomInfoPresenter: RoomInfoViewOutput {
 
     func viewDidLoad() {
-        view?.update(room: room)
+        view?.viewModel = RoomInfoViewModel(room: room)
     }
 
     func select(user: String) {
         router?.showUserActions(user: user, addHandler: { [weak self] in
             self?.router?.showTeams()
+        }, adminHandler: {
+
         }, deleteHandler: {
             print("1")
         })
@@ -37,6 +39,10 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
 
     func addTeam() {
         router?.showAddTeam()
+    }
+
+    func start() {
+        router?.showGameSettings()
     }
 }
 

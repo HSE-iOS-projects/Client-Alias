@@ -14,6 +14,10 @@ final class AddTeamPresenter {
 
 extension AddTeamPresenter: AddTeamViewOutput {
     func viewDidLoad() {}
+
+    func add(team: String) {
+        print(team)
+    }
 }
 
 // MARK: - AddTeamInput

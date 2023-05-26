@@ -13,7 +13,12 @@ final class AddKeyPresenter {
 // MARK: - AddKeyViewOutput
 
 extension AddKeyPresenter: AddKeyViewOutput {
+
     func viewDidLoad() {}
+
+    func add(key: String) {
+        print(key)
+    }
 }
 
 // MARK: - AddKeyInput

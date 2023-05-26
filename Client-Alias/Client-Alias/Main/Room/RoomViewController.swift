@@ -4,46 +4,38 @@ protocol RoomViewInput: AnyObject {}
 
 protocol RoomViewOutput: AnyObject {
     func viewDidLoad()
-    func save(name: String, isPrivate: Bool)
+    func save(name: String, isPrivate: Bool, url: String)
     func cancel()
+    func generateCode() -> String
 }
 
 final class RoomViewController: UIViewController {
     // MARK: - Outlets
 
-    private lazy var yourNameLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .gray
-        titleLabel.text = "Your name"
-        titleLabel.font = .boldSystemFont(ofSize: 16)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        return titleLabel
-    }()
+    private lazy var yourNameLabel: UILabel = MainFactory.makeLabel(text: "Your name")
 
-    private lazy var textField: UITextField = {
-        let textField = UITextField()
-        textField.text = "My Room"
-        textField.textColor = .white
-        textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
-        textField.placeholder = "Type here"
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
+    private lazy var textField: UITextField = MainFactory.makeTextField(text: "Type here", mainText: "My Room")
 
-    private lazy var privateRoomLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .gray
-        titleLabel.text = "Закрытая"
-        titleLabel.font = .boldSystemFont(ofSize: 16)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        return titleLabel
-    }()
+    private lazy var urlLabel: UILabel = MainFactory.makeLabel(text: "Связь")
+
+    private lazy var urlTextField: UITextField = MainFactory.makeTextField(text: "Ссылка", mainText: "1")
+
+    private lazy var privateRoomLabel: UILabel = MainFactory.makeLabel(text: "Закрытая")
 
     private lazy var privateSwitch: UISwitch = {
         let privateSwitch = UISwitch()
+        privateSwitch.addTarget(self, action: #selector(changeRoomType), for: .valueChanged)
         privateSwitch.translatesAutoresizingMaskIntoConstraints = false
         return privateSwitch
+    }()
+
+    private(set) lazy var codeTextView: UITextView = {
+        let textView = MainFactory.makeTextView()
+        textView.isHidden = true
+        textView.isEditable = false
+        textView.layer.cornerRadius = 4
+        textView.font = textField.font
+        return textView
     }()
 
     private lazy var saveButton: UIButton = {
@@ -101,11 +93,21 @@ final class RoomViewController: UIViewController {
         guard let name = textField.text, !name.isEmpty else {
             return
         }
-        output?.save(name: name, isPrivate: privateSwitch.isOn)
+        guard let url = urlTextField.text, !url.isEmpty else {
+            return
+        }
+        output?.save(name: name, isPrivate: privateSwitch.isOn, url: url)
     }
 
     @objc func cancel() {
         output?.cancel()
+    }
+
+    @objc func changeRoomType() {
+        codeTextView.isHidden = !privateSwitch.isOn
+        if !codeTextView.isHidden, let output = output {
+            codeTextView.text = "Ключ: " + output.generateCode()
+        }
     }
 
     // MARK: - Setup
@@ -113,8 +115,11 @@ final class RoomViewController: UIViewController {
     private func setupUI() {
         view.addSubview(yourNameLabel)
         view.addSubview(textField)
+        view.addSubview(urlLabel)
+        view.addSubview(urlTextField)
         view.addSubview(privateRoomLabel)
         view.addSubview(privateSwitch)
+        view.addSubview(codeTextView)
         view.addSubview(saveButton)
         view.addSubview(cancelButton)
 
@@ -123,21 +128,35 @@ final class RoomViewController: UIViewController {
             yourNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             yourNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
-            textField.topAnchor.constraint(equalTo: yourNameLabel.bottomAnchor, constant: 4),
+            textField.topAnchor.constraint(equalTo: yourNameLabel.bottomAnchor, constant: 8),
             textField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             textField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             textField.heightAnchor.constraint(equalToConstant: 32),
 
-            privateRoomLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 16),
+            urlLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
+            urlLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            urlLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+
+            urlTextField.topAnchor.constraint(equalTo: urlLabel.bottomAnchor, constant: 8),
+            urlTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            urlTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            urlTextField.heightAnchor.constraint(equalToConstant: 32),
+
+            privateRoomLabel.topAnchor.constraint(equalTo: urlTextField.bottomAnchor, constant: 20),
             privateRoomLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             privateRoomLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
-            privateSwitch.topAnchor.constraint(equalTo: privateRoomLabel.bottomAnchor, constant: 4),
+            privateSwitch.topAnchor.constraint(equalTo: privateRoomLabel.bottomAnchor, constant: 8),
             privateSwitch.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+
+            codeTextView.topAnchor.constraint(equalTo: privateSwitch.bottomAnchor, constant: 16),
+            codeTextView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            codeTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            codeTextView.heightAnchor.constraint(equalToConstant: 36),
 
             saveButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             saveButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            saveButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -4),
+            saveButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -8),
             saveButton.heightAnchor.constraint(equalToConstant: 44),
 
             cancelButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
