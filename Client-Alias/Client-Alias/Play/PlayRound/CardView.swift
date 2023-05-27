@@ -1,5 +1,8 @@
 import UIKit
 class CardView: UIView {
+    
+    var tapHandler: ((_ value: Int) -> Void)?
+    
     private let wordLabel: UILabel = {
         let titleText = UILabel()
         titleText.numberOfLines = 0
@@ -7,16 +10,10 @@ class CardView: UIView {
         titleText.font = UIFont.systemFont(ofSize: 37, weight: .bold)
         return titleText
     }()
-    // TODO: - прокинуть действие измениния
+
     private let settingsButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "line.horizontal.3.decrease"), for: .normal)
-        button.menu = UIMenu(title: "", options: .displayInline, children: [
-            UIAction(title: "Легко", handler: { _ in }),
-            UIAction(title: "Нормально", state: .on, handler: { _ in }),
-            UIAction(title: "Сложно", handler: { _ in }),
-            UIAction(title: "Очень сложно", handler: { _ in }),
-        ])
+        button.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         button.showsMenuAsPrimaryAction = true
         return button
     }()
@@ -44,6 +41,22 @@ class CardView: UIView {
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 10.0
+        
+        settingsButton.menu = UIMenu(title: "", options: .displayInline, children: [
+            UIAction(title: "Легко", state: .on, handler: { [weak self] _  in
+                self?.tapHandler?(1)
+            }),
+            UIAction(title: "Нормально", handler: { [weak self] _  in
+                self?.tapHandler?(2)
+            }),
+            UIAction(title: "Сложно", handler: { [weak self] _  in
+                self?.tapHandler?(3)
+            }),
+            UIAction(title: "Очень сложно", handler: { [weak self] _  in
+                self?.tapHandler?(4)
+            }),
+        ])
+        
         addSubview(wordLabel)
         addSubview(settingsButton)
         wordLabel.frame = CGRect(
@@ -59,6 +72,5 @@ class CardView: UIView {
             width: 25,
             height: 25
         )
-        settingsButton.isHidden = false
     }
 }

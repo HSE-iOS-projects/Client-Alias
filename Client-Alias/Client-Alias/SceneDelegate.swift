@@ -14,15 +14,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarAppearance.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
         UITabBar.appearance().standardAppearance = tabBarAppearance
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
 
 //        window.rootViewController = PlayRoundModuleConfigurator().configure(output: nil).view
-//        window.rootViewController = TabBarViewController()
+////        window.rootViewController = TabBarViewController()
+//        window.makeKeyAndVisible()
+        
+//        let navigationVC = UINavigationController(rootViewController: PlayRoundModuleConfigurator().configure(output: nil).view)
+////        navigationVC.navigationBar.prefersLargeTitles = true
+//        navigationVC.navigationBar.isHidden = true
+//        window.rootViewController = navigationVC
 //        window.makeKeyAndVisible()
         
         let navigationVC = UINavigationController(rootViewController: TabBarViewController())
         navigationVC.navigationBar.prefersLargeTitles = true
         window.rootViewController = navigationVC
         window.makeKeyAndVisible()
+
 
         self.window = window
 

@@ -17,7 +17,7 @@ extension MembersPresenter: MembersViewOutput {
     func viewDidLoad() {}
 
     func select(user: String) {
-        router?.showUserActions(user: user, addHandler: {}, deleteHandler: {})
+        router?.showUserActions(user: user, addHandler: {}, adminHandler: {}, deleteHandler: {})
     }
 }
 

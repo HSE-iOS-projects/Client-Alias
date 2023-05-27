@@ -4,6 +4,7 @@ protocol AddTeamViewInput: AnyObject {}
 
 protocol AddTeamViewOutput: AnyObject {
     func viewDidLoad()
+    func add(team: String)
 }
 
 final class AddTeamViewController: UIViewController {
@@ -49,13 +50,17 @@ final class AddTeamViewController: UIViewController {
         output?.viewDidLoad()
 
         view.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
-       
+
+        setupUI()
     }
 
     // MARK: - Actions
 
     @objc func add() {
-
+        guard let team = textField.text, !team.isEmpty else {
+            return
+        }
+        output?.add(team: team)
     }
 
     // MARK: - Setup
