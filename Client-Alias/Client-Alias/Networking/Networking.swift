@@ -26,7 +26,7 @@ final class Networking: NetworkingLogic {
             return nil
         }
         var urlRequest = URLRequest(url: url)
-        urlRequest.allHTTPHeaderFields = request.endpoint.headers
+        urlRequest.allHTTPHeaderFields = request.headers
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.httpBody = request.body
         

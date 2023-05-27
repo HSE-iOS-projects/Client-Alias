@@ -13,6 +13,5 @@ enum AuthorizationEndpoint: Endpoint {
             return "/auth/login"
         }
     }
-
-    var headers: HeaderModel { [:] }
+    
 }

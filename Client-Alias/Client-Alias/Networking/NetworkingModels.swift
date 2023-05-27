@@ -21,17 +21,20 @@ enum NetworkModel {
         var body: Data?
         var endpoint: Endpoint
         var parameters: RequestParameters?
+        var headers: HeaderModel?
         
         init(
             endpoint: Endpoint,
             method: Method = .get,
             parameters: RequestParameters? = nil,
-            body: Data? = nil
+            body: Data? = nil,
+            headers: HeaderModel = [:]
         ) {
             self.method = method
             self.body = body
             self.endpoint = endpoint
             self.parameters = parameters
+            self.headers = headers
         }
     }
 }
