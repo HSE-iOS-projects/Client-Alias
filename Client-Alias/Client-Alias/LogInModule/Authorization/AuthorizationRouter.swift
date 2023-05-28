@@ -14,10 +14,12 @@ final class AuthorizationRouter {
 // MARK: - AuthorizationRouterInput
 
 extension AuthorizationRouter: AuthorizationRouterInput {
+    
     func openRegistrationViewController() {
         let viewController = RegistrationModuleConfigurator().configure(output: nil).view
-        viewController.modalPresentationStyle = .fullScreen
-        view?.present(viewController, animated: true)
+//        viewController.modalPresentationStyle = .fullScreen
+//        view?.present(viewController, animated: true)
+        view?.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func openMainScreen() {
@@ -25,4 +27,5 @@ extension AuthorizationRouter: AuthorizationRouterInput {
         viewController.modalPresentationStyle = .fullScreen
         view?.present(viewController, animated: true)
     }
+    
 }

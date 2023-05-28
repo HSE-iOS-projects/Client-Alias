@@ -1,6 +1,14 @@
 import Foundation
 
 final class Networking: NetworkingLogic {
+    
+    enum MIMEType: String {
+        case JSON = "application/json"
+    }
+
+    enum HttpHeaders: String {
+        case contentType = "Content-Type"
+    }
 
     public var baseURL: String
     
@@ -26,10 +34,11 @@ final class Networking: NetworkingLogic {
             return nil
         }
         var urlRequest = URLRequest(url: url)
+        urlRequest.addValue(MIMEType.JSON.rawValue,
+                                 forHTTPHeaderField: HttpHeaders.contentType.rawValue)
         urlRequest.allHTTPHeaderFields = request.headers
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.httpBody = request.body
-        
         return urlRequest
     }
     

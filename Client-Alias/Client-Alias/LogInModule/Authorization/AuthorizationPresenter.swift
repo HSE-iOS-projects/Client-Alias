@@ -15,6 +15,7 @@ final class AuthorizationPresenter {
     init(worker: AuthorizationWorker) {
         self.worker = worker
     }
+
 }
 
 // MARK: - AuthorizationViewOutput

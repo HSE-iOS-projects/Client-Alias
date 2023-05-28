@@ -9,7 +9,7 @@ protocol AuthorizationWorker {
 
 final class AuthorizationWorkerImpl: AuthorizationWorker {
     
-    private let networking = Networking(baseURL: "http://192.168.1.219:8080")
+    private let networking = Networking(baseURL: "http://127.0.0.1:8080")
 
     func register(email: String, password: String, completion: @escaping (Result<RegisterResponse, Error>) -> Void) {
         let endpoint = AuthorizationEndpoint.register
@@ -24,8 +24,7 @@ final class AuthorizationWorkerImpl: AuthorizationWorker {
     }
 
     func fetch<T: Decodable, B: Codable>(endpoint: Endpoint, body: B, completion: @escaping (Result<T, Error>) -> Void) {
-        do {
-            let json = try JSONEncoder().encode(body)
+            let json = try? JSONEncoder().encode(body)
 
             let request = Request(endpoint: endpoint, method: .post, body: json)
 
@@ -53,10 +52,6 @@ final class AuthorizationWorkerImpl: AuthorizationWorker {
                     completion(.failure(error))
                 }
             }
-        }
-        catch {
-
-        }
     }
 
 }
