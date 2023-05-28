@@ -10,7 +10,8 @@ final class RoomModuleConfigurator {
         input: RoomModuleInput
     ) {
         let view = RoomViewController()
-        let presenter = RoomPresenter()
+        let storage = SecureSettingsKeeperImpl()
+        let presenter = RoomPresenter(worker: MainWorkerImpl(storage: storage))
         let router = RoomRouter()
 
         presenter.view = view

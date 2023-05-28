@@ -3,6 +3,7 @@ import UIKit
 protocol RegistrationRouterInput {
     func openMainScreen()
     func openPreviousScreen()
+    func showAlert()
 }
 
 final class RegistrationRouter {
@@ -22,5 +23,9 @@ extension RegistrationRouter: RegistrationRouterInput {
     
     func openPreviousScreen() {
         view?.dismiss(animated: true)
+    }
+    
+    func showAlert() {
+        view?.present(UIAlertController.makeProblemAlert(anchoredBarButtonItem: .none), animated: true, completion: nil)
     }
 }

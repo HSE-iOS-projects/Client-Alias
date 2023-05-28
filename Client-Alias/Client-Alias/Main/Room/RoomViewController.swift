@@ -13,15 +13,11 @@ final class RoomViewController: UIViewController {
     // MARK: - Outlets
 
     private lazy var yourNameLabel: UILabel = MainFactory.makeLabel(text: "Your name")
-
     private lazy var textField: UITextField = MainFactory.makeTextField(text: "Type here", mainText: "My Room")
-
     private lazy var urlLabel: UILabel = MainFactory.makeLabel(text: "Связь")
-
     private lazy var urlTextField: UITextField = MainFactory.makeTextField(text: "Ссылка", mainText: "1")
-
     private lazy var privateRoomLabel: UILabel = MainFactory.makeLabel(text: "Закрытая")
-
+    
     private lazy var privateSwitch: UISwitch = {
         let privateSwitch = UISwitch()
         privateSwitch.addTarget(self, action: #selector(changeRoomType), for: .valueChanged)

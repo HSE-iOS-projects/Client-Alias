@@ -7,6 +7,7 @@ struct Room: Equatable {
         case `public`
     }
 
+    let roomID: UUID 
     let name: String
     let roomType: RoomType
     let url: String

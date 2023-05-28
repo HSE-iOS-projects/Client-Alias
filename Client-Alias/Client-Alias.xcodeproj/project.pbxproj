@@ -44,6 +44,10 @@
 		5EE4CA3E2A1D4E9E00DBC274 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */; };
 		5EE4CA402A1D5CD400DBC274 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */; };
 		5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4CA452A1D65B400DBC274 /* WordInfo.swift */; };
+		5EFA07FD2A228A6D003DDE35 /* MainEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA07FC2A228A6D003DDE35 /* MainEndpoint.swift */; };
+		5EFA07FF2A228AD7003DDE35 /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA07FE2A228AD7003DDE35 /* MainModels.swift */; };
+		5EFA08012A228B84003DDE35 /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08002A228B84003DDE35 /* MainWorker.swift */; };
+		5EFA08032A23C952003DDE35 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */; };
 		852B89AB2A20E11700360537 /* RoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89762A20E11700360537 /* RoomRouter.swift */; };
 		852B89AC2A20E11700360537 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89772A20E11700360537 /* RoomViewController.swift */; };
 		852B89AD2A20E11700360537 /* RoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89782A20E11700360537 /* RoomPresenter.swift */; };
@@ -142,6 +146,10 @@
 		5EE4CA3D2A1D4E9E00DBC274 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
 		5EE4CA3F2A1D5CD400DBC274 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5EE4CA452A1D65B400DBC274 /* WordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
+		5EFA07FC2A228A6D003DDE35 /* MainEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEndpoint.swift; sourceTree = "<group>"; };
+		5EFA07FE2A228AD7003DDE35 /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
+		5EFA08002A228B84003DDE35 /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
+		5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		852B89762A20E11700360537 /* RoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomRouter.swift; sourceTree = "<group>"; };
 		852B89772A20E11700360537 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		852B89782A20E11700360537 /* RoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPresenter.swift; sourceTree = "<group>"; };
@@ -283,6 +291,7 @@
 		5E46EDAD2A17D0FF00F3FFAD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */,
 				5E46EDAE2A17D10E00F3FFAD /* UITextField+Extension.swift */,
 				5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */,
 			);
@@ -308,8 +317,8 @@
 		5E89BA292A17BAE3005E3381 /* Client-Alias */ = {
 			isa = PBXGroup;
 			children = (
-				852B89742A20E11700360537 /* Main */,
 				9D26E8DD2A1D5B5B001C201B /* Networking */,
+				852B89742A20E11700360537 /* Main */,
 				9D81CC5D2A1CFAD200EBC621 /* Services */,
 				5E46EDAD2A17D0FF00F3FFAD /* Common */,
 				5E46ED962A17C3E300F3FFAD /* LogInModule */,
@@ -349,9 +358,44 @@
 			path = PlayRound;
 			sourceTree = "<group>";
 		};
+		5EFA07F82A228A22003DDE35 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA07F92A228A2D003DDE35 /* Endpoint */,
+				5EFA07FA2A228A3B003DDE35 /* Models */,
+				5EFA07FB2A228A47003DDE35 /* Worker */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5EFA07F92A228A2D003DDE35 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA07FC2A228A6D003DDE35 /* MainEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		5EFA07FA2A228A3B003DDE35 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA07FE2A228AD7003DDE35 /* MainModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5EFA07FB2A228A47003DDE35 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA08002A228B84003DDE35 /* MainWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		852B89742A20E11700360537 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5EFA07F82A228A22003DDE35 /* Network */,
 				852B89752A20E11700360537 /* Room */,
 				852B897A2A20E11700360537 /* AddKey */,
 				852B897F2A20E11700360537 /* User.swift */,
@@ -632,6 +676,7 @@
 			files = (
 				9D26E8F02A1D6472001C201B /* AuthorizationModels.swift in Sources */,
 				852B89B82A20E11700360537 /* TextFieldCollectionViewCell.swift in Sources */,
+				5EFA07FF2A228AD7003DDE35 /* MainModels.swift in Sources */,
 				5EE4CA462A1D65B400DBC274 /* WordInfo.swift in Sources */,
 				852B89D22A20E11700360537 /* TitleCollectionViewCell.swift in Sources */,
 				852B89C82A20E11700360537 /* MembersViewController.swift in Sources */,
@@ -682,6 +727,7 @@
 				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
 				852B89C72A20E11700360537 /* TeamsModuleConfigurator.swift in Sources */,
 				5E3021F42A1EC93400219928 /* EndGameRouter.swift in Sources */,
+				5EFA08012A228B84003DDE35 /* MainWorker.swift in Sources */,
 				852B89C62A20E11700360537 /* TeamsRouter.swift in Sources */,
 				5EE4CA392A1D371300DBC274 /* PlayRoundPresenter.swift in Sources */,
 				852B89CB2A20E11700360537 /* MembersModuleConfigurator.swift in Sources */,
@@ -711,12 +757,14 @@
 				5E46EDAF2A17D10E00F3FFAD /* UITextField+Extension.swift in Sources */,
 				852B89D72A20E11700360537 /* RoomsViewController.swift in Sources */,
 				852B89BA2A20E11700360537 /* RoomInfoPresenter.swift in Sources */,
+				5EFA07FD2A228A6D003DDE35 /* MainEndpoint.swift in Sources */,
 				852B89BD2A20E11700360537 /* GameSettingsModuleConfigurator.swift in Sources */,
 				5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */,
 				852B89AB2A20E11700360537 /* RoomRouter.swift in Sources */,
 				9D26E8E72A1D5B5B001C201B /* NetworkingLogic.swift in Sources */,
 				5E3021FC2A1F908C00219928 /* ResultPresenter.swift in Sources */,
 				5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */,
+				5EFA08032A23C952003DDE35 /* UIAlertController+Extension.swift in Sources */,
 				5E3022012A1F929200219928 /* TeamCell.swift in Sources */,
 				5E3021F32A1EC93400219928 /* EndGamePresenter.swift in Sources */,
 				852B89B12A20E11700360537 /* AddKeyViewController.swift in Sources */,

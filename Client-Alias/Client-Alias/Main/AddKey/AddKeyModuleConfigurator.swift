@@ -10,7 +10,8 @@ final class AddKeyModuleConfigurator {
         input: AddKeyModuleInput
     ) {
         let view = AddKeyViewController()
-        let presenter = AddKeyPresenter()
+        let storage = SecureSettingsKeeperImpl()
+        let presenter = AddKeyPresenter(worker: MainWorkerImpl(storage: storage))
         let router = AddKeyRouter()
 
         presenter.view = view

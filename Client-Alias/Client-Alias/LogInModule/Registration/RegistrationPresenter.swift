@@ -1,3 +1,4 @@
+import Foundation
 protocol RegistrationModuleInput: AnyObject {}
 
 protocol RegistrationModuleOutput: AnyObject {}
@@ -11,6 +12,7 @@ final class RegistrationPresenter {
     weak var view: RegistrationViewInput?
     weak var output: RegistrationModuleOutput?
     var router: RegistrationRouterInput?
+    var storage: SecureSettingsKeeper = SecureSettingsKeeperImpl()
 
     init(worker: AuthorizationWorker) {
         self.worker = worker
@@ -33,11 +35,24 @@ extension RegistrationPresenter: RegistrationViewOutput {
                 )
             )
         } else {
-            worker.register(email: name, password: age) { result in
-                print(result)
+            worker.register(email: name, password: age) { [weak self] result in
+                guard let self = self else {
+                    return
+                }
+                switch result {
+                case .success(let success):
+                    self.storage.authToken = success.token
+                    DispatchQueue.main.async {
+                        self.router?.openMainScreen()
+                    }
+                case .failure(let failure):
+                    DispatchQueue.main.async {
+                        self.router?.showAlert()
+                    }
+                    
+                    print(failure)
+                }
             }
-            // TODO: - сохранение кейчейн, показ следующего экрана
-            router?.openMainScreen()
         }
     }
     

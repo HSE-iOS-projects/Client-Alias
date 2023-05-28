@@ -16,6 +16,12 @@ enum NetworkModel {
         var response: URLResponse?
     }
     
+    
+    struct ErrorCode: Error {
+        let code: Int
+        
+    }
+
     struct Request {
         var method: Method
         var body: Data?

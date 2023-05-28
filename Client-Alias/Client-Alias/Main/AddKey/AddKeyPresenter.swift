@@ -8,6 +8,12 @@ final class AddKeyPresenter {
     weak var view: AddKeyViewInput?
     var router: AddKeyRouterInput?
     weak var output: AddKeyModuleOutput?
+    
+    
+    let worker: MainWorker
+    init(worker: MainWorker) {
+        self.worker = worker
+    }
 }
 
 // MARK: - AddKeyViewOutput

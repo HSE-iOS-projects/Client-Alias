@@ -1,3 +1,4 @@
+import Foundation
 protocol RoomsModuleInput: AnyObject {}
 
 protocol RoomsModuleOutput: AnyObject {}
@@ -8,6 +9,12 @@ final class RoomsPresenter {
     weak var view: RoomsViewInput?
     var router: RoomsRouterInput?
     weak var output: RoomsModuleOutput?
+    
+    let worker: MainWorker
+    
+    init(worker: MainWorker) {
+        self.worker = worker
+    }
 }
 
 // MARK: - RoomsViewOutput
@@ -15,11 +22,20 @@ final class RoomsPresenter {
 extension RoomsPresenter: RoomsViewOutput {
 
     func viewDidLoad() {
-        let activeRoom = Room(name: "Моя комната", roomType: .private, url: "", code: "")
-        let openRooms = [Room(name: "Моя комната 2", roomType: .private, url: "", code: ""),
-                         Room(name: "Моя комната 3", roomType: .public, url: "", code: ""),
-                         Room(name: "Моя комната 4", roomType: .private, url: "", code: "")]
-        view?.viewModel = RoomsViewModel(activeRoom: activeRoom, openRooms: openRooms)
+        worker.gellAllRooms { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let success):
+                let rooms = createRooms(success)
+                DispatchQueue.main.async {
+                    self.view?.viewModel = RoomsViewModel(activeRoom: nil, openRooms: rooms)
+                }
+            case .failure(let failure):
+                print(failure)
+            }
+        }
     }
 
     func add() {
@@ -32,6 +48,25 @@ extension RoomsPresenter: RoomsViewOutput {
 
     func select(room: Room) {
         router?.showRoomInfo(room: room)
+    }
+    
+    //FIXME: - добавить url
+    private func createRooms(_ data: [AllRoomsResponse]) -> [Room] {
+        var rooms = [Room]()
+        
+        for item in data {
+            rooms.append(
+                Room(
+                    roomID: item.roomID,
+                    name: item.name,
+                    roomType: item.isOpen ? .public : .private,
+                    url: "",
+                    code: nil
+                )
+            )
+        }
+        
+        return rooms
     }
 }
 

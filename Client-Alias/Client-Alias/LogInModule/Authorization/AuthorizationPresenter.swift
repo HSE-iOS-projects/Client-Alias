@@ -1,3 +1,4 @@
+import Foundation
 protocol AuthorizationModuleInput: AnyObject {}
 
 protocol AuthorizationModuleOutput: AnyObject {}
@@ -10,7 +11,7 @@ final class AuthorizationPresenter {
     weak var view: AuthorizationViewInput?
     weak var output: AuthorizationModuleOutput?
     var router: AuthorizationRouterInput?
-
+    var storage: SecureSettingsKeeper = SecureSettingsKeeperImpl()
 
     init(worker: AuthorizationWorker) {
         self.worker = worker
@@ -35,13 +36,24 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
                 )
             )
         } else {
-            worker.login(email: name, password: password) { result in
-                print(result)
+            worker.login(email: name, password: password) { [weak self] result in
+                guard let self = self else {
+                    return
+                }
+                switch result {
+                case .success(let success):
+                    self.storage.authToken = success.token
+                    DispatchQueue.main.async {
+                        self.router?.openMainScreen()
+                    }
+                case .failure(let failure):
+                    DispatchQueue.main.async {
+                        self.router?.showAlert()
+                    }
+                    print(failure)
+                }
             }
-            // TODO: - сохранение кейчейн, показ следующего экрана
-            router?.openMainScreen()
         }
-        
     }
     
     func openRegistration() {

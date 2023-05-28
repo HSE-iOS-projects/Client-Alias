@@ -28,8 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window.rootViewController = navigationVC
 //        window.makeKeyAndVisible()
         
-        let navigationVC = UINavigationController(rootViewController: TabBarViewController())
-        navigationVC.navigationBar.prefersLargeTitles = true
+        let navigationVC = UINavigationController(rootViewController: AuthorizationModuleConfigurator().configure().view)
+//        navigationVC.navigationBar.isHidden = true
         window.rootViewController = navigationVC
         window.makeKeyAndVisible()
 
