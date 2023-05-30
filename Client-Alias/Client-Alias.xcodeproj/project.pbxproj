@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E6EA99F2A2684190032BFCA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6EA99E2A2684190032BFCA /* Observable.swift */; };
 		5E3021EA2A1E7FC100219928 /* CardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E92A1E7FC100219928 /* CardTableCell.swift */; };
 		5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EB2A1E876C00219928 /* CustomStepper.swift */; };
 		5E3021F32A1EC93400219928 /* EndGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */; };
@@ -110,6 +111,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E6EA99E2A2684190032BFCA /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		5E3021E92A1E7FC100219928 /* CardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableCell.swift; sourceTree = "<group>"; };
 		5E3021EB2A1E876C00219928 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePresenter.swift; sourceTree = "<group>"; };
@@ -225,6 +227,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E6EA99D2A2684190032BFCA /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				3E6EA99E2A2684190032BFCA /* Observable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
 		5E3021ED2A1EA2E800219928 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +305,7 @@
 		5E46EDAD2A17D0FF00F3FFAD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3E6EA99D2A2684190032BFCA /* Observable */,
 				5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */,
 				5E46EDAE2A17D10E00F3FFAD /* UITextField+Extension.swift */,
 				5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */,
@@ -710,6 +721,7 @@
 				852B89B22A20E11700360537 /* AddKeyModuleConfigurator.swift in Sources */,
 				9D81CC662A1CFB2300EBC621 /* SecureStorage+Token.swift in Sources */,
 				5E46EDA12A17C42800F3FFAD /* AuthorizationViewController.swift in Sources */,
+				3E6EA99F2A2684190032BFCA /* Observable.swift in Sources */,
 				9D26E8EC2A1D5E6D001C201B /* AuthorizationWorker.swift in Sources */,
 				5E3022032A1F92FF00219928 /* ResultInfo.swift in Sources */,
 				852B89BE2A20E11700360537 /* GameSettingsRouter.swift in Sources */,
