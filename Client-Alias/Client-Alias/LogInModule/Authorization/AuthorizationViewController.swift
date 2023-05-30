@@ -15,16 +15,13 @@ final class AuthorizationViewController: UIViewController {
     var output: AuthorizationViewOutput?
     private let factory = LogInFactory()
     private lazy var titleText = factory.titleLabel(text: "Авторизация")
-    
     private lazy var nametitle = factory.textLabel(text: "Никнейм")
     private lazy var nameText = factory.registrationTextField()
     private lazy var nameEmpty = factory.errorLabel()
-    
     private lazy var ageTitle = factory.textLabel(text: "Пароль")
     private lazy var ageText = factory.registrationTextField()
     private lazy var ageEmpty = factory.errorLabel()
     private lazy var registerButton = factory.registerButton()
-    
     private lazy var logInButton = factory.logInButton()
 
     // MARK: - UIViewController

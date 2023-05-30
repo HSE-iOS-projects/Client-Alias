@@ -17,8 +17,9 @@ final class RegistrationRouter {
 extension RegistrationRouter: RegistrationRouterInput {
     func openMainScreen() {
         let viewController = TabBarViewController()
-        viewController.modalPresentationStyle = .fullScreen
-        view?.present(viewController, animated: true)
+//        viewController.modalPresentationStyle = .fullScreen
+//        view?.present(viewController, animated: true)
+        view?.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func openPreviousScreen() {

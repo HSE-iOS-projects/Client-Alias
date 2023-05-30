@@ -7,7 +7,7 @@ protocol ResultViewInput: AnyObject {
 protocol ResultViewOutput: AnyObject {
     func viewDidLoad()
     func countTeams() -> Int
-    func getTeamInfo(index: Int) -> TeamInfo
+    func getTeamInfo(index: Int) -> TeamResultInfo
 }
 
 final class ResultViewController: UIViewController {

@@ -5,6 +5,7 @@ protocol AddKeyViewInput: AnyObject {}
 protocol AddKeyViewOutput: AnyObject {
     func viewDidLoad()
     func add(key: String)
+    func getRoom() -> Room?
 }
 
 final class AddKeyViewController: UIViewController {
@@ -53,6 +54,16 @@ final class AddKeyViewController: UIViewController {
         
         setupUI()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let room = output?.getRoom(),
+           let firstVC = presentingViewController?.children.last?.children.first as? RoomsViewController {
+            DispatchQueue.main.async {
+                firstVC.output?.select(room: room, isActive: true)
+            }
+        }
+    }
 
     // MARK: - Actions
 
@@ -62,6 +73,7 @@ final class AddKeyViewController: UIViewController {
         }
         output?.add(key: key)
     }
+
 
     // MARK: - Setup
 

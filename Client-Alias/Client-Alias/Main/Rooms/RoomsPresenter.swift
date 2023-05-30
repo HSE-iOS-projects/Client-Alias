@@ -22,7 +22,8 @@ final class RoomsPresenter {
 extension RoomsPresenter: RoomsViewOutput {
 
     func viewDidLoad() {
-        worker.gellAllRooms { [weak self] result in
+        view?.viewModel = RoomsViewModel(openRooms: [])
+        worker.getAllRooms { [weak self] result in
             guard let self = self else {
                 return
             }
@@ -30,13 +31,40 @@ extension RoomsPresenter: RoomsViewOutput {
             case .success(let success):
                 let rooms = createRooms(success)
                 DispatchQueue.main.async {
-                    self.view?.viewModel = RoomsViewModel(activeRoom: nil, openRooms: rooms)
+                    self.view?.viewModel? = RoomsViewModel(openRooms: rooms)
                 }
             case .failure(let failure):
                 print(failure)
             }
         }
-    }
+        
+        worker.getMyInfo { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let success):
+                
+                DispatchQueue.main.async {
+                    guard let roomID = success.roomID,
+                          let roomName = success.roomName else {
+                        return
+                    }
+                    var open = self.view?.viewModel?.openRooms
+                    open?.removeAll(where: { it in
+                        it.roomID == roomID
+                    })
+                    self.view?.viewModel = RoomsViewModel(
+                        activeRoom: Room(roomID: roomID, name: roomName),
+                        openRooms: open ?? [])
+                   
+                }
+                case .failure(let failure):
+                    print(failure)
+                }
+            }
+        }
+        
 
     func add() {
         router?.showRoom()
@@ -46,11 +74,27 @@ extension RoomsPresenter: RoomsViewOutput {
         router?.addKey()
     }
 
-    func select(room: Room) {
-        router?.showRoomInfo(room: room)
+    func select(room: Room, isActive: Bool = false) {
+//        self.router?.showRoomInfo(room: room)
+        if !isActive {
+            worker.joinRoom(request: JoinRoomRequest(roomID: room.roomID, inviteCode: nil)) { [weak self] result in
+                guard let self = self else {
+                    return
+                }
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        self.router?.showRoomInfo(room: room)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        } else {
+            router?.showRoomInfo(room: room)
+        }
     }
     
-    //FIXME: - добавить url
     private func createRooms(_ data: [AllRoomsResponse]) -> [Room] {
         var rooms = [Room]()
         
@@ -60,8 +104,9 @@ extension RoomsPresenter: RoomsViewOutput {
                     roomID: item.roomID,
                     name: item.name,
                     roomType: item.isOpen ? .public : .private,
-                    url: "",
-                    code: nil
+                    url: item.url,
+                    code: nil,
+                    isAdmin: item.isAdmin
                 )
             )
         }

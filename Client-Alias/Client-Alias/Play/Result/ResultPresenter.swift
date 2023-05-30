@@ -9,11 +9,11 @@ final class ResultPresenter {
     var router: ResultRouterInput?
     weak var output: ResultModuleOutput?
     private var result = ResultInfo(
-        winner: TeamInfo(name: "Ура победа", result: 30),
+        winner: TeamResultInfo(name: "Ура победа", result: 30),
         allTeams: [
-            TeamInfo(name: "Ура победа", result: 30),
-            TeamInfo(name: "Почти смогли", result: 20),
-            TeamInfo(name: "Ну зато пытались", result: 10),
+            TeamResultInfo(name: "Ура победа", result: 30),
+            TeamResultInfo(name: "Почти смогли", result: 20),
+            TeamResultInfo(name: "Ну зато пытались", result: 10),
         ])
 }
 
@@ -24,7 +24,7 @@ extension ResultPresenter: ResultViewOutput {
         result.allTeams.count
     }
     
-    func getTeamInfo(index: Int) -> TeamInfo {
+    func getTeamInfo(index: Int) -> TeamResultInfo {
         result.allTeams[index]
     }
     

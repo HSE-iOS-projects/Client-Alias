@@ -8,8 +8,10 @@ protocol RoomInfoRouterInput {
                          deleteHandler: @escaping () -> Void)
     func showTeams()
     func showMembers()
-    func showAddTeam()
+    func showAddTeam(roomId: UUID)
     func showGameSettings()
+    func showTeamActions(team: String, deleteHandler: @escaping () -> Void)
+//    func showInviteCode(code: String)
 }
 
 final class RoomInfoRouter {
@@ -31,12 +33,24 @@ extension RoomInfoRouter: RoomInfoRouterInput {
             addHandler()
         }
         vc.addAction(addAction)
-        if isAdmin {
-            let adminAction = UIAlertAction(title: "Сделать администратором", style: .default) { _ in
-                adminHandler()
-            }
-            vc.addAction(adminAction)
+        
+        let adminAction = UIAlertAction(title: "Сделать администратором", style: .default) { _ in
+            adminHandler()
         }
+        vc.addAction(adminAction)
+        
+        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
+            deleteHandler()
+        }
+        vc.addAction(deleteAction)
+        let cancelAction = UIAlertAction(title: "Отменить", style: .cancel)
+        vc.addAction(cancelAction)
+        view?.present(vc, animated: true)
+    }
+    
+    func showTeamActions(team: String, deleteHandler: @escaping () -> Void) {
+        let vc = UIAlertController(title: team, message: "", preferredStyle: .actionSheet)
+        
         let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
             deleteHandler()
         }
@@ -57,8 +71,8 @@ extension RoomInfoRouter: RoomInfoRouterInput {
         view?.navigationController?.pushViewController(vc, animated: true)
     }
 
-    func showAddTeam() {
-        let vc = AddTeamModuleConfigurator().configure().view
+    func showAddTeam(roomId: UUID) {
+        let vc = AddTeamModuleConfigurator().configure(roomId: roomId).view
         vc.sheetPresentationController?.detents = [.medium()]
         view?.present(vc, animated: true)
     }
@@ -67,4 +81,10 @@ extension RoomInfoRouter: RoomInfoRouterInput {
         let vc = GameSettingsModuleConfigurator().configure().view
         view?.navigationController?.pushViewController(vc, animated: true)
     }
+    
+//    func showInviteCode(code: String) {
+//        let vc = InviteCodeViewController(text: code)
+//        vc.sheetPresentationController?.detents = [.medium()]
+//        view?.present(vc, animated: true)
+//    }
 }

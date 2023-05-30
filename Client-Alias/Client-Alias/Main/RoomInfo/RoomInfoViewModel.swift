@@ -1,20 +1,30 @@
 import Foundation
 
-class RoomInfoViewModel: Equatable {
+struct RoomInfoViewModel: Equatable {
 
     let room: Room
-    let isMyTeam = false
-    let teams = ["Team 1", "Team 2", "Team 3", "Team 3", "Team 3", "Team 3", "Team 3", "Team 3",]
-    let users = ["User 1", "User 2", "User 3", "User 3", "User 3", "User 3", "User 3", "User 3"]
+    let isMyTeam: Bool
+    var teams: [TeamInfo]
+    var noTeamUsers: [Participants]
 
-    init(room: Room) {
+    init(room: Room, team: [TeamInfo]) {
         self.room = room
+        isMyTeam = false
+        teams = team
+        noTeamUsers = []
+    }
+    
+    init(room: Room, team: [TeamInfo], noTeamUsers: [Participants]) {
+        self.room = room
+        isMyTeam = false
+        teams = team
+        self.noTeamUsers = noTeamUsers
     }
 
     static func == (lhs: RoomInfoViewModel, rhs: RoomInfoViewModel) -> Bool {
         lhs.room == rhs.room &&
         lhs.isMyTeam == rhs.isMyTeam &&
         lhs.teams == rhs.teams &&
-        lhs.users == rhs.users
+        lhs.noTeamUsers == rhs.noTeamUsers
     }
 }

@@ -20,18 +20,8 @@ final class RoomViewController: UIViewController {
     
     private lazy var privateSwitch: UISwitch = {
         let privateSwitch = UISwitch()
-        privateSwitch.addTarget(self, action: #selector(changeRoomType), for: .valueChanged)
         privateSwitch.translatesAutoresizingMaskIntoConstraints = false
         return privateSwitch
-    }()
-
-    private(set) lazy var codeTextView: UITextView = {
-        let textView = MainFactory.makeTextView()
-        textView.isHidden = true
-        textView.isEditable = false
-        textView.layer.cornerRadius = 4
-        textView.font = textField.font
-        return textView
     }()
 
     private lazy var saveButton: UIButton = {
@@ -99,13 +89,6 @@ final class RoomViewController: UIViewController {
         output?.cancel()
     }
 
-    @objc func changeRoomType() {
-        codeTextView.isHidden = !privateSwitch.isOn
-        if !codeTextView.isHidden, let output = output {
-            codeTextView.text = "Ключ: " + output.generateCode()
-        }
-    }
-
     // MARK: - Setup
 
     private func setupUI() {
@@ -115,7 +98,6 @@ final class RoomViewController: UIViewController {
         view.addSubview(urlTextField)
         view.addSubview(privateRoomLabel)
         view.addSubview(privateSwitch)
-        view.addSubview(codeTextView)
         view.addSubview(saveButton)
         view.addSubview(cancelButton)
 
@@ -144,12 +126,6 @@ final class RoomViewController: UIViewController {
 
             privateSwitch.topAnchor.constraint(equalTo: privateRoomLabel.bottomAnchor, constant: 8),
             privateSwitch.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-
-            codeTextView.topAnchor.constraint(equalTo: privateSwitch.bottomAnchor, constant: 16),
-            codeTextView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            codeTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            codeTextView.heightAnchor.constraint(equalToConstant: 36),
-
             saveButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             saveButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             saveButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -8),

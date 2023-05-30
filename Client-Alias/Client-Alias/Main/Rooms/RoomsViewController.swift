@@ -9,7 +9,7 @@ protocol RoomsViewOutput: AnyObject {
     func viewDidLoad()
     func add()
     func addKey()
-    func select(room: Room)
+    func select(room: Room, isActive: Bool)
 }
 
 final class RoomsViewController: UIViewController {
@@ -74,8 +74,12 @@ final class RoomsViewController: UIViewController {
         output?.viewDidLoad()
         view.backgroundColor = .black
         title = "Комнаты"
-
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output?.viewDidLoad()
     }
 
     // MARK: - Actions
@@ -154,7 +158,7 @@ extension RoomsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoomCollectionViewCell", for: indexPath) as! RoomCollectionViewCell
             let activeRoom = viewModel?.activeRoom
             cell.titleLabel.text = activeRoom?.name
-            cell.typeLabel.text = activeRoom?.roomType == .private ? "Приватная" : "Публичная"
+            cell.typeLabel.text = ""
             return cell
         case 1:
             if indexPath.row == 0 {
@@ -189,12 +193,12 @@ extension RoomsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if let room = viewModel?.activeRoom {
-                output?.select(room: room)
+                output?.select(room: room, isActive: true)
             }
             return
         }
         if let room = viewModel?.openRooms[indexPath.row - 1] {
-            output?.select(room: room)
+            output?.select(room: room, isActive: false)
         }
     }
 }

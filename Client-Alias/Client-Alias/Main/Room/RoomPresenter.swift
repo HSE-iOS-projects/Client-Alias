@@ -1,3 +1,4 @@
+import Foundation
 protocol RoomModuleInput: AnyObject {}
 
 protocol RoomModuleOutput: AnyObject {}
@@ -34,21 +35,26 @@ extension RoomPresenter: RoomViewOutput {
 //        // FIXME: - Передать и показать код, но скорее не здесь
         
         
-        worker.createRoom(request: RoomRequest(name: name, is_open: !isPrivate)) { [weak self] result in
+        worker.createRoom(request: RoomRequest(name: name, url: url, is_open: !isPrivate)) { [weak self] result in
             guard let self = self else {
                 return
             }
             switch result {
             case .success(let success):
-                self.router?.showRoomInfo(room:
-                                            Room(
-                                                roomID: success.roomID,
-                                                name: name,
-                                                roomType: isPrivate ? .private : .public,
-                                                url: "",
-                                                code: success.inviteCode))
+                DispatchQueue.main.async {
+                    self.router?.showRoomInfo(room:
+                                                Room(
+                                                    roomID: success.roomID,
+                                                    name: name,
+                                                    roomType: isPrivate ? .private : .public,
+                                                    url: url,
+                                                    code: success.inviteCode,
+                                                    isAdmin: true))
+                }
             case .failure(let failure):
-                self.router?.showAlert()
+                DispatchQueue.main.async {
+                    self.router?.showAlert()
+                }
                 print(failure)
             }
         }

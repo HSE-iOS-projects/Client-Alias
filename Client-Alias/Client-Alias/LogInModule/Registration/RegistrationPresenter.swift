@@ -64,11 +64,6 @@ extension RegistrationPresenter: RegistrationViewOutput {
             return nil
         }
     }
-    
-    
-    func openPreviousScreen() {
-        router?.openPreviousScreen()
-    }
 }
 
 // MARK: - RegistrationInput

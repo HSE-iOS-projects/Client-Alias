@@ -2,8 +2,8 @@ import Foundation
 
 class RoomsViewModel {
 
-    let activeRoom: Room?
-    let openRooms: [Room]
+    var activeRoom: Room?
+    var openRooms: [Room]
 
     init(activeRoom: Room? = nil, openRooms: [Room]) {
         self.activeRoom = activeRoom

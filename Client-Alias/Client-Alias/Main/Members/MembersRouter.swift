@@ -27,12 +27,12 @@ extension MembersRouter: MembersRouterInput {
             addHandler()
         }
         vc.addAction(addAction)
-        if isAdmin {
-            let adminAction = UIAlertAction(title: "Сделать администратором", style: .default) { _ in
-                adminHandler()
-            }
-            vc.addAction(adminAction)
-        }
+//        if isAdmin {
+//            let adminAction = UIAlertAction(title: "Сделать администратором", style: .default) { _ in
+//                adminHandler()
+//            }
+//            vc.addAction(adminAction)
+//        }
         let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
             deleteHandler()
         }

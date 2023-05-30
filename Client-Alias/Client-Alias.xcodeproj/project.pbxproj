@@ -48,6 +48,8 @@
 		5EFA07FF2A228AD7003DDE35 /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA07FE2A228AD7003DDE35 /* MainModels.swift */; };
 		5EFA08012A228B84003DDE35 /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08002A228B84003DDE35 /* MainWorker.swift */; };
 		5EFA08032A23C952003DDE35 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */; };
+		5EFA08072A2408DF003DDE35 /* TeamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08062A2408DF003DDE35 /* TeamInfo.swift */; };
+		5EFA080A2A254325003DDE35 /* VoidResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08092A254325003DDE35 /* VoidResult.swift */; };
 		852B89AB2A20E11700360537 /* RoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89762A20E11700360537 /* RoomRouter.swift */; };
 		852B89AC2A20E11700360537 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89772A20E11700360537 /* RoomViewController.swift */; };
 		852B89AD2A20E11700360537 /* RoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89782A20E11700360537 /* RoomPresenter.swift */; };
@@ -150,6 +152,8 @@
 		5EFA07FE2A228AD7003DDE35 /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
 		5EFA08002A228B84003DDE35 /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
 		5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		5EFA08062A2408DF003DDE35 /* TeamInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfo.swift; sourceTree = "<group>"; };
+		5EFA08092A254325003DDE35 /* VoidResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResult.swift; sourceTree = "<group>"; };
 		852B89762A20E11700360537 /* RoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomRouter.swift; sourceTree = "<group>"; };
 		852B89772A20E11700360537 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		852B89782A20E11700360537 /* RoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPresenter.swift; sourceTree = "<group>"; };
@@ -317,12 +321,12 @@
 		5E89BA292A17BAE3005E3381 /* Client-Alias */ = {
 			isa = PBXGroup;
 			children = (
-				9D26E8DD2A1D5B5B001C201B /* Networking */,
-				852B89742A20E11700360537 /* Main */,
 				9D81CC5D2A1CFAD200EBC621 /* Services */,
-				5E46EDAD2A17D0FF00F3FFAD /* Common */,
+				9D26E8DD2A1D5B5B001C201B /* Networking */,
 				5E46ED962A17C3E300F3FFAD /* LogInModule */,
+				852B89742A20E11700360537 /* Main */,
 				5EE4CA332A1D36E700DBC274 /* Play */,
+				5E46EDAD2A17D0FF00F3FFAD /* Common */,
 				5E89BA2C2A17BAE3005E3381 /* SceneDelegate.swift */,
 				5E89BA2A2A17BAE3005E3381 /* AppDelegate.swift */,
 				5E89BA332A17BAE5005E3381 /* Assets.xcassets */,
@@ -392,6 +396,14 @@
 			path = Worker;
 			sourceTree = "<group>";
 		};
+		5EFA08082A254311003DDE35 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA08092A254325003DDE35 /* VoidResult.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		852B89742A20E11700360537 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +456,7 @@
 				852B89852A20E11700360537 /* TextFieldCollectionViewCell.swift */,
 				852B89862A20E11700360537 /* RoomInfoRouter.swift */,
 				852B89872A20E11700360537 /* RoomInfoPresenter.swift */,
+				5EFA08062A2408DF003DDE35 /* TeamInfo.swift */,
 			);
 			path = RoomInfo;
 			sourceTree = "<group>";
@@ -520,6 +533,7 @@
 		9D26E8DD2A1D5B5B001C201B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				5EFA08082A254311003DDE35 /* Helpers */,
 				9D26E8DE2A1D5B5B001C201B /* Aliases.swift */,
 				9D26E8DF2A1D5B5B001C201B /* Networking.swift */,
 				9D26E8E12A1D5B5B001C201B /* NetworkingLogic.swift */,
@@ -717,6 +731,7 @@
 				852B89B32A20E11700360537 /* User.swift in Sources */,
 				5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */,
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
+				5EFA08072A2408DF003DDE35 /* TeamInfo.swift in Sources */,
 				5E3021F62A1EC93400219928 /* EndGameModuleConfigurator.swift in Sources */,
 				9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */,
 				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
@@ -761,6 +776,7 @@
 				852B89BD2A20E11700360537 /* GameSettingsModuleConfigurator.swift in Sources */,
 				5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */,
 				852B89AB2A20E11700360537 /* RoomRouter.swift in Sources */,
+				5EFA080A2A254325003DDE35 /* VoidResult.swift in Sources */,
 				9D26E8E72A1D5B5B001C201B /* NetworkingLogic.swift in Sources */,
 				5E3021FC2A1F908C00219928 /* ResultPresenter.swift in Sources */,
 				5E89BA2D2A17BAE3005E3381 /* SceneDelegate.swift in Sources */,

@@ -1,3 +1,4 @@
+import Foundation
 protocol AddKeyModuleInput: AnyObject {}
 
 protocol AddKeyModuleOutput: AnyObject {}
@@ -8,7 +9,7 @@ final class AddKeyPresenter {
     weak var view: AddKeyViewInput?
     var router: AddKeyRouterInput?
     weak var output: AddKeyModuleOutput?
-    
+    var room: Room?
     
     let worker: MainWorker
     init(worker: MainWorker) {
@@ -23,7 +24,45 @@ extension AddKeyPresenter: AddKeyViewOutput {
     func viewDidLoad() {}
 
     func add(key: String) {
+        worker.joinRoom(request: JoinRoomRequest(roomID: nil, inviteCode: key)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let success):
+                DispatchQueue.main.async {
+                    self.room = Room(
+                        roomID: success.id,
+                        name: success.name,
+                        roomType: .private,
+                        url: success.url,
+                        code: success.key,
+                        isAdmin: success.isAdmin
+                    )
+                    self.router?.closeView()
+//                    self.router?.showRoomInfo(
+//                        room: Room(
+//                            roomID: success.id,
+//                            name: success.name,
+//                            roomType: .private,
+//                            url: success.url,
+//                            code: success.key,
+//                            isAdmin: success.isAdmin
+//                        )
+//                    )
+                }
+            case .failure(let failure):
+                DispatchQueue.main.async {
+                    self.router?.showAlert()
+                }
+                print(failure)
+            }
+        }
         print(key)
+    }
+    
+    func getRoom() -> Room? {
+        room
     }
 }
 

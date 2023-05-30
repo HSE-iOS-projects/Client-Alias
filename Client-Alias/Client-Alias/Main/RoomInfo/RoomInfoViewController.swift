@@ -7,10 +7,13 @@ protocol RoomInfoViewInput: AnyObject {
 
 protocol RoomInfoViewOutput: AnyObject {
     func viewDidLoad()
-    func select(user: String)
-    func select(team: String)
+    func select(user: Participants)
+    func select(team: TeamInfo)
     func addTeam()
     func start()
+    func leaveRoom()
+    func showTeamMenu(team: TeamInfo)
+//    func showInviteCode()
 }
 
 final class RoomInfoViewController: UIViewController {
@@ -35,7 +38,6 @@ final class RoomInfoViewController: UIViewController {
         startButton.setTitle("Начать игру", for: .normal)
         startButton.translatesAutoresizingMaskIntoConstraints = false
         startButton.addTarget(self, action: #selector(start), for: .touchUpInside)
-        startButton.isHidden = !isAdmin
         return startButton
     }()
 
@@ -46,6 +48,7 @@ final class RoomInfoViewController: UIViewController {
             guard isViewLoaded, viewModel != oldValue else {
                 return
             }
+            startButton.isHidden = !(viewModel?.room.isAdmin ?? true)
             collectionView.reloadData()
         }
     }
@@ -56,34 +59,44 @@ final class RoomInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        output?.viewDidLoad()
 
         title = "Подготовка"
-        setupUI()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        output?.viewDidLoad()
+        setupUI()
         navigationController?.navigationBar.isHidden = false
+        print("appear")
     }
 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if self.isMovingFromParent {
+            output?.leaveRoom()
+        }
+    }
     // MARK: - Actions
 
     @objc func start() {
         output?.start()
     }
-
+    
     // MARK: - Setup
 
     private func setupUI() {
         view.addSubview(collectionView)
         view.addSubview(startButton)
-
+        
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
 
             startButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             startButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
@@ -91,6 +104,8 @@ final class RoomInfoViewController: UIViewController {
             startButton.heightAnchor.constraint(equalToConstant: 44),
         ])
     }
+    
+    
 
     private func setupLocalization() {}
 }
@@ -123,7 +138,7 @@ extension RoomInfoViewController: UICollectionViewDataSource {
             return 0
         case 3:
             if let viewModel {
-                return viewModel.users.count + 1
+                return viewModel.noTeamUsers.count + 1
             }
             return 0
         default:
@@ -135,6 +150,7 @@ extension RoomInfoViewController: UICollectionViewDataSource {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
             cell.titleLabel.font = .systemFont(ofSize: 24)
+            cell.actionButton.isHidden = true
             cell.titleLabel.text = "Твоя команда"
             return cell
         }
@@ -143,16 +159,18 @@ extension RoomInfoViewController: UICollectionViewDataSource {
             case 0:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
                 cell.titleLabel.font = .systemFont(ofSize: 24)
+                cell.actionButton.isHidden = true
                 cell.titleLabel.text = "Связь"
                 return cell
             case 1:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextFieldCollectionViewCell", for: indexPath) as! TextFieldCollectionViewCell
-                cell.textView.isEditable = isAdmin
+                cell.textView.isEditable = viewModel?.room.isAdmin ?? false
                 cell.textView.text = viewModel?.room.url
                 return cell
             case 2:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
                 cell.titleLabel.font = .systemFont(ofSize: 24)
+                cell.actionButton.isHidden = true
                 cell.titleLabel.text = "Ключ"
                 return cell
             case 3:
@@ -169,7 +187,7 @@ extension RoomInfoViewController: UICollectionViewDataSource {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
                 cell.titleLabel.font = .systemFont(ofSize: 24)
                 cell.titleLabel.text = "Команды"
-                cell.actionButton.isHidden = isAdmin == false
+                cell.actionButton.isHidden = !(viewModel?.room.isAdmin ?? false)
                 cell.actionButton.setImage(UIImage(systemName: "plus"), for: .normal)
                 cell.tapHandler = { [weak self] in
                     self?.output?.addTeam()
@@ -178,19 +196,27 @@ extension RoomInfoViewController: UICollectionViewDataSource {
             }
             let team = viewModel?.teams[indexPath.row - 1]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
-            cell.titleLabel.text = team
+            cell.titleLabel.text = team?.name
+            cell.actionButton.isHidden = false
+            cell.actionButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+            cell.tapHandler = { [weak self] in
+                if let team {
+                    self?.output?.showTeamMenu(team: team)
+                }
+            }
             cell.titleLabel.font = .systemFont(ofSize: 18)
             return cell
         }
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
             cell.titleLabel.font = .systemFont(ofSize: 24)
+            cell.actionButton.isHidden = true
             cell.titleLabel.text = "Участники без команды"
             return cell
         }
-        let user = viewModel?.users[indexPath.row - 1]
+        let user = viewModel?.noTeamUsers[indexPath.row - 1]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
-        cell.titleLabel.text = user
+        cell.titleLabel.text = user?.name
         cell.titleLabel.font = .systemFont(ofSize: 18)
         cell.actionButton.isHidden = false
         cell.actionButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
@@ -215,7 +241,7 @@ extension RoomInfoViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 2 {
-            if let team = viewModel?.teams[indexPath.row - 1] {
+            if let team = viewModel?.teams[indexPath.row] {
                 output?.select(team: team)
             }
         }

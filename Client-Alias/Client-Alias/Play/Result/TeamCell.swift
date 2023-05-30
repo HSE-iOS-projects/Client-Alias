@@ -43,7 +43,7 @@ final class TeamCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func config(data: TeamInfo?) {
+    func config(data: TeamResultInfo?) {
         teamLabel.text = data?.name ?? ""
         resultLabel.text = String(data?.result ?? 0)
     }

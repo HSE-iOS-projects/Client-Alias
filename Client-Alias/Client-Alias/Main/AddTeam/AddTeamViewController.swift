@@ -5,15 +5,16 @@ protocol AddTeamViewInput: AnyObject {}
 protocol AddTeamViewOutput: AnyObject {
     func viewDidLoad()
     func add(team: String)
+    func closeView()
 }
 
 final class AddTeamViewController: UIViewController {
-    // MARK: - Outlets
+    // MARK: - Properties
 
     private(set) lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Название команды"
-        titleLabel.textColor = .white
+        titleLabel.textColor = .label
         titleLabel.font = .systemFont(ofSize: 30)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
@@ -23,7 +24,7 @@ final class AddTeamViewController: UIViewController {
         let textField = UITextField()
         textField.textColor = .black
         textField.borderStyle = .roundedRect
-        textField.backgroundColor = .white
+        textField.backgroundColor = .secondarySystemBackground
         textField.placeholder = "Название команды"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -39,8 +40,6 @@ final class AddTeamViewController: UIViewController {
         return addButton
     }()
 
-    // MARK: - Properties
-
     var output: AddTeamViewOutput?
 
     // MARK: - UIViewController
@@ -49,11 +48,20 @@ final class AddTeamViewController: UIViewController {
         super.viewDidLoad()
         output?.viewDidLoad()
 
-        view.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
-
+        view.backgroundColor = .systemBackground //UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
         setupUI()
     }
 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        output?.closeView()
+        if let firstVC = presentingViewController?.children.last as? RoomInfoViewController {
+            DispatchQueue.main.async {
+                firstVC.output?.viewDidLoad()
+            }
+        }
+    }
     // MARK: - Actions
 
     @objc func add() {

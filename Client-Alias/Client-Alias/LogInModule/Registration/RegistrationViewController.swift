@@ -6,7 +6,6 @@ protocol RegistrationViewInput: AnyObject {
 protocol RegistrationViewOutput: AnyObject {
     func viewDidLoad()
     func logInButtonTapped(name: String, age: String)
-    func openPreviousScreen()
 }
 
 final class RegistrationViewController: UIViewController {
@@ -16,16 +15,12 @@ final class RegistrationViewController: UIViewController {
     var output: RegistrationViewOutput?
     private let factory = LogInFactory()
     private lazy var titleText = factory.titleLabel(text: "Регистрация")
-    
     private lazy var nametitle = factory.textLabel(text: "Никнейм")
     private lazy var nameText = factory.registrationTextField()
     private lazy var nameEmpty = factory.errorLabel()
-    
     private lazy var ageTitle = factory.textLabel(text: "Пароль")
     private lazy var ageText = factory.registrationTextField()
     private lazy var ageEmpty = factory.errorLabel()
-    private lazy var backButton = factory.backButton()
-    
     private lazy var logInButton = factory.logInButton()
 
     // MARK: - UIViewController
@@ -50,11 +45,6 @@ final class RegistrationViewController: UIViewController {
     private func logInButtonTapped(_ sender: UIButton) {
         output?.logInButtonTapped(name: nameText.nonOptionalText , age: ageText.nonOptionalText)
     }
-    
-    @objc
-    private func backButtonTapped(_ sender: UITapGestureRecognizer) {
-        output?.openPreviousScreen()
-    }
 
     // MARK: - Setup
 
@@ -65,21 +55,12 @@ final class RegistrationViewController: UIViewController {
         view.addSubview(ageTitle)
         view.addSubview(ageText)
         view.addSubview(logInButton)
-        view.addSubview(backButton)
         view.addSubview(nameEmpty)
         view.addSubview(ageEmpty)
         nameEmpty.isHidden = true
         ageEmpty.isHidden = true
         logInButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
-            backButton.heightAnchor.constraint(equalToConstant: 25),
-            backButton.widthAnchor.constraint(equalToConstant: 25),
-            
-            
             titleText.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
             titleText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleText.heightAnchor.constraint(equalToConstant: 50),

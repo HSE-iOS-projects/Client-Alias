@@ -1,6 +1,8 @@
 import UIKit
 
-protocol AddTeamRouterInput {}
+protocol AddTeamRouterInput {
+    func closeViewController()
+}
 
 final class AddTeamRouter {
     // MARK: - Properties
@@ -10,4 +12,8 @@ final class AddTeamRouter {
 
 // MARK: - AddTeamRouterInput
 
-extension AddTeamRouter: AddTeamRouterInput {}
+extension AddTeamRouter: AddTeamRouterInput {
+    func closeViewController() {
+        view?.dismiss(animated: true)
+    }
+}

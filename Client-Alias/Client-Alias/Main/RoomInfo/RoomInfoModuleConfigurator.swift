@@ -11,7 +11,7 @@ final class RoomInfoModuleConfigurator {
         input: RoomInfoModuleInput
     ) {
         let view = RoomInfoViewController()
-        let presenter = RoomInfoPresenter(room: room)
+        let presenter = RoomInfoPresenter(worker: MainWorkerImpl(storage: SecureSettingsKeeperImpl()), room: room)
         let router = RoomInfoRouter()
 
         presenter.view = view

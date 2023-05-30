@@ -1,12 +1,12 @@
 import Foundation
 
 struct ResultInfo {
-    let winner: TeamInfo
-    let allTeams: [TeamInfo]
+    let winner: TeamResultInfo
+    let allTeams: [TeamResultInfo]
    
 }
 
-struct TeamInfo {
+struct TeamResultInfo {
     let name: String
     let result: Int
 }
