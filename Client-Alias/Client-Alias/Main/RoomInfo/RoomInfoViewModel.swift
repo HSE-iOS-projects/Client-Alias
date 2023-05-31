@@ -2,7 +2,7 @@ import Foundation
 
 struct RoomInfoViewModel: Equatable {
 
-    let room: Room
+    var room: Room
     let isMyTeam: Bool
     var teams: [TeamInfo]
     var noTeamUsers: [Participants]

@@ -8,6 +8,8 @@ final class ProfilePresenter {
     weak var view: ProfileViewInput?
     var router: ProfileRouterInput?
     weak var output: ProfileModuleOutput?
+    
+    static var userInfo = User(name: "", playedGames: 0, winGames: 0)
 }
 
 // MARK: - ProfileViewOutput
@@ -15,8 +17,7 @@ final class ProfilePresenter {
 extension ProfilePresenter: ProfileViewOutput {
 
     func viewDidLoad() {
-        let user = User(name: "Fedor", playedGames: 12, winGames: 10)
-        view?.update(user: user)
+        view?.update(user: ProfilePresenter.userInfo)
     }
 
     func logout() {

@@ -14,15 +14,15 @@ final class ResultViewController: UIViewController {
     // MARK: - Outlets
 
     // MARK: - Properties
-    private let backButton: UIButton = {
-        let button = UIButton()
-        let img = UIImage(systemName: "arrow.left")
-        img?.withTintColor(.systemBlue)
-        button.setImage(img, for: .normal)
-        button.backgroundColor = .clear
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private let backButton: UIButton = {
+//        let button = UIButton()
+//        let img = UIImage(systemName: "arrow.left")
+//        img?.withTintColor(.systemBlue)
+//        button.setImage(img, for: .normal)
+//        button.backgroundColor = .clear
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
     private let winnerLabel: UILabel = {
         let label = UILabel()
@@ -88,9 +88,9 @@ final class ResultViewController: UIViewController {
 
     // MARK: - Actions
     
-    @objc
-    private func backButtonTapped(_ sender: UITapGestureRecognizer) {}
-    
+//    @objc
+//    private func backButtonTapped(_ sender: UITapGestureRecognizer) {}
+//
     @objc
     private func endButtonTapped(_ sender: UITapGestureRecognizer) {
     }
@@ -100,30 +100,30 @@ final class ResultViewController: UIViewController {
 
     private func setupUI() {
         view.addSubview(winnerPlaceHolder)
-        view.addSubview(backButton)
+//        view.addSubview(backButton)
         view.addSubview(winnerLabel)
         view.addSubview(allTeamsLabel)
         view.addSubview(tableView)
         view.addSubview(endButton)
         
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         endButton.addTarget(self, action: #selector(endButtonTapped), for: .touchUpInside)
 
         tableView.delegate = self
         tableView.dataSource = self
         
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
-            backButton.heightAnchor.constraint(equalToConstant: 25),
-            backButton.widthAnchor.constraint(equalToConstant: 25),
+//            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+//            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+//            backButton.heightAnchor.constraint(equalToConstant: 25),
+//            backButton.widthAnchor.constraint(equalToConstant: 25),
             
-            winnerPlaceHolder.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 30),
+            winnerPlaceHolder.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             winnerPlaceHolder.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             winnerPlaceHolder.heightAnchor.constraint(equalToConstant: 200),
             winnerPlaceHolder.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
             
-            winnerLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 40),
+            winnerLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             winnerLabel.centerXAnchor.constraint(equalTo: winnerPlaceHolder.centerXAnchor),
             winnerLabel.heightAnchor.constraint(equalToConstant: 180),
             winnerLabel.widthAnchor.constraint(equalToConstant: view.frame.width - 60),

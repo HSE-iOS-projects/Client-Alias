@@ -1,11 +1,16 @@
 import UIKit
 
 protocol MembersViewInput: AnyObject {
+    func reloadCollectionView()
 }
 
 protocol MembersViewOutput: AnyObject {
     func viewDidLoad()
-    func select(user: String)
+    func select(user: Participants)
+    func getCount() -> Int
+    func getInfo(index: Int) -> Participants
+    func schowAction() -> Bool
+    func deleteUser(id: UUID?)
 }
 
 final class MembersViewController: UIViewController {
@@ -25,8 +30,6 @@ final class MembersViewController: UIViewController {
 
     // MARK: - Properties
 
-    let users = ["User 1", "User 2", "User 3", "User 3", "User 3", "User 3", "User 3", "User 3"]
-
     var output: MembersViewOutput?
 
     // MARK: - UIViewController
@@ -38,7 +41,16 @@ final class MembersViewController: UIViewController {
         title = "Участники"
         
         setupUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let firstVC = presentingViewController?.children.last as? RoomInfoViewController {
+            DispatchQueue.main.async {
+                firstVC.output?.viewDidLoad()
             }
+        }
+    }
 
     // MARK: - Actions
 
@@ -62,25 +74,30 @@ final class MembersViewController: UIViewController {
 // MARK: - TroikaServiceViewInput
 
 extension MembersViewController: MembersViewInput {
+    func reloadCollectionView() {
+        collectionView.reloadData()
+    }
 }
 
 extension MembersViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return users.count
+        output?.getCount() ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let user = users[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
-        cell.titleLabel.text = user
-        cell.titleLabel.font = .systemFont(ofSize: 18)
-        cell.actionButton.isHidden = false
-        cell.actionButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
-        cell.tapHandler = { [weak self] in
-            self?.output?.select(user: user)
+        if let user = output?.getInfo(index: indexPath.row) {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
+            cell.titleLabel.text = user.name
+            cell.titleLabel.font = .systemFont(ofSize: 18)
+            cell.actionButton.isHidden = !(output?.schowAction() ?? false)
+            cell.actionButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+            cell.tapHandler = { [weak self] in
+                self?.output?.select(user: user)
+            }
+            return cell
         }
-        return cell
+        return UICollectionViewCell()
     }
 }
 

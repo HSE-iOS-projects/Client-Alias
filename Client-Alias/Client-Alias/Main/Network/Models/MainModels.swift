@@ -117,3 +117,10 @@ struct AddUserToTeamRequest: Codable {
 struct DeleteRoomRequest: Codable {
     let id: UUID
 }
+
+
+// MARK: - Start Game Request
+
+struct StartGameRequest: Codable {
+    let numberOfRounds: Int
+}

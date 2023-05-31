@@ -41,16 +41,34 @@ extension RoomPresenter: RoomViewOutput {
             }
             switch result {
             case .success(let success):
-                DispatchQueue.main.async {
-                    self.router?.showRoomInfo(room:
-                                                Room(
-                                                    roomID: success.roomID,
-                                                    name: name,
-                                                    roomType: isPrivate ? .private : .public,
-                                                    url: url,
-                                                    code: success.inviteCode,
-                                                    isAdmin: true))
+                var req: JoinRoomRequest
+                if isPrivate {
+                    req = JoinRoomRequest(roomID: nil, inviteCode: success.inviteCode)
+                } else {
+                    req = JoinRoomRequest(roomID: success.roomID, inviteCode: nil)
                 }
+                worker.joinRoom(request: req) { [weak self] result  in
+                    guard let self = self else {
+                        return
+                    }
+                    switch result {
+                    case .success:
+                        DispatchQueue.main.async {
+                            self.router?.showRoomInfo(room:
+                                                        Room(
+                                                            roomID: success.roomID,
+                                                            name: name,
+                                                            roomType: isPrivate ? .private : .public,
+                                                            url: url,
+                                                            code: success.inviteCode,
+                                                            isAdmin: true
+                                                        ))
+                        }
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                }
+
             case .failure(let failure):
                 DispatchQueue.main.async {
                     self.router?.showAlert()

@@ -14,6 +14,7 @@ enum MainEndpoint: Endpoint {
     case addToTeamRequest
     case getRoomInfo
     case deleteTeam
+    case startGame
     
     var compositPath: String {
         switch self {
@@ -41,6 +42,8 @@ enum MainEndpoint: Endpoint {
             return "/game/getRoomInfo"
         case .deleteTeam:
             return "/game/deleteTeam"
+        case .startGame:
+            return "/game/startGame"
         }
     }
 }

@@ -35,15 +35,15 @@ final class PlayRoundViewController: UIViewController {
         return button
     }()
     
-    private let backButton: UIButton = {
-        let button = UIButton()
-        let img = UIImage(systemName: "arrow.left")
-        img?.withTintColor(.systemBlue)
-        button.setImage(img, for: .normal)
-        button.backgroundColor = .clear
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private let backButton: UIButton = {
+//        let button = UIButton()
+//        let img = UIImage(systemName: "arrow.left")
+//        img?.withTintColor(.systemBlue)
+//        button.setImage(img, for: .normal)
+//        button.backgroundColor = .clear
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
     private let roundLabel: UILabel = {
         let titleText = UILabel()
@@ -136,8 +136,8 @@ final class PlayRoundViewController: UIViewController {
 
     // MARK: - Actions
 
-    @objc
-    private func backButtonTapped(_ sender: UITapGestureRecognizer) {}
+//    @objc
+//    private func backButtonTapped(_ sender: UITapGestureRecognizer) {}
     
     @objc
     private func continueButtonTapped(_ sender: UITapGestureRecognizer) {
@@ -185,7 +185,7 @@ final class PlayRoundViewController: UIViewController {
     // MARK: - Setup
     
     private func setupUI() {
-        view.addSubview(backButton)
+//        view.addSubview(backButton)
         view.addSubview(pauseButton)
         view.addSubview(roundLabel)
         view.addSubview(teamLabel)
@@ -200,7 +200,7 @@ final class PlayRoundViewController: UIViewController {
         tableView.isHidden = true
         continueButton.isHidden = true
         
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
         tableView.delegate = self
@@ -216,12 +216,12 @@ final class PlayRoundViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
-            backButton.heightAnchor.constraint(equalToConstant: 40),
-            backButton.widthAnchor.constraint(equalToConstant: 40),
+//            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+//            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+//            backButton.heightAnchor.constraint(equalToConstant: 40),
+//            backButton.widthAnchor.constraint(equalToConstant: 40),
     
-            roundLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 40),
+            roundLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             roundLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             roundLabel.heightAnchor.constraint(equalToConstant: 40),
             

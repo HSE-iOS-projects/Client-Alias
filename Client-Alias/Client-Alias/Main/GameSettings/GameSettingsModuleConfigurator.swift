@@ -10,7 +10,7 @@ final class GameSettingsModuleConfigurator {
         input: GameSettingsModuleInput
     ) {
         let view = GameSettingsViewController()
-        let presenter = GameSettingsPresenter()
+        let presenter = GameSettingsPresenter(worker: MainWorkerImpl(storage: SecureSettingsKeeperImpl()))
         let router = GameSettingsRouter()
 
         presenter.view = view

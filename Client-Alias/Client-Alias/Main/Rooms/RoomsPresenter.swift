@@ -54,6 +54,7 @@ extension RoomsPresenter: RoomsViewOutput {
                     open?.removeAll(where: { it in
                         it.roomID == roomID
                     })
+                    ProfilePresenter.userInfo = User(name: success.nickname, playedGames: 0, winGames: 0)
                     self.view?.viewModel = RoomsViewModel(
                         activeRoom: Room(roomID: roomID, name: roomName),
                         openRooms: open ?? [])

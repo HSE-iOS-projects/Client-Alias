@@ -197,7 +197,7 @@ extension RoomInfoViewController: UICollectionViewDataSource {
             let team = viewModel?.teams[indexPath.row - 1]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
             cell.titleLabel.text = team?.name
-            cell.actionButton.isHidden = false
+            cell.actionButton.isHidden = !(viewModel?.room.isAdmin ?? false)
             cell.actionButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
             cell.tapHandler = { [weak self] in
                 if let team {
@@ -218,7 +218,7 @@ extension RoomInfoViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
         cell.titleLabel.text = user?.name
         cell.titleLabel.font = .systemFont(ofSize: 18)
-        cell.actionButton.isHidden = false
+        cell.actionButton.isHidden = !(viewModel?.room.isAdmin ?? false)
         cell.actionButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         cell.tapHandler = { [weak self] in
             if let user {
@@ -241,8 +241,11 @@ extension RoomInfoViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 2 {
-            if let team = viewModel?.teams[indexPath.row] {
+            if indexPath.row != 0{
+                if let team = viewModel?.teams[indexPath.row - 1] {
                 output?.select(team: team)
+            }
+                
             }
         }
     }

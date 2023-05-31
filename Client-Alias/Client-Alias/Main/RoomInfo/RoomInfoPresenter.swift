@@ -34,10 +34,11 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
         if room.isAdmin {
             router?.showUserActions(
                 user: user.name,
+                isAdmin: user.name == ProfilePresenter.userInfo.name,
                 addHandler: { [weak self] in
-                    self?.router?.showTeams()
-                }, adminHandler: {
-                    
+                    self?.router?.showTeams(participantID: participantID, teams: self?.view?.viewModel?.teams ?? [])
+                }, adminHandler: { [weak self] in
+                    self?.passAdminStatus(participantID: participantID)
                 }, deleteHandler: { [weak self] in
                     self?.deleteUser(teamId: user.teamID, participantID: participantID)
                 }
@@ -66,7 +67,14 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
     
 
     func select(team: TeamInfo) {
-        router?.showMembers()
+        router?.showMembers(
+            model:
+                MembersModel(
+                    adminName: room.isAdmin ? ProfilePresenter.userInfo.name : nil,
+                    currentTeam: team,
+                    teams: view?.viewModel?.teams ?? []
+                )
+        )
     }
 
     func addTeam() {
@@ -74,7 +82,7 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
     }
 
     func start() {
-        router?.showGameSettings()
+        checkGameSettings()
     }
 
     func leaveRoom() {
@@ -86,6 +94,33 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func checkGameSettings() {
+        guard let teams = view?.viewModel?.teams else {
+            router?.showAlert()
+            return
+        }
+        if teams.count < 2 {
+            router?.showAlert(title: "А где команды?", message: "Для игры должно быть минимум 2 команды с участниками")
+        } else {
+            var count = 0
+            for team in teams {
+                if team.participants.isEmpty {
+                    router?.showAlert(title: "Пустая команда: \(team.name)", message: "Удалите пустые команды")
+                    return
+                } else {
+                    count += 1
+                }
+            }
+            
+            if count < 2 {
+                router?.showAlert(title: "А где команды?", message: "Для игры должно быть минимум 2 команды с участниками")
+                return
+            }
+        }
+        
+        router?.showGameSettings()
     }
     
     private func getInfo() {
@@ -158,6 +193,21 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
         return roomInfo
     }
     
+    private func passAdminStatus(participantID: UUID) {
+        worker.passAdminStatus(request: PassAdminStatusRequest(userID: participantID, roomID: room.roomID)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self.view?.viewModel?.room.isAdmin = false
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     private func deleteUser(teamId: UUID?, participantID: UUID) {
         worker.deleteUserFromRoom(

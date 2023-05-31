@@ -17,3 +17,12 @@ extension UITextField {
         text ?? ""
     }
 }
+
+extension String {
+    func isInt() -> Bool {
+        guard let _ = Int(self) else {
+            return false
+        }
+        return true
+    }
+}

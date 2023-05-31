@@ -4,6 +4,11 @@ protocol TeamsViewInput: AnyObject {}
 
 protocol TeamsViewOutput: AnyObject {
     func viewDidLoad()
+    func getCount() -> Int
+    func getTeam(index: Int) -> String
+    func selectTeam(index: Int)
+    func hasChanges() -> Bool
+    func getParticipant() -> UUID
 }
 
 final class TeamsViewController: UIViewController {
@@ -23,8 +28,6 @@ final class TeamsViewController: UIViewController {
 
     // MARK: - Properties
 
-    let teams = ["Team 1", "Team 2", "Team 3", "Team 3", "Team 3", "Team 3", "Team 3", "Team 3",]
-
     var output: TeamsViewOutput?
 
     // MARK: - UIViewController
@@ -32,10 +35,25 @@ final class TeamsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
-        
         setupUI()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let firstVC = presentingViewController?.children.last as? RoomInfoViewController {
+            DispatchQueue.main.async {
+                firstVC.output?.viewDidLoad()
+            }
+        }
+        
+        if let firstVC = presentingViewController?.children.last as? MembersViewController {
+            DispatchQueue.main.async {
+                firstVC.output?.deleteUser(id: self.output?.getParticipant())
+            }
+        }
+        
+       
+    }
     // MARK: - Actions
 
     // MARK: - Setup
@@ -62,7 +80,7 @@ extension TeamsViewController: TeamsViewInput {
 extension TeamsViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return teams.count + 1
+        output?.getCount() ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,11 +90,17 @@ extension TeamsViewController: UICollectionViewDataSource {
             cell.titleLabel.text = "Команды"
             return cell
         }
-        let team = teams[indexPath.row - 1]
+        let team = output?.getTeam(index: indexPath.row - 1)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
         cell.titleLabel.text = team
         cell.titleLabel.font = .systemFont(ofSize: 18)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            output?.selectTeam(index: indexPath.row - 1)
+        }
     }
 }
 

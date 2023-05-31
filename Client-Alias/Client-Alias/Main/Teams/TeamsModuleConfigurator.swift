@@ -4,13 +4,19 @@ final class TeamsModuleConfigurator {
     // MARK: - Configure
 
     func configure(
+        participantID: UUID,
+        teams: [TeamInfo],
         output: TeamsModuleOutput? = nil
     ) -> (
         view: TeamsViewController,
         input: TeamsModuleInput
     ) {
         let view = TeamsViewController()
-        let presenter = TeamsPresenter()
+        let presenter = TeamsPresenter(
+            participantID: participantID,
+            teams: teams,
+            worker: MainWorkerImpl(storage: SecureSettingsKeeperImpl())
+        )
         let router = TeamsRouter()
 
         presenter.view = view

@@ -12,6 +12,7 @@ protocol MainWorker {
     func leaveRoom(completion: @escaping (VoidResult) -> Void)
     func addToTeam(request: AddUserToTeamRequest, completion: @escaping (VoidResult) -> Void)
     func deleteTeam(request: DeleteRoomRequest, completion: @escaping (VoidResult) -> Void)
+    func startGame(request: StartGameRequest, completion: @escaping (VoidResult) -> Void)
 }
 
 final class MainWorkerImpl: MainWorker {
@@ -54,7 +55,6 @@ final class MainWorkerImpl: MainWorker {
         fetch(endpoint: endpoint, body: request, method: .post, completion: completion)
     }
     
-    
     func passAdminStatus(request: PassAdminStatusRequest, completion: @escaping (VoidResult) -> Void) {
         let endpoint = MainEndpoint.passAdminStatus
         fetch(endpoint: endpoint, body: request, method: .put, completion: completion)
@@ -78,6 +78,11 @@ final class MainWorkerImpl: MainWorker {
     func deleteTeam(request: DeleteRoomRequest, completion: @escaping (VoidResult) -> Void) {
         let endpoint = MainEndpoint.deleteTeam
         fetch(endpoint: endpoint, body: request, method: .delete, completion: completion)
+    }
+    
+    func startGame(request: StartGameRequest, completion: @escaping (VoidResult) -> Void) {
+        let endpoint = MainEndpoint.startGame
+        fetch(endpoint: endpoint, body: request, method: .post, completion: completion)
     }
 
     func fetch<T: Decodable, B: Codable>(endpoint: Endpoint, body: B, method: NetworkModel.Method, completion: @escaping (Result<T, Error>) -> Void) {
