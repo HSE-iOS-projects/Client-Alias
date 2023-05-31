@@ -10,6 +10,8 @@
 		3E6EA99F2A2684190032BFCA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6EA99E2A2684190032BFCA /* Observable.swift */; };
 		3E6EA9A32A2684780032BFCA /* Locking+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6EA9A12A2684780032BFCA /* Locking+Extension.swift */; };
 		3E6EA9A42A2684780032BFCA /* Locking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6EA9A22A2684780032BFCA /* Locking.swift */; };
+		3E6EA9A82A2687910032BFCA /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6EA9A72A2687910032BFCA /* WebSocketManager.swift */; };
+		3E6EA9AB2A2687C60032BFCA /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6EA9AA2A2687C60032BFCA /* Starscream */; };
 		5E3021EA2A1E7FC100219928 /* CardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E92A1E7FC100219928 /* CardTableCell.swift */; };
 		5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EB2A1E876C00219928 /* CustomStepper.swift */; };
 		5E3021F32A1EC93400219928 /* EndGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */; };
@@ -116,6 +118,7 @@
 		3E6EA99E2A2684190032BFCA /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		3E6EA9A12A2684780032BFCA /* Locking+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locking+Extension.swift"; sourceTree = "<group>"; };
 		3E6EA9A22A2684780032BFCA /* Locking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locking.swift; sourceTree = "<group>"; };
+		3E6EA9A72A2687910032BFCA /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		5E3021E92A1E7FC100219928 /* CardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableCell.swift; sourceTree = "<group>"; };
 		5E3021EB2A1E876C00219928 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePresenter.swift; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E8F78652A1D2CD90079155E /* ZLSwipeableViewSwift in Frameworks */,
+				3E6EA9AB2A2687C60032BFCA /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +250,14 @@
 				3E6EA9A22A2684780032BFCA /* Locking.swift */,
 			);
 			path = Locking;
+			sourceTree = "<group>";
+		};
+		3E6EA9A62A2687810032BFCA /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				3E6EA9A72A2687910032BFCA /* WebSocketManager.swift */,
+			);
+			path = WebSocket;
 			sourceTree = "<group>";
 		};
 		5E3021ED2A1EA2E800219928 /* Models */ = {
@@ -558,6 +570,7 @@
 		9D26E8DD2A1D5B5B001C201B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3E6EA9A62A2687810032BFCA /* WebSocket */,
 				5EFA08082A254311003DDE35 /* Helpers */,
 				9D26E8DE2A1D5B5B001C201B /* Aliases.swift */,
 				9D26E8DF2A1D5B5B001C201B /* Networking.swift */,
@@ -655,6 +668,7 @@
 			name = "Client-Alias";
 			packageProductDependencies = (
 				5E8F78642A1D2CD90079155E /* ZLSwipeableViewSwift */,
+				3E6EA9AA2A2687C60032BFCA /* Starscream */,
 			);
 			productName = "Client-Alias";
 			productReference = 5E89BA272A17BAE3005E3381 /* Client-Alias.app */;
@@ -686,6 +700,7 @@
 			mainGroup = 5E89BA1E2A17BAE3005E3381;
 			packageReferences = (
 				5E8F78632A1D2CD90079155E /* XCRemoteSwiftPackageReference "ZLSwipeableViewSwift" */,
+				3E6EA9A92A2687C60032BFCA /* XCRemoteSwiftPackageReference "Starscream" */,
 			);
 			productRefGroup = 5E89BA282A17BAE3005E3381 /* Products */;
 			projectDirPath = "";
@@ -760,6 +775,7 @@
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
 				5EFA08072A2408DF003DDE35 /* TeamInfo.swift in Sources */,
 				5E3021F62A1EC93400219928 /* EndGameModuleConfigurator.swift in Sources */,
+				3E6EA9A82A2687910032BFCA /* WebSocketManager.swift in Sources */,
 				9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */,
 				5E46EDB32A17D94400F3FFAD /* LogInModеl.swift in Sources */,
 				9D26E8E42A1D5B5B001C201B /* Aliases.swift in Sources */,
@@ -1025,6 +1041,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3E6EA9A92A2687C60032BFCA /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		5E8F78632A1D2CD90079155E /* XCRemoteSwiftPackageReference "ZLSwipeableViewSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zhxnlai/ZLSwipeableViewSwift";
@@ -1036,6 +1060,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3E6EA9AA2A2687C60032BFCA /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E6EA9A92A2687C60032BFCA /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
 		5E8F78642A1D2CD90079155E /* ZLSwipeableViewSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5E8F78632A1D2CD90079155E /* XCRemoteSwiftPackageReference "ZLSwipeableViewSwift" */;

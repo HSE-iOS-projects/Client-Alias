@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = navigationVC
         window.makeKeyAndVisible()
 
-
+        WebSocketManagerImpl.shared.connect()
         self.window = window
 
     }
