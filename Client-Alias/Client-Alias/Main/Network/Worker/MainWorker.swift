@@ -13,6 +13,8 @@ protocol MainWorker {
     func addToTeam(request: AddUserToTeamRequest, completion: @escaping (VoidResult) -> Void)
     func deleteTeam(request: DeleteRoomRequest, completion: @escaping (VoidResult) -> Void)
     func startGame(request: StartGameRequest, completion: @escaping (VoidResult) -> Void)
+    func nextRound(request: NextRoundRequest, completion: @escaping (VoidResult) -> Void)
+    func deleteUser(completion: @escaping (VoidResult) -> Void)
 }
 
 final class MainWorkerImpl: MainWorker {
@@ -83,6 +85,16 @@ final class MainWorkerImpl: MainWorker {
     func startGame(request: StartGameRequest, completion: @escaping (VoidResult) -> Void) {
         let endpoint = MainEndpoint.startGame
         fetch(endpoint: endpoint, body: request, method: .post, completion: completion)
+    }
+    
+    func nextRound(request: NextRoundRequest, completion: @escaping (VoidResult) -> Void) {
+        let endpoint = MainEndpoint.nextRound
+        fetch(endpoint: endpoint, body: request, method: .post, completion: completion)
+    }
+    
+    func deleteUser(completion: @escaping (VoidResult) -> Void) {
+        let endpoint = MainEndpoint.deleteProfile
+        fetch(endpoint: endpoint, body: Empty(), method: .delete, completion: completion)
     }
 
     func fetch<T: Decodable, B: Codable>(endpoint: Endpoint, body: B, method: NetworkModel.Method, completion: @escaping (Result<T, Error>) -> Void) {

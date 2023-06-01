@@ -1,3 +1,4 @@
+import Foundation
 protocol ResultModuleInput: AnyObject {}
 
 protocol ResultModuleOutput: AnyObject {}
@@ -15,6 +16,16 @@ final class ResultPresenter {
             TeamResultInfo(name: "Почти смогли", result: 20),
             TeamResultInfo(name: "Ну зато пытались", result: 10),
         ])
+    
+    let resultStatus: String
+    let worker: PlayWorker
+    let roomID: UUID
+    
+    init(res: String, worker: PlayWorker, roomID: UUID) {
+        resultStatus = res
+        self.worker = worker
+        self.roomID = roomID
+    }
 }
 
 // MARK: - ResultViewOutput
@@ -29,7 +40,34 @@ extension ResultPresenter: ResultViewOutput {
     }
     
     func viewDidLoad() {
-        view?.showInfo(winner: result.winner.name)
+        if resultStatus == "You win" {
+            view?.showInfo(winner: "Поздравляем, вы выиграли")
+        } else {
+            view?.showInfo(winner: "К сожалению, вы проиграли")
+        }
+    }
+    
+    func openMain() {
+        worker.endGame(request: EndGame(roomID: roomID)) {[weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success:
+                self.worker.leaveRoom { res in
+                    switch res {
+                    case .success:
+                        print("delete successfully")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        router?.openMain()
     }
     
 }

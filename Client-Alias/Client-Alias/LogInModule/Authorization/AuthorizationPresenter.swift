@@ -11,10 +11,11 @@ final class AuthorizationPresenter {
     weak var view: AuthorizationViewInput?
     weak var output: AuthorizationModuleOutput?
     var router: AuthorizationRouterInput?
-    var storage: SecureSettingsKeeper = SecureSettingsKeeperImpl()
+    var storage: SecureSettingsKeeper
 
-    init(worker: AuthorizationWorker) {
+    init(worker: AuthorizationWorker, storage: SecureSettingsKeeper) {
         self.worker = worker
+        self.storage = storage
     }
 
 }
@@ -46,6 +47,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
                     DispatchQueue.main.async {
                         self.router?.openMainScreen()
                     }
+                    WebSocketManagerImpl.shared.connect()
                 case .failure(let failure):
                     DispatchQueue.main.async {
                         self.router?.showAlert()

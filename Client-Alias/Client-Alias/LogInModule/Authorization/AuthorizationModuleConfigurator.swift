@@ -11,7 +11,7 @@ final class AuthorizationModuleConfigurator {
         input: AuthorizationModuleInput
     ) {
         let view = AuthorizationViewController()
-        let presenter = AuthorizationPresenter(worker: AuthorizationWorkerImpl())
+        let presenter = AuthorizationPresenter(worker: AuthorizationWorkerImpl(), storage: SecureSettingsKeeperImpl())
         let router = AuthorizationRouter()
 
         presenter.view = view

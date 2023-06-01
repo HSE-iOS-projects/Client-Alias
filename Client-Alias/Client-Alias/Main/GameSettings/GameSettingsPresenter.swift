@@ -11,9 +11,11 @@ final class GameSettingsPresenter {
     weak var output: GameSettingsModuleOutput?
     
     let worker: MainWorker
+    let roomID: UUID
 
-    init(worker: MainWorker) {
+    init(worker: MainWorker, roomID: UUID) {
         self.worker = worker
+        self.roomID = roomID
     }
 }
 
@@ -25,15 +27,16 @@ extension GameSettingsPresenter: GameSettingsViewOutput {
     func continueGame(roundNum: String) {
         let roundEr = roundError(text: roundNum)
         if roundEr == nil {
-            worker.startGame(request: StartGameRequest(numberOfRounds: Int(roundNum) ?? 0), completion: { [weak self] result in
+            self.router?.openGame()
+            worker.startGame(
+                request: StartGameRequest(numberOfRounds: Int(roundNum) ?? 0,
+                roomID: roomID), completion: { [weak self] result in
                 guard let self = self else {
                     return
                 }
                 switch result {
                 case .success:
-                    DispatchQueue.main.async {
-                        self.router?.openGame()
-                    }
+                    print("GAAAAAME STTTTAAAAART")
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

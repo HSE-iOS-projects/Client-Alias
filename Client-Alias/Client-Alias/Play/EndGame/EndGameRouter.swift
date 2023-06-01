@@ -15,9 +15,9 @@ final class EndGameRouter {
 extension EndGameRouter: EndGameRouterInput {
     // TODO: - заменить на пуш
     func openResultController() {
-        let viewController = ResultModuleConfigurator().configure(
-            output: nil
-        ).view
-        view?.navigationController?.pushViewController(viewController, animated: false)
+//        let viewController = ResultModuleConfigurator().configure(
+//            output: nil
+//        ).view
+//        view?.navigationController?.pushViewController(viewController, animated: false)
     }
 }

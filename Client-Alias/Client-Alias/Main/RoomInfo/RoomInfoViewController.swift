@@ -13,6 +13,7 @@ protocol RoomInfoViewOutput: AnyObject {
     func start()
     func leaveRoom()
     func showTeamMenu(team: TeamInfo)
+    func update()
 //    func showInviteCode()
 }
 
@@ -27,7 +28,7 @@ final class RoomInfoViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCollectionViewCell")
         collectionView.register(TextFieldCollectionViewCell.self, forCellWithReuseIdentifier: "TextFieldCollectionViewCell")
-        collectionView.backgroundColor = .black
+//        collectionView.backgroundColor = .black
         return collectionView
     }()
 
@@ -41,10 +42,12 @@ final class RoomInfoViewController: UIViewController {
         return startButton
     }()
 
+    private var refresher = UIRefreshControl()
     // MARK: - Properties
 
     var viewModel: RoomInfoViewModel? {
         didSet {
+            collectionView.refreshControl?.endRefreshing()
             guard isViewLoaded, viewModel != oldValue else {
                 return
             }
@@ -60,6 +63,9 @@ final class RoomInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .systemBackground
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = "Подготовка"
         
     }
@@ -86,9 +92,18 @@ final class RoomInfoViewController: UIViewController {
         output?.start()
     }
     
+    @objc func loadData() {
+        collectionView.refreshControl?.beginRefreshing()
+        output?.update()
+     }
+    
     // MARK: - Setup
 
     private func setupUI() {
+        collectionView.alwaysBounceVertical = true
+        refresher.tintColor = .systemBlue
+        refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        collectionView.refreshControl = refresher 
         view.addSubview(collectionView)
         view.addSubview(startButton)
         

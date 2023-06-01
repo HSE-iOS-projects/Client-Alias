@@ -15,12 +15,12 @@ final class PlayRoundRouter {
 extension PlayRoundRouter: PlayRoundRouterInput {
     // TODO: - заменить на пуш
     func openEndGameController(data: [WordInfo]) {
-        let viewController = EndGameModuleConfigurator().configure(
-            output: nil,
-            data: data
-        ).view
-       
-        view?.navigationController?.pushViewController(viewController, animated: false)
+//        let viewController = EndGameModuleConfigurator().configure(
+//            output: nil,
+//            data: data
+//        ).view
+//
+//        view?.navigationController?.pushViewController(viewController, animated: false)
     }
     
 }

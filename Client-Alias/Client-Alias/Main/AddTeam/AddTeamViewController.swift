@@ -22,8 +22,10 @@ final class AddTeamViewController: UIViewController {
 
     private lazy var textField: UITextField = {
         let textField = UITextField()
-        textField.textColor = .black
-        textField.borderStyle = .roundedRect
+        textField.textColor = .label
+        textField.layer.cornerRadius = 15
+        textField.tintColor = .gray
+        textField.setLeftPaddingPoints(15)
         textField.backgroundColor = .secondarySystemBackground
         textField.placeholder = "Название команды"
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -79,19 +81,19 @@ final class AddTeamViewController: UIViewController {
         view.addSubview(addButton)
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
-            textField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            textField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            textField.heightAnchor.constraint(equalToConstant: 32),
+            textField.heightAnchor.constraint(equalToConstant: 50),
 
             addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             addButton.heightAnchor.constraint(equalToConstant: 48),
-            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
 

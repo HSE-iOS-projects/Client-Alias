@@ -9,6 +9,7 @@ protocol RoomsViewOutput: AnyObject {
     func viewDidLoad()
     func add()
     func addKey()
+    func getInfo()
     func select(room: Room, isActive: Bool)
 }
 
@@ -23,15 +24,17 @@ final class RoomsViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(RoomCollectionViewCell.self, forCellWithReuseIdentifier: "RoomCollectionViewCell")
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCollectionViewCell")
-        collectionView.backgroundColor = .black
+//        collectionView.backgroundColor = .black
         return collectionView
     }()
 
     private lazy var textField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .roundedRect
-//        textField.layer.cornerRadius = 16
-        textField.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
+//        textField.borderStyle = .roundedRect
+         textField.layer.cornerRadius = 15
+        textField.setLeftPaddingPoints(15)
+        textField.tintColor = .gray
+        textField.backgroundColor = .secondarySystemBackground //UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
         textField.placeholder = "Название комнаты"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -39,7 +42,7 @@ final class RoomsViewController: UIViewController {
 
     private lazy var addButton: UIButton = {
         let addButton = UIButton()
-        addButton.tintColor = .white
+        addButton.tintColor = .label
         addButton.setImage(UIImage(systemName: "plus"), for: .normal)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.addTarget(self, action: #selector(add), for: .touchUpInside)
@@ -48,22 +51,26 @@ final class RoomsViewController: UIViewController {
 
     private lazy var keyButton: UIButton = {
         let keyButton = UIButton()
-        keyButton.tintColor = .white
+        keyButton.tintColor = .label
         keyButton.setImage(UIImage(systemName: "key.fill"), for: .normal)
         keyButton.translatesAutoresizingMaskIntoConstraints = false
         keyButton.addTarget(self, action: #selector(addKey), for: .touchUpInside)
         return keyButton
     }()
 
+    
+    private var refresher = UIRefreshControl()
     // MARK: - Properties
 
     var output: RoomsViewOutput?
     var viewModel: RoomsViewModel? {
         didSet {
+            collectionView.refreshControl?.endRefreshing()
             guard isViewLoaded, viewModel != oldValue else {
                 return
             }
             collectionView.reloadData()
+            
         }
     }
 
@@ -72,7 +79,7 @@ final class RoomsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .systemBackground
         title = "Комнаты"
         setupUI()
     }
@@ -92,33 +99,41 @@ final class RoomsViewController: UIViewController {
         output?.addKey()
     }
 
+    @objc func loadData() {
+        collectionView.refreshControl?.beginRefreshing()
+        output?.getInfo()
+     }
     // MARK: - Setup
 
     private func setupUI() {
+        collectionView.alwaysBounceVertical = true
+        refresher.tintColor = .systemBlue
+        refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        collectionView.refreshControl = refresher 
         view.addSubview(textField)
         view.addSubview(addButton)
         view.addSubview(keyButton)
         view.addSubview(collectionView)
 
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             textField.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -16),
             textField.heightAnchor.constraint(equalToConstant: 32),
 
-            addButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            addButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             addButton.widthAnchor.constraint(equalToConstant: 32),
             addButton.heightAnchor.constraint(equalToConstant: 32),
             addButton.trailingAnchor.constraint(equalTo: keyButton.leadingAnchor, constant: -16),
 
-            keyButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            keyButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             keyButton.widthAnchor.constraint(equalToConstant: 32),
             keyButton.heightAnchor.constraint(equalToConstant: 32),
             keyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -16),
 
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 16),
+            collectionView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 5),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }

@@ -35,20 +35,10 @@ final class PlayRoundViewController: UIViewController {
         return button
     }()
     
-//    private let backButton: UIButton = {
-//        let button = UIButton()
-//        let img = UIImage(systemName: "arrow.left")
-//        img?.withTintColor(.systemBlue)
-//        button.setImage(img, for: .normal)
-//        button.backgroundColor = .clear
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
-    
     private let roundLabel: UILabel = {
         let titleText = UILabel()
         titleText.numberOfLines = 0
-        titleText.textColor = .white
+        titleText.textColor = .label
         titleText.font = UIFont.systemFont(ofSize: 37, weight: .bold)
         titleText.translatesAutoresizingMaskIntoConstraints = false
         return titleText
@@ -57,7 +47,7 @@ final class PlayRoundViewController: UIViewController {
     private let teamLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .white
+        label.textColor = .label
         label.textAlignment = .left
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 23, weight: .regular)
@@ -69,7 +59,7 @@ final class PlayRoundViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = "Слова"
-        label.textColor = .white
+        label.textColor = .label
         label.isHidden = true
         label.textAlignment = .left
         label.lineBreakMode = .byWordWrapping
@@ -81,7 +71,7 @@ final class PlayRoundViewController: UIViewController {
     private let timeLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .white
+        label.textColor = .label
         label.textAlignment = .left
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
@@ -103,7 +93,7 @@ final class PlayRoundViewController: UIViewController {
         table.separatorColor = .clear
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(CardTableCell.self, forCellReuseIdentifier: CardTableCell.reuseIdentifier)
-        table.backgroundColor = .black
+//        table.backgroundColor = .systemBackground
         return table
     }()
     
@@ -130,14 +120,12 @@ final class PlayRoundViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         output?.viewDidLoad()
         setupUI()
     }
 
     // MARK: - Actions
-
-//    @objc
-//    private func backButtonTapped(_ sender: UITapGestureRecognizer) {}
     
     @objc
     private func continueButtonTapped(_ sender: UITapGestureRecognizer) {
@@ -185,7 +173,6 @@ final class PlayRoundViewController: UIViewController {
     // MARK: - Setup
     
     private func setupUI() {
-//        view.addSubview(backButton)
         view.addSubview(pauseButton)
         view.addSubview(roundLabel)
         view.addSubview(teamLabel)
@@ -199,8 +186,6 @@ final class PlayRoundViewController: UIViewController {
         wordsLabel.isHidden = true
         tableView.isHidden = true
         continueButton.isHidden = true
-        
-//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
         tableView.delegate = self
@@ -215,12 +200,7 @@ final class PlayRoundViewController: UIViewController {
             ])
         }
         
-        NSLayoutConstraint.activate([
-//            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-//            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
-//            backButton.heightAnchor.constraint(equalToConstant: 40),
-//            backButton.widthAnchor.constraint(equalToConstant: 40),
-    
+        NSLayoutConstraint.activate([    
             roundLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             roundLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             roundLabel.heightAnchor.constraint(equalToConstant: 40),
@@ -254,9 +234,9 @@ final class PlayRoundViewController: UIViewController {
         ])
         
         swipeableView.frame = CGRect(
-            x: (UIScreen.main.bounds.width - 300) / 2,
+            x: (UIScreen.main.bounds.width - 400) / 2,
             y: 400,
-            width: 300,
+            width: 400,
             height: 200
         )
     }

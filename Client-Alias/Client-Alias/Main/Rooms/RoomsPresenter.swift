@@ -11,6 +11,7 @@ final class RoomsPresenter {
     weak var output: RoomsModuleOutput?
     
     let worker: MainWorker
+
     
     init(worker: MainWorker) {
         self.worker = worker
@@ -23,6 +24,10 @@ extension RoomsPresenter: RoomsViewOutput {
 
     func viewDidLoad() {
         view?.viewModel = RoomsViewModel(openRooms: [])
+        getInfo()
+        }
+       
+    func getInfo() {
         worker.getAllRooms { [weak self] result in
             guard let self = self else {
                 return
@@ -44,7 +49,7 @@ extension RoomsPresenter: RoomsViewOutput {
             }
             switch result {
             case .success(let success):
-                
+                ProfilePresenter.userInfo = User(name: success.nickname)
                 DispatchQueue.main.async {
                     guard let roomID = success.roomID,
                           let roomName = success.roomName else {
@@ -54,7 +59,7 @@ extension RoomsPresenter: RoomsViewOutput {
                     open?.removeAll(where: { it in
                         it.roomID == roomID
                     })
-                    ProfilePresenter.userInfo = User(name: success.nickname, playedGames: 0, winGames: 0)
+                    
                     self.view?.viewModel = RoomsViewModel(
                         activeRoom: Room(roomID: roomID, name: roomName),
                         openRooms: open ?? [])
@@ -64,8 +69,7 @@ extension RoomsPresenter: RoomsViewOutput {
                     print(failure)
                 }
             }
-        }
-        
+    }
 
     func add() {
         router?.showRoom()
@@ -77,7 +81,7 @@ extension RoomsPresenter: RoomsViewOutput {
 
     func select(room: Room, isActive: Bool = false) {
 //        self.router?.showRoomInfo(room: room)
-        if !isActive {
+        if !isActive && !room.isAdmin {
             worker.joinRoom(request: JoinRoomRequest(roomID: room.roomID, inviteCode: nil)) { [weak self] result in
                 guard let self = self else {
                     return

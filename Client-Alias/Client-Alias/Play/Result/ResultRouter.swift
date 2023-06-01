@@ -1,6 +1,8 @@
 import UIKit
 
-protocol ResultRouterInput {}
+protocol ResultRouterInput {
+    func openMain()
+}
 
 final class ResultRouter {
     // MARK: - Properties
@@ -10,4 +12,9 @@ final class ResultRouter {
 
 // MARK: - ResultRouterInput
 
-extension ResultRouter: ResultRouterInput {}
+extension ResultRouter: ResultRouterInput {
+    func openMain() {
+        let viewController = TabBarViewController()
+        view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+}

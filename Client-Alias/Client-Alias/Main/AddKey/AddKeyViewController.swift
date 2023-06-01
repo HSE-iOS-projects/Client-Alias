@@ -13,18 +13,22 @@ final class AddKeyViewController: UIViewController {
 
     private lazy var keyLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.textColor = .gray
+        titleLabel.textColor = .label
         titleLabel.text = "Ключ"
-        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.font = .systemFont(ofSize: 19)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
 
     private lazy var keyTextField: UITextField = {
         let textField = UITextField()
-        textField.textColor = .white
-        textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
+        textField.textColor = .label
+        textField.tintColor = .gray
+//        textField.borderStyle = .roundedRect
+        textField.layer.cornerRadius = 15
+        textField.setLeftPaddingPoints(15)
+        textField.backgroundColor = UIColor.ColorPalette.secondSecondBackgroundColor
+//        textField.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
         textField.placeholder = "Ключ"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -50,8 +54,9 @@ final class AddKeyViewController: UIViewController {
         super.viewDidLoad()
         output?.viewDidLoad()
 
-        view.backgroundColor = .black
-        
+        view.backgroundColor = .secondarySystemBackground
+        self.modalPresentationStyle = .pageSheet
+        self.isModalInPresentation = false
         setupUI()
     }
     
@@ -83,19 +88,19 @@ final class AddKeyViewController: UIViewController {
         view.addSubview(addButton)
 
         NSLayoutConstraint.activate([
-            keyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            keyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            keyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            keyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            keyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            keyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
 
-            keyTextField.topAnchor.constraint(equalTo: keyLabel.bottomAnchor, constant: 16),
-            keyTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            keyTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            keyTextField.heightAnchor.constraint(equalToConstant: 32),
+            keyTextField.topAnchor.constraint(equalTo: keyLabel.bottomAnchor, constant: 20),
+            keyTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            keyTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
+            keyTextField.heightAnchor.constraint(equalToConstant: 50),
 
             addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             addButton.heightAnchor.constraint(equalToConstant: 48),
-            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15)
         ])
     }
 

@@ -10,10 +10,11 @@ protocol RoomInfoRouterInput {
     func showTeams(participantID: UUID, teams: [TeamInfo])
     func showMembers(model: MembersModel)
     func showAddTeam(roomId: UUID)
-    func showGameSettings()
+    func showGameSettings(roomID: UUID)
     func showTeamActions(team: String, deleteHandler: @escaping () -> Void)
     func showAlert(title: String, message: String)
     func showAlert()
+    func initCoordinator(roomId: UUID)
 //    func showInviteCode(code: String)
 }
 
@@ -21,11 +22,18 @@ final class RoomInfoRouter {
     // MARK: - Properties
 
     weak var view: UIViewController?
+    var w: GameCoordinator?
 }
 
 // MARK: - RoomInfoRouterInput
 
 extension RoomInfoRouter: RoomInfoRouterInput {
+    
+    
+    func initCoordinator(roomId: UUID) {
+        w = GameCoordinator(navigation: view?.navigationController, roomID: roomId)
+        WebSocketManagerImpl.shared.addObserver(w!)
+    }
 
     func showUserActions(user: String,
                          isAdmin: Bool,
@@ -83,8 +91,8 @@ extension RoomInfoRouter: RoomInfoRouterInput {
         view?.present(vc, animated: true)
     }
 
-    func showGameSettings() {
-        let vc = GameSettingsModuleConfigurator().configure().view
+    func showGameSettings(roomID: UUID) {
+        let vc = GameSettingsModuleConfigurator().configure(roomID: roomID).view
         view?.navigationController?.pushViewController(vc, animated: true)
     }
     

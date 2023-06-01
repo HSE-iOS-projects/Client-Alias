@@ -15,7 +15,13 @@ final class GameSettingsRouter {
 
 extension GameSettingsRouter: GameSettingsRouterInput {
     func openGame() {
-        let vc = PlayRoundModuleConfigurator().configure().view
-        view?.navigationController?.pushViewController(vc, animated: true)
+
+        
+
+      
+        WebSocketManagerImpl.shared.connect()
+
+//        let vc = PlayRoundModuleConfigurator().configure().view
+//        view?.navigationController?.pushViewController(vc, animated: true)
     }
 }

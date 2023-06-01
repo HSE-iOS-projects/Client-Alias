@@ -4,7 +4,7 @@ class WaitCardView: UIView {
     private let wordLabel: UILabel = {
         let titleText = UILabel()
         titleText.numberOfLines = 0
-        titleText.textColor = .white
+        titleText.textColor = .label
         titleText.text = "Ожидание"
         titleText.font = UIFont.systemFont(ofSize: 37, weight: .bold)
         return titleText

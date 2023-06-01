@@ -32,7 +32,7 @@ extension EndGamePresenter: EndGameViewOutput {
     }
     
     func viewDidLoad() {
-        view?.displayInfo(team: "kjk ljk lj ")
+//        view?.displayInfo(team: "kjk ljk lj ")
     }
     
     func showResults() {

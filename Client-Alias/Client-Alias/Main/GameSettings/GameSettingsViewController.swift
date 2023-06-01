@@ -46,7 +46,9 @@ final class GameSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
-        view.backgroundColor = .black
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        view.backgroundColor = .systemBackground
         title = "Настройка игры"
         setupUI()
     }
@@ -60,23 +62,12 @@ final class GameSettingsViewController: UIViewController {
     // MARK: - Setup
 
     private func setupUI() {
-//        view.addSubview(timeLabel)
-//        view.addSubview(timeTextField)
         view.addSubview(roundsLabel)
         view.addSubview(roundEmpty)
         view.addSubview(roundTextField)
         view.addSubview(continueButton)
 
         NSLayoutConstraint.activate([
-//            timeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-//            timeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-//            timeLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-//
-//            timeTextField.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 8),
-//            timeTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-//            timeTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-//            timeTextField.heightAnchor.constraint(equalToConstant: 32),
-
             roundsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             roundsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             roundsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),

@@ -4,8 +4,8 @@ class MainFactory {
 
     static func makeTextView() -> UITextView {
         let textView = UITextView()
-        textView.textColor = .white
-        textView.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
+        textView.textColor = .label
+        textView.backgroundColor = .secondarySystemBackground //UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }
@@ -15,21 +15,22 @@ class MainFactory {
         if let cornerRadius {
             titleLabel.layer.cornerRadius = cornerRadius
         }
-        titleLabel.textColor = .gray
+        titleLabel.textColor = .label
         titleLabel.text = text
-        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.font = .boldSystemFont(ofSize: 19)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }
     
     static func makeTextField(text: String, mainText: String? = nil) -> UITextField {
         let textField = UITextField()
-        textField.textColor = .white
-        textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
+        textField.textColor = .label
+        textField.layer.cornerRadius = 15
+        textField.backgroundColor = .secondarySystemBackground
         if let mainText {
             textField.text = mainText
         }
+        textField.setLeftPaddingPoints(15)
         textField.placeholder = text
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField

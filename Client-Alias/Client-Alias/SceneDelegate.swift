@@ -4,6 +4,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+//    var w: GameCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -27,13 +28,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        navigationVC.navigationBar.isHidden = true
 //        window.rootViewController = navigationVC
 //        window.makeKeyAndVisible()
+       
         
+//        let vc = ResultModuleConfigurator().configure(result: "You win").view
+//        let navigationVC = UINavigationController(rootViewController: vc)
         let navigationVC = UINavigationController(rootViewController: AuthorizationModuleConfigurator().configure().view)
 //        navigationVC.navigationBar.isHidden = true
         window.rootViewController = navigationVC
         window.makeKeyAndVisible()
 
-        WebSocketManagerImpl.shared.connect()
+        
+//        w = GameCoordinator(navigation: navigationVC)
+//        WebSocketManagerImpl.shared.addObserver(w!)
         self.window = window
 
     }

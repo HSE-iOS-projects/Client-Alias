@@ -1,6 +1,8 @@
 import UIKit
 
-protocol ProfileRouterInput {}
+protocol ProfileRouterInput {
+    func openAuthView()
+}
 
 final class ProfileRouter {
     // MARK: - Properties
@@ -10,4 +12,9 @@ final class ProfileRouter {
 
 // MARK: - ProfileRouterInput
 
-extension ProfileRouter: ProfileRouterInput {}
+extension ProfileRouter: ProfileRouterInput {
+    func openAuthView() {
+        let vc = AuthorizationModuleConfigurator().configure().view
+        view?.navigationController?.pushViewController(vc, animated: true)
+    }
+}

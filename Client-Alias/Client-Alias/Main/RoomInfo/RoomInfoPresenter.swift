@@ -24,9 +24,13 @@ final class RoomInfoPresenter {
 extension RoomInfoPresenter: RoomInfoViewOutput {
 
     func viewDidLoad() {
+        router?.initCoordinator(roomId: room.roomID)
         getInfo()
     }
 
+    func update() {
+        getInfo()
+    }
     func select(user: Participants) {
         guard let participantID = user.id else {
             return
@@ -120,7 +124,7 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
             }
         }
         
-        router?.showGameSettings()
+        router?.showGameSettings(roomID: room.roomID)
     }
     
     private func getInfo() {

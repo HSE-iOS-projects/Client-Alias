@@ -55,6 +55,12 @@
 		5EFA08032A23C952003DDE35 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */; };
 		5EFA08072A2408DF003DDE35 /* TeamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08062A2408DF003DDE35 /* TeamInfo.swift */; };
 		5EFA080A2A254325003DDE35 /* VoidResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08092A254325003DDE35 /* VoidResult.swift */; };
+		5EFA080E2A278B55003DDE35 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA080D2A278B55003DDE35 /* GameCoordinator.swift */; };
+		5EFA08102A27FDDD003DDE35 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA080F2A27FDDD003DDE35 /* LoadingView.swift */; };
+		5EFA08122A280458003DDE35 /* MembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08112A280458003DDE35 /* MembersModel.swift */; };
+		5EFA08182A28135A003DDE35 /* PlayEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08172A28135A003DDE35 /* PlayEndpoint.swift */; };
+		5EFA081A2A2813F6003DDE35 /* PlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA08192A2813F6003DDE35 /* PlayModel.swift */; };
+		5EFA081C2A281417003DDE35 /* PlayWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA081B2A281417003DDE35 /* PlayWorker.swift */; };
 		852B89AB2A20E11700360537 /* RoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89762A20E11700360537 /* RoomRouter.swift */; };
 		852B89AC2A20E11700360537 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89772A20E11700360537 /* RoomViewController.swift */; };
 		852B89AD2A20E11700360537 /* RoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B89782A20E11700360537 /* RoomPresenter.swift */; };
@@ -163,6 +169,12 @@
 		5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		5EFA08062A2408DF003DDE35 /* TeamInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfo.swift; sourceTree = "<group>"; };
 		5EFA08092A254325003DDE35 /* VoidResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResult.swift; sourceTree = "<group>"; };
+		5EFA080D2A278B55003DDE35 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		5EFA080F2A27FDDD003DDE35 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		5EFA08112A280458003DDE35 /* MembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersModel.swift; sourceTree = "<group>"; };
+		5EFA08172A28135A003DDE35 /* PlayEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayEndpoint.swift; sourceTree = "<group>"; };
+		5EFA08192A2813F6003DDE35 /* PlayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayModel.swift; sourceTree = "<group>"; };
+		5EFA081B2A281417003DDE35 /* PlayWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorker.swift; sourceTree = "<group>"; };
 		852B89762A20E11700360537 /* RoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomRouter.swift; sourceTree = "<group>"; };
 		852B89772A20E11700360537 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		852B89782A20E11700360537 /* RoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPresenter.swift; sourceTree = "<group>"; };
@@ -335,6 +347,8 @@
 				5EFA08022A23C952003DDE35 /* UIAlertController+Extension.swift */,
 				5E46EDAE2A17D10E00F3FFAD /* UITextField+Extension.swift */,
 				5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */,
+				5EFA080D2A278B55003DDE35 /* GameCoordinator.swift */,
+				5EFA080F2A27FDDD003DDE35 /* LoadingView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -376,6 +390,7 @@
 		5EE4CA332A1D36E700DBC274 /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				5EFA08132A281317003DDE35 /* Network */,
 				5E3021F72A1F8FEA00219928 /* Result */,
 				5E3021EE2A1EC91D00219928 /* EndGame */,
 				5EE4CA342A1D370500DBC274 /* PlayRound */,
@@ -439,6 +454,40 @@
 				5EFA08092A254325003DDE35 /* VoidResult.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5EFA08132A281317003DDE35 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA08162A28133B003DDE35 /* Worker */,
+				5EFA08152A281333003DDE35 /* Models */,
+				5EFA08142A281323003DDE35 /* Endpoint */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5EFA08142A281323003DDE35 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA08172A28135A003DDE35 /* PlayEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		5EFA08152A281333003DDE35 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA08192A2813F6003DDE35 /* PlayModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5EFA08162A28133B003DDE35 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA081B2A281417003DDE35 /* PlayWorker.swift */,
+			);
+			path = Worker;
 			sourceTree = "<group>";
 		};
 		852B89742A20E11700360537 /* Main */ = {
@@ -538,6 +587,7 @@
 				852B899A2A20E11700360537 /* MembersRouter.swift */,
 				852B899B2A20E11700360537 /* MembersPresenter.swift */,
 				852B899C2A20E11700360537 /* MembersModuleConfigurator.swift */,
+				5EFA08112A280458003DDE35 /* MembersModel.swift */,
 			);
 			path = Members;
 			sourceTree = "<group>";
@@ -743,6 +793,7 @@
 				852B89BF2A20E11700360537 /* GameSettingsViewController.swift in Sources */,
 				852B89C52A20E11700360537 /* TeamsViewController.swift in Sources */,
 				5E46EDAC2A17D05B00F3FFAD /* LogInFactory.swift in Sources */,
+				5EFA081A2A2813F6003DDE35 /* PlayModel.swift in Sources */,
 				9D26E8E82A1D5B5B001C201B /* NetworkingModels.swift in Sources */,
 				5EE4CA3C2A1D371300DBC274 /* PlayRoundModuleConfigurator.swift in Sources */,
 				852B89BB2A20E11700360537 /* MainFactory.swift in Sources */,
@@ -760,6 +811,7 @@
 				852B89C92A20E11700360537 /* MembersRouter.swift in Sources */,
 				5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */,
 				5E3021FD2A1F908C00219928 /* ResultRouter.swift in Sources */,
+				5EFA08102A27FDDD003DDE35 /* LoadingView.swift in Sources */,
 				5E3021EA2A1E7FC100219928 /* CardTableCell.swift in Sources */,
 				5EE4CA3A2A1D371300DBC274 /* PlayRoundRouter.swift in Sources */,
 				852B89CA2A20E11700360537 /* MembersPresenter.swift in Sources */,
@@ -767,13 +819,17 @@
 				3E6EA9A42A2684780032BFCA /* Locking.swift in Sources */,
 				852B89D12A20E11700360537 /* RoomsViewModel.swift in Sources */,
 				852B89D42A20E11700360537 /* RoomCollectionViewCell.swift in Sources */,
+				5EFA08122A280458003DDE35 /* MembersModel.swift in Sources */,
 				9D81CC672A1CFB2300EBC621 /* SecureStorage+PropertyWraper.swift in Sources */,
 				5E3022052A1FB4E000219928 /* WaitCardView.swift in Sources */,
 				9D26E8F32A1D6558001C201B /* AuthorizationEndpoint.swift in Sources */,
 				852B89B32A20E11700360537 /* User.swift in Sources */,
 				5E46ED9F2A17C42800F3FFAD /* AuthorizationPresenter.swift in Sources */,
+				5EFA081C2A281417003DDE35 /* PlayWorker.swift in Sources */,
+				5EFA08182A28135A003DDE35 /* PlayEndpoint.swift in Sources */,
 				5E89BA2B2A17BAE3005E3381 /* AppDelegate.swift in Sources */,
 				5EFA08072A2408DF003DDE35 /* TeamInfo.swift in Sources */,
+				5EFA080E2A278B55003DDE35 /* GameCoordinator.swift in Sources */,
 				5E3021F62A1EC93400219928 /* EndGameModuleConfigurator.swift in Sources */,
 				3E6EA9A82A2687910032BFCA /* WebSocketManager.swift in Sources */,
 				9D81CC602A1CFAF200EBC621 /* SecureSettingsKeeper.swift in Sources */,

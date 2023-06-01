@@ -123,4 +123,12 @@ struct DeleteRoomRequest: Codable {
 
 struct StartGameRequest: Codable {
     let numberOfRounds: Int
+    let roomID: UUID
 }
+
+// MARK: - Start Game Request
+struct NextRoundRequest: Codable {
+    let points: Int
+    let roomID: UUID
+}
+

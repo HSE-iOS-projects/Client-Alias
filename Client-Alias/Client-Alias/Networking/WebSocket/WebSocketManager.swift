@@ -20,7 +20,7 @@ protocol WebSocketManager: Observable where Observer == WebSocketObserver {
 final class WebSocketManagerImpl: WebSocketManager {
         
     private enum Endpoint {
-        
+
         static let url = URL(string: "ws://127.0.0.1:8080/socket/game")!
         
     }
@@ -37,7 +37,7 @@ final class WebSocketManagerImpl: WebSocketManager {
     
     func connect() {
         var request = URLRequest(url: Endpoint.url)
-        request.setValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiRTgxMkIxODUtRDZEMC00MzQ0LUI5ODYtNDNCRjg2MjBERDRBIiwiZXhwaXJhdGlvblRpbWUiOjE3MTcwOTUxMzIuOTg0MTQ1Mn0.oLl44VCGEaqYYRr7quRStcvqXffOGbT6aEi6JU-12SU", forHTTPHeaderField: "Auth")
+        request.setValue(storage.authToken, forHTTPHeaderField: "Auth")
         request.timeoutInterval = 5
         webSocket = WebSocket(request: request)
         webSocket?.delegate = self

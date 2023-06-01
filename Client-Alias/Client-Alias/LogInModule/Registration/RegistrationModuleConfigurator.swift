@@ -6,7 +6,10 @@ final class RegistrationModuleConfigurator {
     func configure(output: RegistrationModuleOutput? = nil) -> (view: RegistrationViewController,
                                                                 input: RegistrationModuleInput) {
         let view = RegistrationViewController()
-        let presenter = RegistrationPresenter(worker: AuthorizationWorkerImpl())
+        let presenter = RegistrationPresenter(
+            worker: AuthorizationWorkerImpl(),
+            storage: SecureSettingsKeeperImpl()
+        )
         let router = RegistrationRouter()
 
         presenter.view = view

@@ -10,7 +10,8 @@ final class ProfileModuleConfigurator {
         input: ProfileModuleInput
     ) {
         let view = ProfileViewController()
-        let presenter = ProfilePresenter()
+        let storage = SecureSettingsKeeperImpl()
+        let presenter = ProfilePresenter(worker: MainWorkerImpl(storage: storage), storage: storage)
         let router = ProfileRouter()
 
         presenter.view = view

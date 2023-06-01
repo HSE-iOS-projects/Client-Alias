@@ -1,3 +1,4 @@
+import Foundation
 protocol PlayRoundModuleInput: AnyObject {}
 
 protocol PlayRoundModuleOutput: AnyObject {}
@@ -10,17 +11,27 @@ final class PlayRoundPresenter {
     weak var output: PlayRoundModuleOutput?
     var roundCount: Int = 1
     var wordIndex = -1
-    var allWords = [
-        WordInfo(word: "Рука", index: 0),
-        WordInfo(word: "Нога", index: 1),
-        WordInfo(word: "Кружка", index: 2),
-        WordInfo(word: "Чай", index: 3),
-        WordInfo(word: "BTS", index: 4),
-        WordInfo(word: "Китай", index: 5),
-    ]
-
+    var allWords: [WordInfo]
+//    WordInfo(word: "Рука", index: 0),
+//    WordInfo(word: "Нога", index: 1),
+//    WordInfo(word: "Кружка", index: 2),
+//    WordInfo(word: "Чай", index: 3),
+//    WordInfo(word: "BTS", index: 4),
+//    WordInfo(word: "Китай", index: 5),
     var usedWords: [[WordInfo]] = []
     var isPlaying = false
+    let worker: PlayWorker
+    let roomID: UUID
+    
+    init(words: [String], worker: PlayWorker, roomID: UUID) {
+        var wordsInfo = [WordInfo]()
+        for i in 0..<words.count {
+            wordsInfo.append(WordInfo(word: words[i], index: i))
+        }
+        self.allWords = wordsInfo
+        self.worker = worker
+        self.roomID = roomID
+    }
 }
 
 // MARK: - PlayRoundViewOutput
@@ -83,24 +94,46 @@ extension PlayRoundPresenter: PlayRoundViewOutput {
 
     func continueNextRound() {
         // TODO: - проверка что не все раунды закончились, отправка данных, получение новых слов мб, а если все то другой экран
-        roundCount += 1
-        if roundCount == 3 {
-            router?.openEndGameController(data: createInfo())
-        } else {
-            view?.displayInfo(
-                data:
-                    RoundInfo(
-                        roundNum: String(roundCount),
-                        team: "Win Win HI",
-                        timeSeconds: 5
-                    )
-            )
+        
+        var points = 0
+        if usedWords.count < roundCount {
+            for _ in usedWords.count...roundCount {
+                usedWords.append([])
+            }
         }
+        for k in usedWords[roundCount - 1] {
+            points += k.value
+        }
+        worker.nextRound(request: NextRoundRequest(points: points, roomID: roomID)) { result in
+            switch result {
+            case .success:
+                print("New ROund")
+            case .failure(let error):
+                print("No New ROund")
+                print(error.localizedDescription)
+            }
+        }
+        roundCount += 1
+//        if roundCount == 3 {
+//            router?.openEndGameController(data: createInfo())
+//        } else {
+//            view?.displayInfo(
+//                data:
+//                    RoundInfo(
+//                        roundNum: String(roundCount),
+//                        team: "Win Win HI",
+//                        timeSeconds: 10
+//                    )
+//            )
+//        }
     }
     
     func viewDidLoad() {
-//        view?.waitForGame(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 5))
-        view?.displayInfo(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 5))
+        if allWords.isEmpty {
+            view?.waitForGame(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 5))
+        } else {
+            view?.displayInfo(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 10))
+        }
     }
     
     private func createInfo() -> [WordInfo]{

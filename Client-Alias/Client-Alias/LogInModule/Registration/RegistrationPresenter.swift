@@ -8,14 +8,16 @@ final class RegistrationPresenter {
 
 
     let worker: AuthorizationWorker
-
+    var storage: SecureSettingsKeeper
+    
     weak var view: RegistrationViewInput?
     weak var output: RegistrationModuleOutput?
     var router: RegistrationRouterInput?
-    var storage: SecureSettingsKeeper = SecureSettingsKeeperImpl()
 
-    init(worker: AuthorizationWorker) {
+
+    init(worker: AuthorizationWorker, storage: SecureSettingsKeeper) {
         self.worker = worker
+        self.storage = storage
     }
 }
 
@@ -45,6 +47,7 @@ extension RegistrationPresenter: RegistrationViewOutput {
                     DispatchQueue.main.async {
                         self.router?.openMainScreen()
                     }
+                    WebSocketManagerImpl.shared.connect()
                 case .failure(let failure):
                     DispatchQueue.main.async {
                         self.router?.showAlert()

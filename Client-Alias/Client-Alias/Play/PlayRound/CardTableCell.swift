@@ -8,7 +8,7 @@ final class CardTableCell: UITableViewCell {
     private let wordsLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .white
+        label.textColor = .label
         label.textAlignment = .left
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 19, weight: .regular)

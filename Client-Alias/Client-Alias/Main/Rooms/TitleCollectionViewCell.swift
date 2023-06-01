@@ -7,7 +7,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
     private(set) lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Название"
-        titleLabel.textColor = .white
+        titleLabel.textColor = .label
         titleLabel.font = .systemFont(ofSize: 30)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel

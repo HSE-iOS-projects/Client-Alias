@@ -24,7 +24,6 @@ final class MembersViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCollectionViewCell")
-        collectionView.backgroundColor = .black
         return collectionView
     }()
 
@@ -38,6 +37,9 @@ final class MembersViewController: UIViewController {
         super.viewDidLoad()
         output?.viewDidLoad()
 
+        view.backgroundColor = .systemBackground
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = "Участники"
         
         setupUI()

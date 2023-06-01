@@ -5,7 +5,7 @@ class RoomCollectionViewCell: UICollectionViewCell {
     private(set) lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Название"
-        titleLabel.textColor = .white
+        titleLabel.textColor = .label
         titleLabel.font = .systemFont(ofSize: 20)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
@@ -14,7 +14,7 @@ class RoomCollectionViewCell: UICollectionViewCell {
     private(set) lazy var typeLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Private"
-        titleLabel.textColor = .white
+        titleLabel.textColor = .label
         titleLabel.font = .systemFont(ofSize: 18)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
@@ -25,7 +25,7 @@ class RoomCollectionViewCell: UICollectionViewCell {
         addSubview(titleLabel)
         addSubview(typeLabel)
 
-        backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
+        backgroundColor = .secondarySystemBackground
         layer.cornerRadius = 15
 
         NSLayoutConstraint.activate([
