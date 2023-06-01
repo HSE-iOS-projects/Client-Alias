@@ -115,10 +115,10 @@ extension PlayRoundPresenter: PlayRoundViewOutput {
 
     func viewDidLoad() {
         if allWords.isEmpty {
-            view?.waitForGame(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 10))
+            view?.waitForGame(data: RoundInfo(roundNum: String(roundCount), team: "", timeSeconds: 60))
             isPlaying = false
         } else {
-            view?.displayInfo(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 10))
+            view?.displayInfo(data: RoundInfo(roundNum: String(roundCount), team: "", timeSeconds: 60))
             isPlaying = true
         }
     }

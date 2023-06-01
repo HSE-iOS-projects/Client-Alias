@@ -187,7 +187,7 @@ extension RoomInfoViewController: UICollectionViewDataSource {
                 return cell
             case 1:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextFieldCollectionViewCell", for: indexPath) as! TextFieldCollectionViewCell
-                cell.textView.isEditable = viewModel?.room.isAdmin ?? false
+                cell.textView.isEditable = false
                 cell.textView.text = viewModel?.room.url
                 return cell
             case 2:
