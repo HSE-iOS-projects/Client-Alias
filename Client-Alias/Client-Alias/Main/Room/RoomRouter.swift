@@ -1,9 +1,9 @@
 import UIKit
 
 protocol RoomRouterInput {
-    func close()
     func showRoomInfo(room: Room)
     func showAlert()
+    func closeView()
 }
 
 final class RoomRouter {
@@ -15,18 +15,16 @@ final class RoomRouter {
 // MARK: - RoomRouterInput
 
 extension RoomRouter: RoomRouterInput {
-
-    func close() {
-        view?.navigationController?.popViewController(animated: true)
-    }
-
     func showRoomInfo(room: Room) {
         let vc = RoomInfoModuleConfigurator().configure(room: room).view
         view?.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
+
     func showAlert() {
         view?.present(UIAlertController.makeProblemAlert(anchoredBarButtonItem: .none), animated: true, completion: nil)
+    }
+
+    func closeView() {
+        view?.dismiss(animated: true)
     }
 }

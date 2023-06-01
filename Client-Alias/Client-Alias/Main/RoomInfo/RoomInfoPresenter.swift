@@ -22,15 +22,43 @@ final class RoomInfoPresenter {
 // MARK: - RoomInfoViewOutput
 
 extension RoomInfoPresenter: RoomInfoViewOutput {
-
     func viewDidLoad() {
-        router?.initCoordinator(roomId: room.roomID)
+        router?.initCoordinator(room: PlayRoundInfo(roomID: room.roomID, isAdmin: room.isAdmin))
         getInfo()
     }
 
     func update() {
         getInfo()
     }
+
+    func changeRoomSettings() {
+        guard let roomInfo = view?.viewModel?.room else {
+            return
+        }
+        let text = roomInfo.code == nil ? "Закрыть комнату" : "Открыть комнату"
+        router?.showRoomActions(info: text, changeHandler: { [weak self] in
+            guard let self else {
+                return
+            }
+            self.worker.changeRoomStatus(request: ChangeRoomStateRequest(
+                roomID: roomInfo.roomID,
+                isOpen: !(roomInfo.code == nil)
+            )) { [weak self] result in
+                guard let self else {
+                    return
+                }
+                switch result {
+                case .success(let success):
+                    DispatchQueue.main.async {
+                        self.view?.viewModel?.room.code = success.inviteCode
+                    }
+                case .failure:
+                    self.router?.showAlert(title: "Изменение статуса", message: "Не получилось поменять статус")
+                }
+            }
+        })
+    }
+
     func select(user: Participants) {
         guard let participantID = user.id else {
             return
@@ -68,16 +96,15 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
             })
         }
     }
-    
 
     func select(team: TeamInfo) {
         router?.showMembers(
             model:
-                MembersModel(
-                    adminName: room.isAdmin ? ProfilePresenter.userInfo.name : nil,
-                    currentTeam: team,
-                    teams: view?.viewModel?.teams ?? []
-                )
+            MembersModel(
+                adminName: room.isAdmin ? ProfilePresenter.userInfo.name : nil,
+                currentTeam: team,
+                teams: view?.viewModel?.teams ?? []
+            )
         )
     }
 
@@ -99,7 +126,7 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
             }
         }
     }
-    
+
     private func checkGameSettings() {
         guard let teams = view?.viewModel?.teams else {
             router?.showAlert()
@@ -117,16 +144,16 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
                     count += 1
                 }
             }
-            
+
             if count < 2 {
                 router?.showAlert(title: "А где команды?", message: "Для игры должно быть минимум 2 команды с участниками")
                 return
             }
         }
-        
+
         router?.showGameSettings(roomID: room.roomID)
     }
-    
+
     private func getInfo() {
         worker.getRoomInfo(request: GetRoomInfoRequest(id: room.roomID)) { [weak self] result in
             guard let self = self else {
@@ -144,7 +171,7 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
             }
         }
     }
-    
+
     private func createRoomInfo(data: GetRoomInfoResponse) -> RoomInfoViewModel {
         var teams = [TeamInfo]()
 
@@ -196,7 +223,7 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
 
         return roomInfo
     }
-    
+
     private func passAdminStatus(participantID: UUID) {
         worker.passAdminStatus(request: PassAdminStatusRequest(userID: participantID, roomID: room.roomID)) { [weak self] result in
             guard let self = self else {
@@ -212,7 +239,7 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
             }
         }
     }
-    
+
     private func deleteUser(teamId: UUID?, participantID: UUID) {
         worker.deleteUserFromRoom(
             request:
@@ -225,7 +252,6 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
                 return
             }
             switch result {
-                
             case .success:
                 DispatchQueue.main.async {
                     var teams = self.view?.viewModel?.teams
@@ -235,11 +261,11 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
                         users?.removeAll(where: { part in
                             part.id == participantID
                         })
-                        
+
                         let index = teams?.firstIndex(where: { t in
                             t.teamID == teamID
                         })
-                        
+
                         if let index {
                             teams?[index].participants.removeAll { p in
                                 p.id == participantID
@@ -250,7 +276,7 @@ extension RoomInfoPresenter: RoomInfoViewOutput {
                             part.id == participantID
                         })
                     }
-                    
+
                     self.view?.viewModel = RoomInfoViewModel(
                         room: self.room,
                         team: teams ?? [],

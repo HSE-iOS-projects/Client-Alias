@@ -32,14 +32,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let vc = ResultModuleConfigurator().configure(result: "You win").view
 //        let navigationVC = UINavigationController(rootViewController: vc)
-        let navigationVC = UINavigationController(rootViewController: AuthorizationModuleConfigurator().configure().view)
-//        navigationVC.navigationBar.isHidden = true
+//        let viewController = EndGameModuleConfigurator().configure(
+//            output: nil,
+//            data: [WordInfo]()
+//        ).view
+//
+//        let navigationVC = UINavigationController(rootViewController: viewController)
+        
+        let storage = SecureSettingsKeeperImpl()
+        let navigationVC: UINavigationController
+        
+        if storage.authToken != nil {
+            WebSocketManagerImpl.shared.connect()
+            navigationVC = UINavigationController(rootViewController:TabBarViewController())
+        } else {
+            navigationVC = UINavigationController(rootViewController: AuthorizationModuleConfigurator().configure().view)
+        }
+        
         window.rootViewController = navigationVC
         window.makeKeyAndVisible()
 
-        
-//        w = GameCoordinator(navigation: navigationVC)
-//        WebSocketManagerImpl.shared.addObserver(w!)
         self.window = window
 
     }

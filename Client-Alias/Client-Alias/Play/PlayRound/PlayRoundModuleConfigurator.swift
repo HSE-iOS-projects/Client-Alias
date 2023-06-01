@@ -4,7 +4,7 @@ final class PlayRoundModuleConfigurator {
     // MARK: - Configure
 
     func configure(
-        roomID: UUID,
+        room: PlayRoundInfo,
         words: [String],
         output: PlayRoundModuleOutput? = nil
     ) -> (
@@ -12,7 +12,7 @@ final class PlayRoundModuleConfigurator {
         input: PlayRoundModuleInput
     ) {
         let view = PlayRoundViewController()
-        let presenter = PlayRoundPresenter(words: words, worker: PlayWorkerImpl(storage: SecureSettingsKeeperImpl()), roomID: roomID)
+        let presenter = PlayRoundPresenter(words: words, worker: PlayWorkerImpl(storage: SecureSettingsKeeperImpl()), room: room)
         let router = PlayRoundRouter()
 
         presenter.view = view

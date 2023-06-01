@@ -5,7 +5,7 @@ class MainFactory {
     static func makeTextView() -> UITextView {
         let textView = UITextView()
         textView.textColor = .label
-        textView.backgroundColor = .secondarySystemBackground //UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
+        textView.backgroundColor = .secondarySystemBackground
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }

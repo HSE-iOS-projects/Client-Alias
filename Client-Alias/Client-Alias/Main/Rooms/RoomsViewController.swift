@@ -1,7 +1,6 @@
 import UIKit
 
 protocol RoomsViewInput: AnyObject {
-
     var viewModel: RoomsViewModel? { get set }
 }
 
@@ -11,6 +10,7 @@ protocol RoomsViewOutput: AnyObject {
     func addKey()
     func getInfo()
     func select(room: Room, isActive: Bool)
+    func search(str: String?)
 }
 
 final class RoomsViewController: UIViewController {
@@ -24,17 +24,16 @@ final class RoomsViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(RoomCollectionViewCell.self, forCellWithReuseIdentifier: "RoomCollectionViewCell")
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCollectionViewCell")
-//        collectionView.backgroundColor = .black
         return collectionView
     }()
 
     private lazy var textField: UITextField = {
         let textField = UITextField()
-//        textField.borderStyle = .roundedRect
-         textField.layer.cornerRadius = 15
+        textField.layer.cornerRadius = 15
         textField.setLeftPaddingPoints(15)
         textField.tintColor = .gray
-        textField.backgroundColor = .secondarySystemBackground //UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
+        textField.delegate = self
+        textField.backgroundColor = .secondarySystemBackground
         textField.placeholder = "Название комнаты"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -58,8 +57,8 @@ final class RoomsViewController: UIViewController {
         return keyButton
     }()
 
-    
     private var refresher = UIRefreshControl()
+
     // MARK: - Properties
 
     var output: RoomsViewOutput?
@@ -70,7 +69,6 @@ final class RoomsViewController: UIViewController {
                 return
             }
             collectionView.reloadData()
-            
         }
     }
 
@@ -83,10 +81,13 @@ final class RoomsViewController: UIViewController {
         title = "Комнаты"
         setupUI()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
         output?.viewDidLoad()
+        textField.text = nil
+        textField.placeholder = "Название комнаты"
     }
 
     // MARK: - Actions
@@ -102,14 +103,15 @@ final class RoomsViewController: UIViewController {
     @objc func loadData() {
         collectionView.refreshControl?.beginRefreshing()
         output?.getInfo()
-     }
+    }
+
     // MARK: - Setup
 
     private func setupUI() {
         collectionView.alwaysBounceVertical = true
         refresher.tintColor = .systemBlue
         refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        collectionView.refreshControl = refresher 
+        collectionView.refreshControl = refresher
         view.addSubview(textField)
         view.addSubview(addButton)
         view.addSubview(keyButton)
@@ -129,7 +131,7 @@ final class RoomsViewController: UIViewController {
             keyButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             keyButton.widthAnchor.constraint(equalToConstant: 32),
             keyButton.heightAnchor.constraint(equalToConstant: 32),
-            keyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -16),
+            keyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
 
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -143,11 +145,9 @@ final class RoomsViewController: UIViewController {
 
 // MARK: - TroikaServiceViewInput
 
-extension RoomsViewController: RoomsViewInput {
-}
+extension RoomsViewController: RoomsViewInput {}
 
 extension RoomsViewController: UICollectionViewDataSource {
-
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         2
     }
@@ -193,7 +193,6 @@ extension RoomsViewController: UICollectionViewDataSource {
 }
 
 extension RoomsViewController: UICollectionViewDelegateFlowLayout {
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {
             return CGSize(width: collectionView.bounds.width - 16 * 2, height: 50)
@@ -212,8 +211,21 @@ extension RoomsViewController: UICollectionViewDelegateFlowLayout {
             }
             return
         }
-        if let room = viewModel?.openRooms[indexPath.row - 1] {
-            output?.select(room: room, isActive: false)
+        if indexPath.row != 0 {
+            if let room = viewModel?.openRooms[indexPath.row - 1] {
+                output?.select(room: room, isActive: false)
+            }
         }
+    }
+}
+
+extension RoomsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        output?.search(str: textField.text)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        output?.search(str: textField.text)
+        return false
     }
 }

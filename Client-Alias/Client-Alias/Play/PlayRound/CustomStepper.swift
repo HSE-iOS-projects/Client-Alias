@@ -1,9 +1,8 @@
 import UIKit
 
 final class CustomStepper: UIControl {
-    
     private lazy var decreaseButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitleColor(.white, for: .normal)
         button.setTitle("-", for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
@@ -42,18 +41,21 @@ final class CustomStepper: UIControl {
         }
     }
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         setupContraints()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Private
+    // MARK: - Private
+
     private func setupViews() {
         backgroundColor = UIColor.ColorPalette.acсentColor
         layer.cornerRadius = 15
@@ -74,7 +76,8 @@ final class CustomStepper: UIControl {
         ])
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
+
     @objc
     private func buttonAction(_ sender: UIButton) {
         switch sender {

@@ -26,7 +26,7 @@ final class GameSettingsViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private lazy var continueButton: UIButton = {
         let addButton = UIButton()
         addButton.layer.cornerRadius = 15
@@ -46,11 +46,16 @@ final class GameSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         view.backgroundColor = .systemBackground
         title = "Настройка игры"
         setupUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
 
     // MARK: - Actions
@@ -75,7 +80,7 @@ final class GameSettingsViewController: UIViewController {
             roundEmpty.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             roundEmpty.leadingAnchor.constraint(equalTo: roundsLabel.trailingAnchor, constant: 30),
             roundEmpty.heightAnchor.constraint(equalToConstant: 18),
-            
+
             roundTextField.topAnchor.constraint(equalTo: roundsLabel.bottomAnchor, constant: 9),
             roundTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             roundTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),

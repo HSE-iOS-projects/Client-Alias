@@ -19,6 +19,7 @@ protocol PlayRoundViewOutput: AnyObject {
     func continueNextRound()
     func stopGame()
     func continueGame()
+    func isAdmin() -> Bool
 }
 
 final class PlayRoundViewController: UIViewController {
@@ -30,29 +31,10 @@ final class PlayRoundViewController: UIViewController {
         img?.withTintColor(.systemBlue)
         button.setImage(img, for: .normal)
         button.tag = 0
+        button.isHidden = true
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-    }()
-    
-    private let roundLabel: UILabel = {
-        let titleText = UILabel()
-        titleText.numberOfLines = 0
-        titleText.textColor = .label
-        titleText.font = UIFont.systemFont(ofSize: 37, weight: .bold)
-        titleText.translatesAutoresizingMaskIntoConstraints = false
-        return titleText
-    }()
-    
-    private let teamLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = .label
-        label.textAlignment = .left
-        label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 23, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
     }()
     
     private let wordsLabel: UILabel = {
@@ -93,7 +75,6 @@ final class PlayRoundViewController: UIViewController {
         table.separatorColor = .clear
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(CardTableCell.self, forCellReuseIdentifier: CardTableCell.reuseIdentifier)
-//        table.backgroundColor = .systemBackground
         return table
     }()
     
@@ -112,7 +93,6 @@ final class PlayRoundViewController: UIViewController {
     var colorIndex = 0
     private var timer: Timer?
     private var seconds = 0
-    private var isAdmin: Bool = true
     private let swipeableView = ZLSwipeableView(frame: .zero)
     var output: PlayRoundViewOutput?
 
@@ -123,6 +103,11 @@ final class PlayRoundViewController: UIViewController {
         view.backgroundColor = .systemBackground
         output?.viewDidLoad()
         setupUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
 
     // MARK: - Actions
@@ -147,7 +132,6 @@ final class PlayRoundViewController: UIViewController {
             pauseButton.tag = 0
             output?.continueGame()
         }
-       
     }
     
     @objc
@@ -161,6 +145,7 @@ final class PlayRoundViewController: UIViewController {
                 guard let self = self else {
                     return
                 }
+                self.pauseButton.isHidden = true
                 self.swipeableView.isHidden = true
                 self.tableView.reloadData()
                 self.tableView.isHidden = false
@@ -174,15 +159,13 @@ final class PlayRoundViewController: UIViewController {
     
     private func setupUI() {
         view.addSubview(pauseButton)
-        view.addSubview(roundLabel)
-        view.addSubview(teamLabel)
         view.addSubview(timePlaceHolder)
         view.addSubview(timeLabel)
         view.addSubview(swipeableView)
         view.addSubview(wordsLabel)
         view.addSubview(tableView)
         view.addSubview(continueButton)
-        
+    
         wordsLabel.isHidden = true
         tableView.isHidden = true
         continueButton.isHidden = true
@@ -191,30 +174,23 @@ final class PlayRoundViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        if isAdmin {
+        if output?.isAdmin() ?? false {
+            pauseButton.isHidden = false
             NSLayoutConstraint.activate([
                 pauseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
                 pauseButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
                 pauseButton.heightAnchor.constraint(equalToConstant: 40),
-                pauseButton.widthAnchor.constraint(equalToConstant: 40)
+                pauseButton.widthAnchor.constraint(equalToConstant: 40),
             ])
         }
         
-        NSLayoutConstraint.activate([    
-            roundLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            roundLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            roundLabel.heightAnchor.constraint(equalToConstant: 40),
-            
-            teamLabel.topAnchor.constraint(equalTo: roundLabel.bottomAnchor, constant: 50),
-            teamLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            teamLabel.heightAnchor.constraint(equalToConstant: 25),
-            
-            timePlaceHolder.topAnchor.constraint(equalTo: teamLabel.bottomAnchor, constant: 30),
+        NSLayoutConstraint.activate([
+            timePlaceHolder.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 130),
             timePlaceHolder.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             timePlaceHolder.heightAnchor.constraint(equalToConstant: 45 + 20),
             timePlaceHolder.widthAnchor.constraint(equalToConstant: 100),
             
-            timeLabel.topAnchor.constraint(equalTo: teamLabel.bottomAnchor, constant: 40),
+            timeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 140),
             timeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             timeLabel.centerYAnchor.constraint(equalTo: timePlaceHolder.centerYAnchor),
             
@@ -234,9 +210,9 @@ final class PlayRoundViewController: UIViewController {
         ])
         
         swipeableView.frame = CGRect(
-            x: (UIScreen.main.bounds.width - 400) / 2,
+            x: (UIScreen.main.bounds.width - 350) / 2,
             y: 400,
-            width: 400,
+            width: 350,
             height: 200
         )
     }
@@ -299,8 +275,6 @@ final class PlayRoundViewController: UIViewController {
 
 extension PlayRoundViewController: PlayRoundViewInput {
     func waitForGame(data: RoundInfo) {
-        roundLabel.text = "Раунд " + data.roundNum
-        teamLabel.text = data.team
         timeLabel.text = timeString(time: TimeInterval(data.timeSeconds))
         seconds = data.timeSeconds
         tableView.isHidden = true
@@ -315,7 +289,6 @@ extension PlayRoundViewController: PlayRoundViewInput {
         }
     }
     
-    // TODO: - остановить только если его очередь, иначе ничего не менять
     func stopGame(isPlaying: Bool) {
         if isPlaying {
             timer?.invalidate()
@@ -338,8 +311,6 @@ extension PlayRoundViewController: PlayRoundViewInput {
     }
     
     func displayInfo(data: RoundInfo) {
-        roundLabel.text = "Раунд " + data.roundNum
-        teamLabel.text = data.team
         timeLabel.text = timeString(time: TimeInterval(data.timeSeconds))
         seconds = data.timeSeconds
         tableView.isHidden = true
@@ -360,7 +331,6 @@ extension PlayRoundViewController: PlayRoundViewInput {
             }
             self.setupCards()
         }
-        
     }
 }
 
@@ -370,7 +340,6 @@ extension PlayRoundViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: CardTableCell.reuseIdentifier, for: indexPath) as? CardTableCell
         let data = output?.getUsedWord(index: indexPath.row)
         
@@ -386,12 +355,10 @@ extension PlayRoundViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           return 60
-       }
-    
+        return 60
+    }
 }

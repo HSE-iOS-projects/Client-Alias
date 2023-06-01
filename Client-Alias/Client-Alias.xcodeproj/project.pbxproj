@@ -12,6 +12,7 @@
 		3E6EA9A42A2684780032BFCA /* Locking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6EA9A22A2684780032BFCA /* Locking.swift */; };
 		3E6EA9A82A2687910032BFCA /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6EA9A72A2687910032BFCA /* WebSocketManager.swift */; };
 		3E6EA9AB2A2687C60032BFCA /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6EA9AA2A2687C60032BFCA /* Starscream */; };
+		5E1EDB7D2A28CAE50049328E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EDB7C2A28CAE50049328E /* String+Extension.swift */; };
 		5E3021EA2A1E7FC100219928 /* CardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021E92A1E7FC100219928 /* CardTableCell.swift */; };
 		5E3021EC2A1E876C00219928 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EB2A1E876C00219928 /* CustomStepper.swift */; };
 		5E3021F32A1EC93400219928 /* EndGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */; };
@@ -125,6 +126,7 @@
 		3E6EA9A12A2684780032BFCA /* Locking+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locking+Extension.swift"; sourceTree = "<group>"; };
 		3E6EA9A22A2684780032BFCA /* Locking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locking.swift; sourceTree = "<group>"; };
 		3E6EA9A72A2687910032BFCA /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		5E1EDB7C2A28CAE50049328E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E3021E92A1E7FC100219928 /* CardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableCell.swift; sourceTree = "<group>"; };
 		5E3021EB2A1E876C00219928 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		5E3021EF2A1EC93400219928 /* EndGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePresenter.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				5E46EDB02A17D50800F3FFAD /* UIColor+ColorPalette.swift */,
 				5EFA080D2A278B55003DDE35 /* GameCoordinator.swift */,
 				5EFA080F2A27FDDD003DDE35 /* LoadingView.swift */,
+				5E1EDB7C2A28CAE50049328E /* String+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -809,6 +812,7 @@
 				852B89CE2A20E11700360537 /* AddTeamPresenter.swift in Sources */,
 				852B89CC2A20E11700360537 /* AddTeamRouter.swift in Sources */,
 				852B89C92A20E11700360537 /* MembersRouter.swift in Sources */,
+				5E1EDB7D2A28CAE50049328E /* String+Extension.swift in Sources */,
 				5E46EDA72A17C92B00F3FFAD /* RegistrationPresenter.swift in Sources */,
 				5E3021FD2A1F908C00219928 /* ResultRouter.swift in Sources */,
 				5EFA08102A27FDDD003DDE35 /* LoadingView.swift in Sources */,

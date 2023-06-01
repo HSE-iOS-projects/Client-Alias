@@ -46,6 +46,11 @@ final class RegistrationViewController: UIViewController {
         output?.logInButtonTapped(name: nameText.nonOptionalText , age: ageText.nonOptionalText)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+     }
+     
     // MARK: - Setup
 
     private func setupUI() {

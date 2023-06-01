@@ -1,8 +1,6 @@
 import UIKit
 
-protocol EndGameRouterInput {
-    func openResultController()
-}
+protocol EndGameRouterInput {}
 
 final class EndGameRouter {
     // MARK: - Properties
@@ -12,12 +10,4 @@ final class EndGameRouter {
 
 // MARK: - EndGameRouterInput
 
-extension EndGameRouter: EndGameRouterInput {
-    // TODO: - заменить на пуш
-    func openResultController() {
-//        let viewController = ResultModuleConfigurator().configure(
-//            output: nil
-//        ).view
-//        view?.navigationController?.pushViewController(viewController, animated: false)
-    }
-}
+extension EndGameRouter: EndGameRouterInput {}

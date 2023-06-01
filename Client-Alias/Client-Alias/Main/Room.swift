@@ -11,7 +11,7 @@ struct Room: Equatable {
     let name: String
     let roomType: RoomType
     let url: String
-    let code: String?
+    var code: String?
     var isAdmin: Bool
     
     init(roomID: UUID, name: String) {

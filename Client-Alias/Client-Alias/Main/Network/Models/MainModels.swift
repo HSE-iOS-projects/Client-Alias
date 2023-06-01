@@ -16,7 +16,6 @@ struct RoomResponse: Codable {
     let inviteCode: String?
 }
 
-
 // MARK: - ALl Rooms Response
 
 struct AllRoomsResponse: Codable {
@@ -37,7 +36,6 @@ struct JoinRoomRequest: Codable {
     let roomID: UUID?
     let inviteCode: String?
 }
-
 
 // MARK: - Get my info Response
 
@@ -103,7 +101,6 @@ struct DeleteUserFromRoomRequest: Codable {
     let roomID: UUID
 }
 
-
 // MARK: - Add User To Team Request
 
 struct AddUserToTeamRequest: Codable {
@@ -111,13 +108,11 @@ struct AddUserToTeamRequest: Codable {
     let teamID: UUID
 }
 
-
 // MARK: - Delete Team Request
 
 struct DeleteRoomRequest: Codable {
     let id: UUID
 }
-
 
 // MARK: - Start Game Request
 
@@ -127,8 +122,21 @@ struct StartGameRequest: Codable {
 }
 
 // MARK: - Start Game Request
+
 struct NextRoundRequest: Codable {
     let points: Int
     let roomID: UUID
 }
 
+// MARK: - Change Room Status Request
+
+struct ChangeRoomStateRequest: Codable {
+    let roomID: UUID
+    let isOpen: Bool
+}
+
+// MARK: - Change Room Status Response
+
+struct ChangeRoomStateResponse: Codable {
+    var inviteCode: String?
+}

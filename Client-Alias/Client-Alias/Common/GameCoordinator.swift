@@ -4,16 +4,17 @@ final class GameCoordinator: WebSocketObserver {
     
     let navigationController: UINavigationController?
     let k = MainWorkerImpl(storage: SecureSettingsKeeperImpl())
-    let roomID: UUID
+    let room: PlayRoundInfo
+    var round = 0
     
-    init(navigation: UINavigationController?, roomID: UUID) {
+    init(navigation: UINavigationController?, room: PlayRoundInfo) {
         self.navigationController = navigation
-        self.roomID = roomID
+        self.room = room
     }
     
     func receiveStartGame() {
         print("--------------start------------------")
-        k.nextRound(request: NextRoundRequest(points: -1, roomID: roomID)) { result in
+        k.nextRound(request: NextRoundRequest(points: -1, roomID: room.roomID)) { result in
             switch result {
             case .success:
                 print("-----suc-----")
@@ -24,12 +25,12 @@ final class GameCoordinator: WebSocketObserver {
     }
     
     func receiveWords(words: [String]) {
-        let vc = PlayRoundModuleConfigurator().configure(roomID: roomID, words: words).view
+        let vc = PlayRoundModuleConfigurator().configure(room: room, words: words).view
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func receiveWaiting() {
-        let vc = PlayRoundModuleConfigurator().configure(roomID: roomID, words: []).view
+        let vc = PlayRoundModuleConfigurator().configure(room: room, words: []).view
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -44,7 +45,7 @@ final class GameCoordinator: WebSocketObserver {
     
     func receiveResults(result: String) {
         let viewController = ResultModuleConfigurator().configure(
-            roomID: roomID, 
+            roomID: room.roomID, 
             result: result
         ).view
         navigationController?.pushViewController(viewController, animated: false)

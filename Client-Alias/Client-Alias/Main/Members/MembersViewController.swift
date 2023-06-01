@@ -38,13 +38,13 @@ final class MembersViewController: UIViewController {
         output?.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = "Участники"
-        
+
         setupUI()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let firstVC = presentingViewController?.children.last as? RoomInfoViewController {
@@ -67,7 +67,6 @@ final class MembersViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-
     }
 
     private func setupLocalization() {}
@@ -82,7 +81,6 @@ extension MembersViewController: MembersViewInput {
 }
 
 extension MembersViewController: UICollectionViewDataSource {
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         output?.getCount() ?? 0
     }
@@ -104,7 +102,6 @@ extension MembersViewController: UICollectionViewDataSource {
 }
 
 extension MembersViewController: UICollectionViewDelegateFlowLayout {
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 16 * 2, height: 40)
     }

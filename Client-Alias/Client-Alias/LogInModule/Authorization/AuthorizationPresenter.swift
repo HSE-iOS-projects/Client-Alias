@@ -17,15 +17,13 @@ final class AuthorizationPresenter {
         self.worker = worker
         self.storage = storage
     }
-
 }
 
 // MARK: - AuthorizationViewOutput
 
 extension AuthorizationPresenter: AuthorizationViewOutput {
-
     func viewDidLoad() {}
-    
+
     func logInButtonTapped(name: String, password: String) {
         let nameErr = nameError(text: name)
         let passwordErr = nameError(text: password)
@@ -57,11 +55,11 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
             }
         }
     }
-    
+
     func openRegistration() {
         router?.openRegistrationViewController()
     }
-    
+
     private func nameError(text: String) -> String? {
         if text.isEmpty {
             return "Пусто"
@@ -69,7 +67,6 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
             return nil
         }
     }
-
 }
 
 // MARK: - AuthorizationInput

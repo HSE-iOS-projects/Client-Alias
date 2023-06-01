@@ -1,4 +1,10 @@
 import Foundation
+
+struct PlayRoundInfo {
+    let roomID: UUID
+    var isAdmin: Bool
+}
+
 protocol PlayRoundModuleInput: AnyObject {}
 
 protocol PlayRoundModuleOutput: AnyObject {}
@@ -12,25 +18,19 @@ final class PlayRoundPresenter {
     var roundCount: Int = 1
     var wordIndex = -1
     var allWords: [WordInfo]
-//    WordInfo(word: "Рука", index: 0),
-//    WordInfo(word: "Нога", index: 1),
-//    WordInfo(word: "Кружка", index: 2),
-//    WordInfo(word: "Чай", index: 3),
-//    WordInfo(word: "BTS", index: 4),
-//    WordInfo(word: "Китай", index: 5),
     var usedWords: [[WordInfo]] = []
     var isPlaying = false
     let worker: PlayWorker
-    let roomID: UUID
-    
-    init(words: [String], worker: PlayWorker, roomID: UUID) {
+    let roomIfo: PlayRoundInfo
+
+    init(words: [String], worker: PlayWorker, room: PlayRoundInfo) {
         var wordsInfo = [WordInfo]()
-        for i in 0..<words.count {
+        for i in 0 ..< words.count {
             wordsInfo.append(WordInfo(word: words[i], index: i))
         }
         self.allWords = wordsInfo
         self.worker = worker
-        self.roomID = roomID
+        self.roomIfo = room
     }
 }
 
@@ -38,27 +38,28 @@ final class PlayRoundPresenter {
 
 extension PlayRoundPresenter: PlayRoundViewOutput {
     func stopGame() {
-        // мб захотим показать алёрт
-        // TODO: - отправить на сервер запрос о остановке
         view?.stopGame(isPlaying: isPlaying)
     }
-    
+
     func continueGame() {
-        // TODO: - отправить на сервер запрос о продолжениее
         view?.continueGame(isPlaying: isPlaying)
     }
-    
+
+    func isAdmin() -> Bool {
+        roomIfo.isAdmin
+    }
+
     func countUsedWords() -> Int {
         if usedWords.count < roundCount {
             return 0
         }
         return usedWords[roundCount - 1].count
     }
-    
+
     func getUsedWord(index: Int) -> WordInfo {
-       return usedWords[roundCount - 1][index]
+        return usedWords[roundCount - 1][index]
     }
-    
+
     func changeWordValue(index: Int, value: Int) {
         allWords[index].value = value
     }
@@ -68,10 +69,8 @@ extension PlayRoundPresenter: PlayRoundViewOutput {
             for _ in usedWords.count...roundCount {
                 usedWords.append([])
             }
-            
         }
         usedWords[roundCount - 1].append(allWords[index])
-    
     }
 
     func leftSwipe(index: Int) {
@@ -93,8 +92,6 @@ extension PlayRoundPresenter: PlayRoundViewOutput {
     }
 
     func continueNextRound() {
-        // TODO: - проверка что не все раунды закончились, отправка данных, получение новых слов мб, а если все то другой экран
-        
         var points = 0
         if usedWords.count < roundCount {
             for _ in usedWords.count...roundCount {
@@ -104,7 +101,7 @@ extension PlayRoundPresenter: PlayRoundViewOutput {
         for k in usedWords[roundCount - 1] {
             points += k.value
         }
-        worker.nextRound(request: NextRoundRequest(points: points, roomID: roomID)) { result in
+        worker.nextRound(request: NextRoundRequest(points: points, roomID: roomIfo.roomID)) { result in
             switch result {
             case .success:
                 print("New ROund")
@@ -114,29 +111,19 @@ extension PlayRoundPresenter: PlayRoundViewOutput {
             }
         }
         roundCount += 1
-//        if roundCount == 3 {
-//            router?.openEndGameController(data: createInfo())
-//        } else {
-//            view?.displayInfo(
-//                data:
-//                    RoundInfo(
-//                        roundNum: String(roundCount),
-//                        team: "Win Win HI",
-//                        timeSeconds: 10
-//                    )
-//            )
-//        }
     }
-    
+
     func viewDidLoad() {
         if allWords.isEmpty {
-            view?.waitForGame(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 5))
+            view?.waitForGame(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 10))
+            isPlaying = false
         } else {
             view?.displayInfo(data: RoundInfo(roundNum: String(roundCount), team: "Win Win HI", timeSeconds: 10))
+            isPlaying = true
         }
     }
-    
-    private func createInfo() -> [WordInfo]{
+
+    private func createInfo() -> [WordInfo] {
         var info = [WordInfo]()
         usedWords.forEach { item in
             info += item

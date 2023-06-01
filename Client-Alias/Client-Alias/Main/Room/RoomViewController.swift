@@ -6,7 +6,7 @@ protocol RoomViewOutput: AnyObject {
     func viewDidLoad()
     func save(name: String, isPrivate: Bool, url: String)
     func cancel()
-    func generateCode() -> String
+    func getRoom() -> Room?
 }
 
 final class RoomViewController: UIViewController {
@@ -17,7 +17,7 @@ final class RoomViewController: UIViewController {
     private lazy var urlLabel: UILabel = MainFactory.makeLabel(text: "Связь")
     private lazy var urlTextField: UITextField = MainFactory.makeTextField(text: "Ссылка")
     private lazy var privateRoomLabel: UILabel = MainFactory.makeLabel(text: "Закрытая")
-    
+
     private lazy var privateSwitch: UISwitch = {
         let privateSwitch = UISwitch()
         privateSwitch.translatesAutoresizingMaskIntoConstraints = false
@@ -55,10 +55,9 @@ final class RoomViewController: UIViewController {
         output?.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Комната"
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         setupUI()
-        
 
         // TODO: Fix
         let tap = UITapGestureRecognizer(target: self, action: #selector(tap))
@@ -67,7 +66,17 @@ final class RoomViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let room = output?.getRoom(),
+           let firstVC = presentingViewController?.children.last?.children.first as? RoomsViewController
+        {
+            DispatchQueue.main.async {
+                firstVC.output?.select(room: room, isActive: true)
+            }
+        }
     }
 
     // MARK: - Actions

@@ -1,8 +1,6 @@
 import UIKit
 
-protocol PlayRoundRouterInput {
-    func openEndGameController(data: [WordInfo])
-}
+protocol PlayRoundRouterInput {}
 
 final class PlayRoundRouter {
     // MARK: - Properties
@@ -12,15 +10,4 @@ final class PlayRoundRouter {
 
 // MARK: - PlayRoundRouterInput
 
-extension PlayRoundRouter: PlayRoundRouterInput {
-    // TODO: - заменить на пуш
-    func openEndGameController(data: [WordInfo]) {
-//        let viewController = EndGameModuleConfigurator().configure(
-//            output: nil,
-//            data: data
-//        ).view
-//
-//        view?.navigationController?.pushViewController(viewController, animated: false)
-    }
-    
-}
+extension PlayRoundRouter: PlayRoundRouterInput {}

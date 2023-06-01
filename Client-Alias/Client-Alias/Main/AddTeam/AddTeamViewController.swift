@@ -50,20 +50,19 @@ final class AddTeamViewController: UIViewController {
         super.viewDidLoad()
         output?.viewDidLoad()
 
-        view.backgroundColor = .systemBackground //UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
+        view.backgroundColor = .systemBackground
         setupUI()
     }
 
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        output?.closeView()
         if let firstVC = presentingViewController?.children.last as? RoomInfoViewController {
             DispatchQueue.main.async {
                 firstVC.output?.viewDidLoad()
             }
         }
     }
+
     // MARK: - Actions
 
     @objc func add() {

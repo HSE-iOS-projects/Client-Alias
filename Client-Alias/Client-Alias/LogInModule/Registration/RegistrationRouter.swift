@@ -17,15 +17,13 @@ final class RegistrationRouter {
 extension RegistrationRouter: RegistrationRouterInput {
     func openMainScreen() {
         let viewController = TabBarViewController()
-//        viewController.modalPresentationStyle = .fullScreen
-//        view?.present(viewController, animated: true)
         view?.navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
     func openPreviousScreen() {
         view?.dismiss(animated: true)
     }
-    
+
     func showAlert() {
         view?.present(UIAlertController.makeProblemAlert(anchoredBarButtonItem: .none), animated: true, completion: nil)
     }

@@ -6,8 +6,6 @@ protocol ResultViewInput: AnyObject {
 
 protocol ResultViewOutput: AnyObject {
     func viewDidLoad()
-    func countTeams() -> Int
-    func getTeamInfo(index: Int) -> TeamResultInfo
     func openMain()
 }
 
@@ -15,7 +13,7 @@ final class ResultViewController: UIViewController {
     // MARK: - Outlets
 
     // MARK: - Properties
-    
+
     private let winnerLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -26,7 +24,7 @@ final class ResultViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let winnerPlaceHolder: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.ColorPalette.acсentColor
@@ -34,7 +32,7 @@ final class ResultViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private let endButton: UIButton = {
         let button = UIButton()
         button.setTitle("Завершить", for: .normal)
@@ -44,6 +42,7 @@ final class ResultViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+
     var output: ResultViewOutput?
 
     // MARK: - UIViewController
@@ -55,12 +54,17 @@ final class ResultViewController: UIViewController {
         setupUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+
     // MARK: - Actions
+
     @objc
     private func endButtonTapped(_ sender: UITapGestureRecognizer) {
         output?.openMain()
     }
-
 
     // MARK: - Setup
 
@@ -76,18 +80,17 @@ final class ResultViewController: UIViewController {
             winnerPlaceHolder.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             winnerPlaceHolder.heightAnchor.constraint(equalToConstant: 220),
             winnerPlaceHolder.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
-            
+
             winnerLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
             winnerLabel.centerXAnchor.constraint(equalTo: winnerPlaceHolder.centerXAnchor),
             winnerLabel.heightAnchor.constraint(equalToConstant: 200),
             winnerLabel.widthAnchor.constraint(equalToConstant: view.frame.width - 60),
-            
+
             endButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             endButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             endButton.heightAnchor.constraint(equalToConstant: 50),
             endButton.widthAnchor.constraint(equalToConstant: 300),
         ])
-        
     }
 
     private func setupLocalization() {}

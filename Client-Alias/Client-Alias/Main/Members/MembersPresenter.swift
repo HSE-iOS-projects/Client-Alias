@@ -10,13 +10,8 @@ final class MembersPresenter {
     weak var view: MembersViewInput?
     var router: MembersRouterInput?
     weak var output: MembersModuleOutput?
-    
-//    var adminName: String?
-//    var teams: TeamInfo
     var model: MembersModel
     let worker: MainWorker
-    
-//    var hasChanges: Bool = false
     
     init(model: MembersModel, worker: MainWorker) {
         self.model = model
@@ -27,7 +22,6 @@ final class MembersPresenter {
 // MARK: - MembersViewOutput
 
 extension MembersPresenter: MembersViewOutput {
-    
     func viewDidLoad() {}
     
     func select(user: Participants) {
@@ -72,8 +66,7 @@ extension MembersPresenter: MembersViewOutput {
         model.currentTeam.participants.removeAll { item in
             item.id == id
         }
-        self.view?.reloadCollectionView()
-//        self.hasChanges = true
+        view?.reloadCollectionView()
     }
     
     private func passAdminStatus(participantID: UUID, name: String, roomId: UUID) {

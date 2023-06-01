@@ -24,11 +24,9 @@ final class AddKeyViewController: UIViewController {
         let textField = UITextField()
         textField.textColor = .label
         textField.tintColor = .gray
-//        textField.borderStyle = .roundedRect
         textField.layer.cornerRadius = 15
         textField.setLeftPaddingPoints(15)
         textField.backgroundColor = UIColor.ColorPalette.secondSecondBackgroundColor
-//        textField.backgroundColor = UIColor(red: 28 / 255, green: 28 / 255, blue: 30 / 255, alpha: 1)
         textField.placeholder = "Ключ"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField

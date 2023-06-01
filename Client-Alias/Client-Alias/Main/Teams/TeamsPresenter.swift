@@ -9,13 +9,13 @@ final class TeamsPresenter {
     weak var view: TeamsViewInput?
     var router: TeamsRouterInput?
     weak var output: TeamsModuleOutput?
-    
+
     let teams: [TeamInfo]
     let participantID: UUID
     let worker: MainWorker
-    
+
     private var changed: Bool = false
-    
+
     init(participantID: UUID, teams: [TeamInfo], worker: MainWorker) {
         self.participantID = participantID
         self.teams = teams
@@ -27,23 +27,23 @@ final class TeamsPresenter {
 
 extension TeamsPresenter: TeamsViewOutput {
     func viewDidLoad() {}
-    
+
     func getCount() -> Int {
         teams.count + 1
     }
-    
+
     func getTeam(index: Int) -> String {
         teams[index].name
     }
-    
+
     func hasChanges() -> Bool {
         changed
     }
-    
+
     func getParticipant() -> UUID {
         participantID
     }
-    
+
     func selectTeam(index: Int) {
         guard let id = teams[index].teamID else {
             return

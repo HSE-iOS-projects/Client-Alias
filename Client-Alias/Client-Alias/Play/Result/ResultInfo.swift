@@ -3,7 +3,6 @@ import Foundation
 struct ResultInfo {
     let winner: TeamResultInfo
     let allTeams: [TeamResultInfo]
-   
 }
 
 struct TeamResultInfo {

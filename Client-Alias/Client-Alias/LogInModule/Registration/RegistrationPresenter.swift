@@ -6,14 +6,12 @@ protocol RegistrationModuleOutput: AnyObject {}
 final class RegistrationPresenter {
     // MARK: - Properties
 
-
     let worker: AuthorizationWorker
     var storage: SecureSettingsKeeper
-    
+
     weak var view: RegistrationViewInput?
     weak var output: RegistrationModuleOutput?
     var router: RegistrationRouterInput?
-
 
     init(worker: AuthorizationWorker, storage: SecureSettingsKeeper) {
         self.worker = worker
@@ -25,7 +23,7 @@ final class RegistrationPresenter {
 
 extension RegistrationPresenter: RegistrationViewOutput {
     func viewDidLoad() {}
-    
+
     func logInButtonTapped(name: String, age: String) {
         let nameErr = nameError(text: name)
         let ageErr = nameError(text: age)
@@ -52,14 +50,13 @@ extension RegistrationPresenter: RegistrationViewOutput {
                     DispatchQueue.main.async {
                         self.router?.showAlert()
                     }
-                    
+
                     print(failure)
                 }
             }
         }
     }
-    
-    
+
     private func nameError(text: String) -> String? {
         if text.isEmpty {
             return "Пусто"

@@ -15,10 +15,10 @@ protocol MainWorker {
     func startGame(request: StartGameRequest, completion: @escaping (VoidResult) -> Void)
     func nextRound(request: NextRoundRequest, completion: @escaping (VoidResult) -> Void)
     func deleteUser(completion: @escaping (VoidResult) -> Void)
+    func changeRoomStatus(request: ChangeRoomStateRequest, completion: @escaping (Result<ChangeRoomStateResponse, Error>) -> Void)
 }
 
 final class MainWorkerImpl: MainWorker {
-
     let storage: SecureSettingsKeeper
     
     init(storage: SecureSettingsKeeper) {
@@ -96,76 +96,82 @@ final class MainWorkerImpl: MainWorker {
         let endpoint = MainEndpoint.deleteProfile
         fetch(endpoint: endpoint, body: Empty(), method: .delete, completion: completion)
     }
-
+    
+    func changeRoomStatus(request: ChangeRoomStateRequest, completion: @escaping (Result<ChangeRoomStateResponse, Error>) -> Void) {
+        let endpoint = MainEndpoint.changeRoomStateRequest
+        fetch(endpoint: endpoint, body: request, method: .post, completion: completion)
+    }
+    
     func fetch<T: Decodable, B: Codable>(endpoint: Endpoint, body: B, method: NetworkModel.Method, completion: @escaping (Result<T, Error>) -> Void) {
-        var json: Data? = nil
+        var json: Data?
         if method != .get {
             json = try? JSONEncoder().encode(body)
         }
-            guard let token = storage.authToken else {
-                return
-            }
-            let header: HeaderModel = ["Auth" : token]
+        guard let token = storage.authToken else {
+            return
+        }
+        let header: HeaderModel = ["Auth": token]
    
-            let request = Request(endpoint: endpoint, method: method, body: json, headers: header)
+        let request = Request(endpoint: endpoint, method: method, body: json, headers: header)
 
-            networking.execute(request) { result in
-                switch result {
-                case .success(let result):
-                    guard let response = result.response as? HTTPURLResponse else {
+        networking.execute(request) { result in
+            switch result {
+            case .success(let result):
+                guard let response = result.response as? HTTPURLResponse else {
+                    return
+                }
+
+                switch response.statusCode {
+                case 200...299:
+                    guard let data = result.data,
+                          let decodedData = try? JSONDecoder().decode(T.self, from: data)
+                    else {
                         return
                     }
 
-                    switch response.statusCode {
-                    case 200...299:
-                        guard let data = result.data,
-                              let decodedData = try? JSONDecoder().decode(T.self, from: data) else {
-                            return
-                        }
+                    completion(.success(decodedData))
 
-                        completion(.success(decodedData))
-
-                    default:
-                        completion(.failure(NetworkModel.ErrorCode(code: response.statusCode)))
-                        print(response)
-                    }
-
-                case .failure(let error):
-                    completion(.failure(error))
+                default:
+                    completion(.failure(NetworkModel.ErrorCode(code: response.statusCode)))
+                    print(response)
                 }
+
+            case .failure(let error):
+                completion(.failure(error))
             }
+        }
     }
 
     func fetch<B: Codable>(endpoint: Endpoint, body: B, method: NetworkModel.Method, completion: @escaping (VoidResult) -> Void) {
-        var json: Data? = nil
+        var json: Data?
         if method != .get {
             json = try? JSONEncoder().encode(body)
         }
-            guard let token = storage.authToken else {
-                return
-            }
-            let header: HeaderModel = ["Auth" : token]
+        guard let token = storage.authToken else {
+            return
+        }
+        let header: HeaderModel = ["Auth": token]
    
-            let request = Request(endpoint: endpoint, method: method, body: json, headers: header)
+        let request = Request(endpoint: endpoint, method: method, body: json, headers: header)
 
-            networking.execute(request) { result in
-                switch result {
-                case .success(let result):
-                    guard let response = result.response as? HTTPURLResponse else {
-                        return
-                    }
-
-                    switch response.statusCode {
-                    case 200...299:
-                        completion(.success)
-                    default:
-                        completion(.failure(NetworkModel.ErrorCode(code: response.statusCode)))
-                        print(response)
-                    }
-
-                case .failure(let error):
-                    completion(.failure(error))
+        networking.execute(request) { result in
+            switch result {
+            case .success(let result):
+                guard let response = result.response as? HTTPURLResponse else {
+                    return
                 }
+
+                switch response.statusCode {
+                case 200...299:
+                    completion(.success)
+                default:
+                    completion(.failure(NetworkModel.ErrorCode(code: response.statusCode)))
+                    print(response)
+                }
+
+            case .failure(let error):
+                completion(.failure(error))
             }
+        }
     }
 }

@@ -1,7 +1,6 @@
 import UIKit
 
 protocol RoomInfoViewInput: AnyObject {
-
     var viewModel: RoomInfoViewModel? { get set }
 }
 
@@ -14,7 +13,7 @@ protocol RoomInfoViewOutput: AnyObject {
     func leaveRoom()
     func showTeamMenu(team: TeamInfo)
     func update()
-//    func showInviteCode()
+    func changeRoomSettings()
 }
 
 final class RoomInfoViewController: UIViewController {
@@ -28,7 +27,6 @@ final class RoomInfoViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCollectionViewCell")
         collectionView.register(TextFieldCollectionViewCell.self, forCellWithReuseIdentifier: "TextFieldCollectionViewCell")
-//        collectionView.backgroundColor = .black
         return collectionView
     }()
 
@@ -43,6 +41,7 @@ final class RoomInfoViewController: UIViewController {
     }()
 
     private var refresher = UIRefreshControl()
+
     // MARK: - Properties
 
     var viewModel: RoomInfoViewModel? {
@@ -53,6 +52,16 @@ final class RoomInfoViewController: UIViewController {
             }
             startButton.isHidden = !(viewModel?.room.isAdmin ?? true)
             collectionView.reloadData()
+
+            if viewModel?.room.isAdmin ?? false {
+                let vc = UIImage(systemName: "ellipsis")
+                vc?.withTintColor(.systemBlue)
+                navigationItem.rightBarButtonItem =
+                    UIBarButtonItem(image: vc,
+                                    style: .plain,
+                                    target: self,
+                                    action: #selector(changeRoomSettings))
+            }
         }
     }
 
@@ -64,10 +73,9 @@ final class RoomInfoViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = "Подготовка"
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,35 +86,39 @@ final class RoomInfoViewController: UIViewController {
         print("appear")
     }
 
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if self.isMovingFromParent {
+        if isMovingFromParent {
             output?.leaveRoom()
         }
     }
+
     // MARK: - Actions
 
     @objc func start() {
         output?.start()
     }
-    
+
+    @objc func changeRoomSettings() {
+        output?.changeRoomSettings()
+    }
+
     @objc func loadData() {
         collectionView.refreshControl?.beginRefreshing()
         output?.update()
-     }
-    
+    }
+
     // MARK: - Setup
 
     private func setupUI() {
         collectionView.alwaysBounceVertical = true
         refresher.tintColor = .systemBlue
         refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        collectionView.refreshControl = refresher 
+        collectionView.refreshControl = refresher
         view.addSubview(collectionView)
         view.addSubview(startButton)
-        
+
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -119,8 +131,6 @@ final class RoomInfoViewController: UIViewController {
             startButton.heightAnchor.constraint(equalToConstant: 44),
         ])
     }
-    
-    
 
     private func setupLocalization() {}
 }
@@ -128,14 +138,12 @@ final class RoomInfoViewController: UIViewController {
 // MARK: - TroikaServiceViewInput
 
 extension RoomInfoViewController: RoomInfoViewInput {
-
     func update(room: Room) {
         title = room.name
     }
 }
 
 extension RoomInfoViewController: UICollectionViewDataSource {
-
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         4
     }
@@ -245,7 +253,6 @@ extension RoomInfoViewController: UICollectionViewDataSource {
 }
 
 extension RoomInfoViewController: UICollectionViewDelegateFlowLayout {
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 16 * 2, height: 40)
     }
@@ -256,11 +263,10 @@ extension RoomInfoViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 2 {
-            if indexPath.row != 0{
+            if indexPath.row != 0 {
                 if let team = viewModel?.teams[indexPath.row - 1] {
-                output?.select(team: team)
-            }
-                
+                    output?.select(team: team)
+                }
             }
         }
     }
